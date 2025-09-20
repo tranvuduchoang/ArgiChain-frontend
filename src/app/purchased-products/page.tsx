@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useWallet } from '@/contexts/WalletContext';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import DeliveryConfirmationModal, { DeliveryConfirmationData } from '@/components/DeliveryConfirmationModal';
 
 interface OrderItem {
   id: string;
@@ -30,6 +31,7 @@ interface Order {
   id: string;
   orderNumber: string;
   status: string;
+  deliveryStatus: string;
   totalAmount: number;
   currency: string;
   createdAt: string;
@@ -49,6 +51,9 @@ const PurchasedProductsPage: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [showDeliveryModal, setShowDeliveryModal] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
+  const [isConfirming, setIsConfirming] = useState(false);
 
   useEffect(() => {
     if (!isConnected || !account) {
@@ -75,6 +80,98 @@ const PurchasedProductsPage: React.FC = () => {
 
     fetchUserOrders();
   }, [isConnected, account]);
+
+  const handleConfirmDelivery = async (data: DeliveryConfirmationData) => {
+    if (!account || !selectedOrder) return;
+
+    try {
+      setIsConfirming(true);
+
+      // Debug logging
+      console.log('Confirming delivery for:', {
+        orderId: selectedOrder.id,
+        userId: account,
+        data
+      });
+
+      // Step 1: Confirm delivery
+      const confirmResponse = await fetch('http://localhost:5000/api/delivery-confirmation/confirm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          orderId: selectedOrder.id,
+          userId: account,
+          rating: data.rating,
+          comment: data.comment,
+          hasComplaint: data.hasComplaint,
+          qualityRating: data.qualityRating,
+          images: data.images
+        })
+      });
+
+      if (!confirmResponse.ok) {
+        throw new Error('Failed to confirm delivery');
+      }
+
+      // Step 2: Burn NFT
+      const burnResponse = await fetch('http://localhost:5000/api/delivery-confirmation/burn-nft', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          orderId: selectedOrder.id,
+          userId: account
+        })
+      });
+
+      if (!burnResponse.ok) {
+        throw new Error('Failed to burn NFT');
+      }
+
+      // Step 3: Complete delivery confirmation
+      const completeResponse = await fetch('http://localhost:5000/api/delivery-confirmation/complete', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          orderId: selectedOrder.id,
+          userId: account
+        })
+      });
+
+      if (!completeResponse.ok) {
+        throw new Error('Failed to complete delivery confirmation');
+      }
+
+      // Refresh orders
+      const refreshResponse = await fetch(`http://localhost:5000/api/orders/user/${account}`);
+      if (refreshResponse.ok) {
+        const ordersData = await refreshResponse.json();
+        setOrders(ordersData);
+      }
+
+      alert('Xác nhận giao hàng thành công! NFT đã được burn.');
+    } catch (error) {
+      console.error('Error confirming delivery:', error);
+      alert('Có lỗi xảy ra khi xác nhận giao hàng. Vui lòng thử lại.');
+    } finally {
+      setIsConfirming(false);
+    }
+  };
+
+  const handleOpenDeliveryModal = (order: Order) => {
+    setSelectedOrder(order);
+    setShowDeliveryModal(true);
+  };
+
+  const handleCloseDeliveryModal = () => {
+    setShowDeliveryModal(false);
+    setSelectedOrder(null);
+  };
 
   if (!isConnected) {
     return (
@@ -196,14 +293,29 @@ const PurchasedProductsPage: React.FC = () => {
                       <div className="text-lg font-bold text-green-600">
                         {order.totalAmount.toLocaleString()} {order.currency}
                       </div>
-                      <div className={`text-sm px-2 py-1 rounded-full ${
-                        order.status === 'PAID' ? 'bg-green-100 text-green-800' :
-                        order.status === 'PENDING' ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-red-100 text-red-800'
-                      }`}>
-                        {order.status === 'PAID' ? 'Đã thanh toán' :
-                         order.status === 'PENDING' ? 'Đang xử lý' :
-                         'Đã hủy'}
+                      <div className="flex flex-col items-end space-y-2">
+                        <div className={`text-sm px-2 py-1 rounded-full ${
+                          order.status === 'PAID' ? 'bg-green-100 text-green-800' :
+                          order.status === 'PENDING' ? 'bg-yellow-100 text-yellow-800' :
+                          'bg-red-100 text-red-800'
+                        }`}>
+                          {order.status === 'PAID' ? 'Đã thanh toán' :
+                           order.status === 'PENDING' ? 'Đang xử lý' :
+                           'Đã hủy'}
+                        </div>
+                        {order.deliveryStatus && (
+                          <div className={`text-sm px-2 py-1 rounded-full ${
+                            order.deliveryStatus === 'COMPLETED' ? 'bg-blue-100 text-blue-800' :
+                            order.deliveryStatus === 'CONFIRMED' ? 'bg-green-100 text-green-800' :
+                            order.deliveryStatus === 'PENDING' ? 'bg-yellow-100 text-yellow-800' :
+                            'bg-red-100 text-red-800'
+                          }`}>
+                            {order.deliveryStatus === 'COMPLETED' ? 'Đã hoàn thành' :
+                             order.deliveryStatus === 'CONFIRMED' ? 'Đã xác nhận' :
+                             order.deliveryStatus === 'PENDING' ? 'Chờ xác nhận' :
+                             'Có vấn đề'}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -266,12 +378,36 @@ const PurchasedProductsPage: React.FC = () => {
                     <h4 className="text-sm font-medium text-gray-900 mb-2">Thông tin giao hàng:</h4>
                     <p className="text-sm text-gray-600">{order.deliveryAddress}</p>
                   </div>
+
+                  {/* Delivery Confirmation Button */}
+                  {order.status === 'PAID' && order.deliveryStatus === 'PENDING' && (
+                    <div className="mt-6 pt-4 border-t border-gray-200">
+                      <button
+                        onClick={() => handleOpenDeliveryModal(order)}
+                        disabled={isConfirming}
+                        className="w-full bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
+                      >
+                        {isConfirming ? 'Đang xử lý...' : 'Xác nhận đã nhận hàng'}
+                      </button>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
       </div>
+
+      {/* Delivery Confirmation Modal */}
+      {selectedOrder && (
+        <DeliveryConfirmationModal
+          isOpen={showDeliveryModal}
+          onClose={handleCloseDeliveryModal}
+          onConfirm={handleConfirmDelivery}
+          orderId={selectedOrder.id}
+          productName={selectedOrder.items[0]?.product.name || 'Sản phẩm'}
+        />
+      )}
     </div>
   );
 };
