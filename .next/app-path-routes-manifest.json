@@ -1,0 +1,19 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/favicon.ico/route": "/favicon.ico",
+  "/createsupplier/page": "/createsupplier",
+  "/marketplace/page": "/marketplace",
+  "/event/page": "/event",
+  "/loyalty/page": "/loyalty",
+  "/marketplace/[id]/page": "/marketplace/[id]",
+  "/page": "/",
+  "/order/page": "/order",
+  "/review/page": "/review",
+  "/profile/page": "/profile",
+  "/supplier/[id]/page": "/supplier/[id]",
+  "/supplier/create-product/page": "/supplier/create-product",
+  "/supplier/dashboard/page": "/supplier/dashboard",
+  "/supplier/mint-nft/page": "/supplier/mint-nft",
+  "/suppliers/page": "/suppliers",
+  "/supplier/products/page": "/supplier/products"
+}

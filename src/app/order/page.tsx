@@ -1,10 +1,10 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { fetchProductDetail, placeOrder } from '../../utils/api';
+import { fetchProductDetail, createOrder } from '@/utils/api';
 import { motion } from 'framer-motion';
 
-const OrderPage: React.FC = () => {
+const OrderPageContent: React.FC = () => {
   const params = useSearchParams();
   const router = useRouter();
   const productId = Number(params.get('productId'));
@@ -19,7 +19,7 @@ const OrderPage: React.FC = () => {
   useEffect(() => {
     if (!productId) return;
     setLoading(true);
-    fetchProductDetail(productId)
+    fetchProductDetail(productId.toString())
       .then((prod) => {
         setProduct(prod);
         setLoading(false);
@@ -42,11 +42,16 @@ const OrderPage: React.FC = () => {
     try {
       // TODO: Lấy buyerId từ context/wallet
       const buyerId = 1;
-      const order = await placeOrder({
-        buyerId,
-        productId: product.id,
-        quantity,
+      const order = await createOrder({
+        userId: buyerId.toString(),
+        supplierId: product.supplier.id,
+        transactionHash: 'mock-tx-hash', // TODO: Get from blockchain
+        chainId: 2442,
+        buyerWalletAddress: 'mock-wallet-address', // TODO: Get from wallet
+        items: [{ productId: product.id, quantity }],
         deliveryAddress: address,
+        deliveryMethod: 'standard',
+        paymentMethod: 'CRYPTO',
       });
       setSuccess('Đặt hàng thành công!');
       setTimeout(() => router.push('/profile/orders'), 1500);
@@ -129,6 +134,14 @@ const OrderPage: React.FC = () => {
         )}
       </form>
     </div>
+  );
+};
+
+const OrderPage: React.FC = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <OrderPageContent />
+    </Suspense>
   );
 };
 

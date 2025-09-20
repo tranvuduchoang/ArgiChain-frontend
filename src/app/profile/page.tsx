@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { fetchProfile, fetchLoyalty } from '../../utils/api';
+import { fetchProfile, fetchLoyalty } from '@/utils/api';
 import { motion } from 'framer-motion';
 
 const ProfilePage: React.FC = () => {
@@ -14,12 +14,12 @@ const ProfilePage: React.FC = () => {
   useEffect(() => {
     setLoading(true);
     Promise.all([
-      fetchProfile(userId),
-      fetchLoyalty(userId),
+      fetchProfile(userId.toString()),
+      fetchLoyalty(userId.toString()),
     ])
-      .then(([prof, loy]) => {
+      .then(([prof, loy]: [any, any]) => {
         setProfile(prof);
-        setLoyalty(loy);
+        setLoyalty(Array.isArray(loy) ? loy : []);
         setLoading(false);
       })
       .catch((err) => {

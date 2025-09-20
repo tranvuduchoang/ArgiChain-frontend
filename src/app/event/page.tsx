@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { fetchEvents } from '../../utils/api';
+import { fetchEvents } from '@/utils/api';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const EventPage: React.FC = () => {
@@ -11,8 +11,8 @@ const EventPage: React.FC = () => {
   useEffect(() => {
     setLoading(true);
     fetchEvents()
-      .then((data) => {
-        setEvents(data);
+      .then((data: any) => {
+        setEvents(data || []);
         setLoading(false);
       })
       .catch((err) => {

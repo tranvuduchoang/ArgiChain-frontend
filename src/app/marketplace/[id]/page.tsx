@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { fetchProductDetail, fetchReviews, fetchSupplier } from '../../utils/api';
+import { fetchProductDetail, fetchReviews, fetchSupplierDetail } from '@/utils/api';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ProductDetailPage: React.FC = () => {
@@ -18,13 +18,13 @@ const ProductDetailPage: React.FC = () => {
     if (!id) return;
     setLoading(true);
     Promise.all([
-      fetchProductDetail(id),
-      fetchReviews({ productId: id }),
+      fetchProductDetail(id.toString()),
+      fetchReviews({ productId: id.toString() }),
     ])
       .then(([prod, revs]) => {
         setProduct(prod);
         setReviews(revs);
-        return fetchSupplier(prod.supplierId);
+        return fetchSupplierDetail(prod.supplier.id);
       })
       .then((sup) => {
         setSupplier(sup);

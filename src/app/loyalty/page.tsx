@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { fetchLoyalty, redeemLoyalty } from '../../utils/api';
+import { fetchLoyalty, redeemLoyalty } from '@/utils/api';
 import { motion } from 'framer-motion';
 
 const LoyaltyPage: React.FC = () => {
@@ -18,8 +18,8 @@ const LoyaltyPage: React.FC = () => {
     setLoading(true);
     setError('');
     try {
-      const data = await fetchLoyalty(buyerId);
-      setLoyalty(data);
+      const data: any = await fetchLoyalty(buyerId.toString());
+      setLoyalty(Array.isArray(data) ? data : []);
     } catch (err: any) {
       setError(err.message || 'Không thể lấy điểm loyalty');
     } finally {
@@ -33,8 +33,8 @@ const LoyaltyPage: React.FC = () => {
     setError('');
     setSuccess('');
     try {
-      const result = await redeemLoyalty(buyerId, Number(supplierId), Number(points));
-      setSuccess(`Đổi điểm thành công! Nhận được ${result.tokensRedeemed} TOKEN.`);
+      const result: any = await redeemLoyalty(buyerId.toString(), supplierId, Number(points));
+      setSuccess(`Đổi điểm thành công! Nhận được ${result?.tokensRedeemed || '0'} TOKEN.`);
       setPoints('');
       handleFetch();
     } catch (err: any) {

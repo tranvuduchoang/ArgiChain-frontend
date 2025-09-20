@@ -1,99 +1,141 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import ProductCard from '../../components/ProductCard';
-import { fetchProducts } from '../../utils/api';
-import { motion, AnimatePresence } from 'framer-motion';
+
+import React, { useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { AnimatePresence, motion } from 'framer-motion';
+import ProductCard from '@/components/ProductCard';
+import { fetchMarketplaceListings, MarketplaceListingItem } from '@/utils/api';
 
 const MarketplacePage: React.FC = () => {
-  const [products, setProducts] = useState<any[]>([]);
-  const [filtered, setFiltered] = useState<any[]>([]);
+  const router = useRouter();
+  const [listings, setListings] = useState<MarketplaceListingItem[]>([]);
   const [search, setSearch] = useState('');
+  const [onlyMinted, setOnlyMinted] = useState(false);
+  const [onlyInStock, setOnlyInStock] = useState(true);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setLoading(true);
-    fetchProducts()
+    fetchMarketplaceListings()
       .then((data) => {
-        setProducts(data);
-        setFiltered(data);
-        setLoading(false);
+        setListings(data);
+        setError(null);
       })
-      .catch((err) => {
-        setError(err.message || 'Lỗi không xác định');
-        setLoading(false);
-      });
+      .catch((err: Error) => {
+        setError(err.message || 'Không thể tải danh sách sản phẩm');
+      })
+      .finally(() => setLoading(false));
   }, []);
 
-  useEffect(() => {
-    if (!search) {
-      setFiltered(products);
-    } else {
-      setFiltered(
-        products.filter((p) =>
-          p.name.toLowerCase().includes(search.toLowerCase())
-        )
-      );
-    }
-  }, [search, products]);
+  const filteredListings = useMemo(() => {
+    return listings.filter((listing) => {
+      if (onlyMinted && !listing.mintTxHash) return false;
+      if (onlyInStock && listing.availableSupply <= 0) return false;
+      if (!search) return true;
 
-  const handleViewDetail = (id: number) => {
-    // TODO: chuyển sang trang chi tiết sản phẩm
-    alert('Xem chi tiết sản phẩm #' + id);
+      const keyword = search.toLowerCase();
+      return (
+        listing.productName?.toLowerCase().includes(keyword) ||
+        listing.supplierName?.toLowerCase().includes(keyword) ||
+        listing.tags?.some((tag) => tag.toLowerCase().includes(keyword)) ||
+        listing.category?.toLowerCase().includes(keyword)
+      );
+    });
+  }, [listings, search, onlyInStock, onlyMinted]);
+
+  const handleViewDetail = (productId: string) => {
+    router.push(`/marketplace/${productId}`);
   };
-  const handleBuy = (id: number) => {
-    // TODO: mở modal mua hàng hoặc chuyển sang trang đặt hàng
-    alert('Mua sản phẩm #' + id);
+
+  const handleBuy = (productId: string) => {
+    router.push(`/order?productId=${productId}`);
   };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-center animate-fade-in">Marketplace</h1>
-      <div className="mb-6 flex justify-center">
-        <input
-          type="text"
-          placeholder="Tìm kiếm sản phẩm..."
-          className="w-full max-w-md px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Marketplace</h1>
+          <p className="text-gray-500">Khám phá các lô nông sản đã được token hóa và giao dịch bằng crypto minh bạch.</p>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <input
+            type="search"
+            placeholder="Tìm kiếm theo tên sản phẩm, supplier, tag..."
+            className="w-full sm:w-80 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <div className="flex items-center gap-3 text-sm text-gray-600">
+            <label className="inline-flex items-center gap-2">
+              <input
+                type="checkbox"
+                className="rounded"
+                checked={onlyInStock}
+                onChange={() => setOnlyInStock((prev) => !prev)}
+              />
+              Còn hàng
+            </label>
+            <label className="inline-flex items-center gap-2">
+              <input
+                type="checkbox"
+                className="rounded"
+                checked={onlyMinted}
+                onChange={() => setOnlyMinted((prev) => !prev)}
+              />
+              Đã mint NFT
+            </label>
+          </div>
+        </div>
       </div>
+
       {loading && (
-        <div className="flex justify-center items-center h-40">
+        <div className="flex justify-center items-center h-52">
           <motion.div
-            className="w-12 h-12 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"
+            className="w-12 h-12 border-4 border-green-400 border-t-transparent rounded-full"
             animate={{ rotate: 360 }}
             transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
           />
         </div>
       )}
-      {error && (
+
+      {error && !loading && (
         <motion.div
-          className="bg-red-100 text-red-700 px-4 py-3 rounded mb-4 text-center font-semibold shadow animate-fade-in"
+          className="bg-red-100 text-red-700 px-4 py-3 rounded mb-6 text-center font-semibold shadow"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
           {error}
         </motion.div>
       )}
+
+      {!loading && !error && (
+        <div className="text-sm text-gray-500 mb-4">
+          Hiển thị {filteredListings.length} / {listings.length} sản phẩm.
+        </div>
+      )}
+
       <AnimatePresence>
         {!loading && !error && (
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
             initial="hidden"
             animate="visible"
             variants={{
               hidden: { opacity: 0, y: 40 },
-              visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.08 } },
+              visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.06 } },
             }}
           >
-            {filtered.length === 0 ? (
-              <div className="col-span-full text-center text-gray-500">Không có sản phẩm nào phù hợp.</div>
+            {filteredListings.length === 0 ? (
+              <div className="col-span-full text-center text-gray-400 py-10 border border-dashed rounded-lg">
+                Không tìm thấy sản phẩm phù hợp.
+              </div>
             ) : (
-              filtered.map((product) => (
+              filteredListings.map((listing) => (
                 <ProductCard
-                  key={product.id}
-                  product={product}
+                  key={listing.listingId}
+                  listing={listing}
                   onViewDetail={handleViewDetail}
                   onBuy={handleBuy}
                 />

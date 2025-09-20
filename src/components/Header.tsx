@@ -1,13 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useWallet } from '@/contexts/WalletContext';
-import { Wallet, User, Globe, Menu, X } from 'lucide-react';
+import { Wallet, User, Globe, Menu, X, ChevronDown, Package, Plus, Settings, LogOut } from 'lucide-react';
 
 const Header: React.FC = () => {
   const { isConnected, account, balance, connect, disconnect, isLoading } = useWallet();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [language, setLanguage] = useState<'EN' | 'VI'>('EN');
+  const [isSupplier, setIsSupplier] = useState(false);
+  const [supplierData, setSupplierData] = useState<any>(null);
+  const userMenuRef = useRef<HTMLDivElement>(null);
 
   const handleConnectWallet = async () => {
     try {
@@ -20,6 +24,17 @@ const Header: React.FC = () => {
 
   const handleDisconnect = () => {
     disconnect();
+    setIsUserMenuOpen(false);
+  };
+
+  const handleBecomeSupplier = () => {
+    window.location.href = '/createsupplier';
+    setIsUserMenuOpen(false);
+  };
+
+  const handleSupplierDashboard = () => {
+    window.location.href = '/supplier/dashboard';
+    setIsUserMenuOpen(false);
   };
 
   const toggleLanguage = () => {
@@ -29,6 +44,60 @@ const Header: React.FC = () => {
   const formatAddress = (address: string) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   };
+
+  // Check supplier status when wallet connects
+  useEffect(() => {
+    const checkSupplierStatus = async () => {
+      if (isConnected && account) {
+        try {
+          const response = await fetch(`http://localhost:5000/api/suppliers?walletAddress=${account}`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+          
+          if (response.ok) {
+            const suppliers = await response.json();
+            if (suppliers && Array.isArray(suppliers) && suppliers.length > 0) {
+              setIsSupplier(true);
+              setSupplierData(suppliers[0]);
+            } else {
+              setIsSupplier(false);
+              setSupplierData(null);
+            }
+          } else {
+            console.warn('Failed to fetch supplier status:', response.status);
+            setIsSupplier(false);
+            setSupplierData(null);
+          }
+        } catch (error) {
+          console.error('Error checking supplier status:', error);
+          setIsSupplier(false);
+          setSupplierData(null);
+        }
+      } else {
+        setIsSupplier(false);
+        setSupplierData(null);
+      }
+    };
+
+    checkSupplierStatus();
+  }, [isConnected, account]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="bg-white shadow-md border-b border-gray-200">
@@ -55,7 +124,7 @@ const Header: React.FC = () => {
               href="/marketplace"
               className="text-gray-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
-              Marketplace
+              {language === 'EN' ? 'Marketplace' : 'Thị trường'}
             </a>
             <a
               href="/suppliers"
@@ -63,6 +132,14 @@ const Header: React.FC = () => {
             >
               {language === 'EN' ? 'Suppliers' : 'Nhà cung cấp'}
             </a>
+            {isConnected && (
+              <a
+                href="/supplier/dashboard"
+                className="text-gray-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                {language === 'EN' ? 'Dashboard' : 'Bảng điều khiển'}
+              </a>
+            )}
           </nav>
 
           {/* Right side - Language and Wallet */}
@@ -79,22 +156,70 @@ const Header: React.FC = () => {
             {/* Wallet Connection */}
             <div className="hidden md:block">
               {isConnected ? (
-                <div className="flex items-center space-x-3">
-                  <div className="text-right">
-                    <div className="text-sm text-gray-600">
-                      {formatAddress(account!)}
-                    </div>
-                    <div className="text-xs text-gray-500">
-                      {balance} MATIC
-                    </div>
-                  </div>
+                <div className="relative" ref={userMenuRef}>
                   <button
-                    onClick={handleDisconnect}
-                    className="flex items-center space-x-1 bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                    onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                    className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 px-3 py-2 rounded-lg transition-colors"
                   >
-                    <User size={16} />
-                    <span>{language === 'EN' ? 'Disconnect' : 'Ngắt kết nối'}</span>
+                    <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                      <User size={16} className="text-white" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-sm font-medium text-gray-900">
+                        {formatAddress(account!)}
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        {balance} MATIC
+                      </div>
+                    </div>
+                    <ChevronDown size={16} className="text-gray-500" />
                   </button>
+
+                  {/* User Dropdown Menu */}
+                  {isUserMenuOpen && (
+                    <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                      <div className="px-4 py-3 border-b border-gray-100">
+                        <div className="text-sm font-medium text-gray-900">Wallet Address</div>
+                        <div className="text-xs text-gray-500 font-mono">{account}</div>
+                      </div>
+                      
+                      <div className="py-2">
+                        {isSupplier ? (
+                          <button
+                            onClick={handleSupplierDashboard}
+                            className="w-full flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                          >
+                            <Package size={16} />
+                            <span>Nhà cung cấp của bạn</span>
+                          </button>
+                        ) : (
+                          <button
+                            onClick={handleBecomeSupplier}
+                            className="w-full flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                          >
+                            <Plus size={16} />
+                            <span>Trở thành nhà cung cấp</span>
+                          </button>
+                        )}
+                        
+                        <button
+                          onClick={() => window.location.href = '/profile'}
+                          className="w-full flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          <Settings size={16} />
+                          <span>Hồ sơ cá nhân</span>
+                        </button>
+                        
+                        <button
+                          onClick={handleDisconnect}
+                          className="w-full flex items-center space-x-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                        >
+                          <LogOut size={16} />
+                          <span>Ngắt kết nối</span>
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <button
@@ -147,24 +272,68 @@ const Header: React.FC = () => {
               >
                 {language === 'EN' ? 'Suppliers' : 'Nhà cung cấp'}
               </a>
+              {isConnected && (
+                <a
+                  href="/supplier/dashboard"
+                  className="text-gray-700 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  {language === 'EN' ? 'Dashboard' : 'Bảng điều khiển'}
+                </a>
+              )}
               
               {/* Mobile Wallet Connection */}
               <div className="pt-4 border-t border-gray-200">
                 {isConnected ? (
-                  <div className="space-y-2">
-                    <div className="text-sm text-gray-600">
-                      {formatAddress(account!)}
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                      <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                        <User size={20} className="text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-sm font-medium text-gray-900">
+                          {formatAddress(account!)}
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          {balance} MATIC
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-xs text-gray-500">
-                      {balance} MATIC
+                    
+                    <div className="space-y-1">
+                      {isSupplier ? (
+                        <button
+                          onClick={handleSupplierDashboard}
+                          className="w-full flex items-center space-x-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                        >
+                          <Package size={16} />
+                          <span>Nhà cung cấp của bạn</span>
+                        </button>
+                      ) : (
+                        <button
+                          onClick={handleBecomeSupplier}
+                          className="w-full flex items-center space-x-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                        >
+                          <Plus size={16} />
+                          <span>Trở thành nhà cung cấp</span>
+                        </button>
+                      )}
+                      
+                      <button
+                        onClick={() => window.location.href = '/profile'}
+                        className="w-full flex items-center space-x-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                      >
+                        <Settings size={16} />
+                        <span>Hồ sơ cá nhân</span>
+                      </button>
+                      
+                      <button
+                        onClick={handleDisconnect}
+                        className="w-full flex items-center space-x-3 px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                      >
+                        <LogOut size={16} />
+                        <span>Ngắt kết nối</span>
+                      </button>
                     </div>
-                    <button
-                      onClick={handleDisconnect}
-                      className="flex items-center space-x-1 bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-md text-sm font-medium w-full justify-center"
-                    >
-                      <User size={16} />
-                      <span>{language === 'EN' ? 'Disconnect' : 'Ngắt kết nối'}</span>
-                    </button>
                   </div>
                 ) : (
                   <button

@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { submitReview } from '../../utils/api';
+import { submitReview } from '@/utils/api';
 import { motion } from 'framer-motion';
 
 const ReviewPage: React.FC = () => {
@@ -21,11 +21,11 @@ const ReviewPage: React.FC = () => {
       // TODO: Lấy buyerId từ context/wallet
       const buyerId = 1;
       const review = {
-        buyerId,
+        userId: buyerId.toString(),
         rating,
         comment,
-        productId: type === 'product' ? Number(id) : undefined,
-        supplierId: type === 'supplier' ? Number(id) : undefined,
+        productId: type === 'product' ? id : undefined,
+        supplierId: type === 'supplier' ? id : undefined,
       };
       await submitReview(review);
       setSuccess('Gửi đánh giá thành công!');
