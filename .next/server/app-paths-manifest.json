@@ -1,11 +1,16 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/createsupplier/page": "app/createsupplier/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/marketplace/[id]/page": "app/marketplace/[id]/page.js",
   "/marketplace/page": "app/marketplace/page.js",
   "/order/page": "app/order/page.js",
   "/page": "app/page.js",
   "/purchased-products/page": "app/purchased-products/page.js",
   "/supplier/[id]/page": "app/supplier/[id]/page.js",
+  "/supplier/create-product/page": "app/supplier/create-product/page.js",
   "/supplier/dashboard/page": "app/supplier/dashboard/page.js",
+  "/supplier/mint-nft/page": "app/supplier/mint-nft/page.js",
+  "/supplier/products/page": "app/supplier/products/page.js",
   "/suppliers/page": "app/suppliers/page.js"
 }

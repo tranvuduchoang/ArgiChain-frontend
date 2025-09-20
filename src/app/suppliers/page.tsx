@@ -32,7 +32,7 @@ interface SupplierCardProps {
 const SupplierCard: React.FC<SupplierCardProps> = ({ supplier, onViewDetail }) => {
   return (
     <motion.div
-      className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow border border-gray-100"
+      className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow border border-gray-100 ring-1 ring-gray-100 hover:ring-green-300 transform transition-transform ui-hover-lift"
       whileHover={{ scale: 1.02 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -93,7 +93,7 @@ const SupplierCard: React.FC<SupplierCardProps> = ({ supplier, onViewDetail }) =
         
         <button
           onClick={() => onViewDetail(supplier.id)}
-          className="flex items-center space-x-1 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+          className="flex items-center space-x-1 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors ui-focus-ring cursor-pointer"
         >
           <Eye className="w-4 h-4" />
           <span>Xem chi tiết</span>
@@ -173,7 +173,7 @@ const SuppliersPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Nhà cung cấp</h1>
+        <h1 className="text-3xl font-bold ui-gradient-text mb-2">Nhà cung cấp</h1>
         <p className="text-gray-600">Khám phá các nhà cung cấp nông sản uy tín và chất lượng</p>
       </div>
 
@@ -183,7 +183,7 @@ const SuppliersPage: React.FC = () => {
           <input
             type="search"
             placeholder="Tìm kiếm nhà cung cấp..."
-            className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="ui-focus-ring w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:text-gray-500 cursor-pointer"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />

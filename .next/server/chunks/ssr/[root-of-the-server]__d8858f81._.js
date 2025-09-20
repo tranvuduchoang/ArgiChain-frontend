@@ -40,7 +40,7 @@ const ProductCard = ({ listing, onViewDetail, onBuy })=>{
     const remainingLabel = `${listing.availableSupply}/${listing.totalSupply}`;
     const isMinted = Boolean(listing.mintTxHash);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-        className: "bg-white rounded-xl shadow-lg p-4 flex flex-col gap-3 hover:shadow-2xl transition-shadow relative cursor-pointer border border-gray-100",
+        className: "bg-white rounded-xl shadow-lg p-4 flex flex-col gap-3 hover:shadow-2xl transition-shadow relative cursor-pointer border border-gray-100 ring-1 ring-gray-100 hover:ring-green-300",
         whileHover: {
             scale: 1.03,
             boxShadow: '0 8px 32px rgba(0,0,0,0.12)'
@@ -174,7 +174,8 @@ const ProductCard = ({ listing, onViewDetail, onBuy })=>{
                 className: "flex gap-2 mt-2",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        className: "flex-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 font-semibold transition-colors",
+                        type: "button",
+                        className: "flex-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 font-semibold transition-colors ui-focus-ring cursor-pointer",
                         onClick: ()=>onBuy(listing.productId),
                         children: "Place Order"
                     }, void 0, false, {
@@ -183,7 +184,8 @@ const ProductCard = ({ listing, onViewDetail, onBuy })=>{
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        className: "flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg py-2 font-semibold border border-gray-200",
+                        type: "button",
+                        className: "flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg py-2 font-semibold border border-gray-200 ui-focus-ring cursor-pointer",
                         onClick: ()=>onViewDetail(listing.productId),
                         children: "View Details"
                     }, void 0, false, {
@@ -398,12 +400,12 @@ const MarketplacePage = ()=>{
         className: "max-w-7xl mx-auto px-4 py-8",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8",
+                className: "bg-white/70 backdrop-blur border border-gray-100 rounded-xl p-4 flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 ui-soft-shadow",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                className: "text-3xl font-bold text-gray-900",
+                                className: "text-3xl font-bold ui-gradient-text",
                                 children: "Marketplace"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/marketplace/page.tsx",
@@ -430,7 +432,7 @@ const MarketplacePage = ()=>{
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                 type: "search",
                                 placeholder: "Tìm kiếm theo tên sản phẩm, supplier, tag...",
-                                className: "w-full sm:w-80 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500",
+                                className: "ui-focus-ring w-full sm:w-80 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:text-gray-500 cursor-pointer",
                                 value: search,
                                 onChange: (e)=>setSearch(e.target.value)
                             }, void 0, false, {
@@ -442,7 +444,7 @@ const MarketplacePage = ()=>{
                                 className: "flex items-center gap-3 text-sm text-gray-600",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "inline-flex items-center gap-2",
+                                        className: "inline-flex items-center gap-2 cursor-pointer",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                 type: "checkbox",
@@ -462,7 +464,7 @@ const MarketplacePage = ()=>{
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "inline-flex items-center gap-2",
+                                        className: "inline-flex items-center gap-2 cursor-pointer",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                 type: "checkbox",

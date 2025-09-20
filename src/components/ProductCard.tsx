@@ -16,7 +16,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ listing, onViewDetail, onBuy 
 
   return (
     <motion.div
-      className="bg-white rounded-xl shadow-lg p-4 flex flex-col gap-3 hover:shadow-2xl transition-shadow relative cursor-pointer border border-gray-100"
+      className="bg-white rounded-xl shadow-lg p-4 flex flex-col gap-3 hover:shadow-2xl transition-shadow relative cursor-pointer border border-gray-100 ring-1 ring-gray-100 hover:ring-green-300"
       whileHover={{ scale: 1.03, boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
@@ -55,14 +55,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ listing, onViewDetail, onBuy 
         </div>
       </div>
       <div className="flex gap-2 mt-2">
-        <button
-          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 font-semibold transition-colors"
+        <button type="button"
+          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 font-semibold transition-colors ui-focus-ring cursor-pointer"
           onClick={() => onBuy(listing.productId)}
         >
           Place Order
         </button>
-        <button
-          className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg py-2 font-semibold border border-gray-200"
+        <button type="button"
+          className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg py-2 font-semibold border border-gray-200 ui-focus-ring cursor-pointer"
           onClick={() => onViewDetail(listing.productId)}
         >
           View Details

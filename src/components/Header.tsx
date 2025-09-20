@@ -100,13 +100,13 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className="bg-white shadow-md border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-green-600">
+              <h1 className="text-2xl font-bold ui-gradient-text">
                 AgriChain
               </h1>
             </div>
@@ -116,26 +116,26 @@ const Header: React.FC = () => {
           <nav className="hidden md:flex space-x-8">
             <a
               href="/"
-              className="text-gray-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               {language === 'EN' ? 'Home' : 'Trang chủ'}
             </a>
             <a
               href="/marketplace"
-              className="text-gray-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               {language === 'EN' ? 'Marketplace' : 'Thị trường'}
             </a>
             <a
               href="/suppliers"
-              className="text-gray-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               {language === 'EN' ? 'Suppliers' : 'Nhà cung cấp'}
             </a>
             {isConnected && (
               <a
                 href="/supplier/dashboard"
-                className="text-gray-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 {language === 'EN' ? 'Dashboard' : 'Bảng điều khiển'}
               </a>
@@ -147,7 +147,7 @@ const Header: React.FC = () => {
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center space-x-1 text-gray-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              className="flex items-center space-x-1 text-gray-700 hover:text-green-600 hover:underline underline-offset-4 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               <Globe size={16} />
               <span>{language}</span>
@@ -159,7 +159,7 @@ const Header: React.FC = () => {
                 <div className="relative" ref={userMenuRef}>
                   <button
                     onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                    className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 px-3 py-2 rounded-lg transition-colors"
+                    className="ui-focus-ring flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 px-3 py-2 rounded-lg transition-colors"
                   >
                     <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                       <User size={16} className="text-white" />
@@ -225,7 +225,7 @@ const Header: React.FC = () => {
                 <button
                   onClick={handleConnectWallet}
                   disabled={isLoading}
-                  className="flex items-center space-x-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                  className="ui-focus-ring flex items-center space-x-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   <Wallet size={16} />
                   <span>
@@ -242,7 +242,7 @@ const Header: React.FC = () => {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-green-600 p-2"
+                className="ui-focus-ring text-gray-700 hover:text-green-600 p-2"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -256,26 +256,26 @@ const Header: React.FC = () => {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200">
               <a
                 href="/"
-                className="text-gray-700 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium"
+                className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 block px-3 py-2 rounded-md text-base font-medium"
               >
                 {language === 'EN' ? 'Home' : 'Trang chủ'}
               </a>
               <a
                 href="/marketplace"
-                className="text-gray-700 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium"
+                className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 block px-3 py-2 rounded-md text-base font-medium"
               >
                 Marketplace
               </a>
               <a
                 href="/suppliers"
-                className="text-gray-700 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium"
+                className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 block px-3 py-2 rounded-md text-base font-medium"
               >
                 {language === 'EN' ? 'Suppliers' : 'Nhà cung cấp'}
               </a>
               {isConnected && (
                 <a
                   href="/supplier/dashboard"
-                  className="text-gray-700 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 block px-3 py-2 rounded-md text-base font-medium"
                 >
                   {language === 'EN' ? 'Dashboard' : 'Bảng điều khiển'}
                 </a>
@@ -359,4 +359,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header; 
+export default Header;

@@ -24,3 +24,31 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Readable placeholders */
+input::placeholder, textarea::placeholder { color: rgba(0,0,0,.6); opacity: 1; }
+@media (prefers-color-scheme: dark) {
+  input::placeholder, textarea::placeholder { color: rgba(255,255,255,.65); }
+}
+
+/* Cursor for all clickable controls */
+button, [role="button"], .btn, .link, .selectable, label, input[type="checkbox"], a { cursor: pointer; }
+
+/* Safe UI utilities */
+.ui-hover-lift { transition: transform .25s ease, box-shadow .25s ease; }
+.ui-hover-lift:hover { transform: translateY(-2px); }
+
+.ui-focus-ring:focus { outline: none; box-shadow: 0 0 0 3px rgba(16,185,129,.35); }
+
+.ui-gradient-text {
+  background: linear-gradient(90deg, #22c55e, #10b981, #06b6d4);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.ui-glass { background: rgba(255,255,255,0.7); border: 1px solid rgba(0,0,0,0.06); backdrop-filter: blur(10px) saturate(140%); -webkit-backdrop-filter: blur(10px) saturate(140%); }
+
+.ui-soft-shadow { box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+
+/* Vibrant CTA style */
+.ui-cta-gradient { background: linear-gradient(135deg,#22c55e 0%,#16a34a 45%,#06b6d4 100%); color: #fff; }
+.ui-cta-gradient:hover { filter: brightness(0.98); }

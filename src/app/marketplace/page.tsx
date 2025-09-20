@@ -54,21 +54,21 @@ const MarketplacePage: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+      <div className="bg-white/70 backdrop-blur border border-gray-100 rounded-xl p-4 flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 ui-soft-shadow">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Marketplace</h1>
+          <h1 className="text-3xl font-bold ui-gradient-text">Marketplace</h1>
           <p className="text-gray-500">Khám phá các lô nông sản đã được token hóa và giao dịch bằng crypto minh bạch.</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-3">
           <input
             type="search"
             placeholder="Tìm kiếm theo tên sản phẩm, supplier, tag..."
-            className="w-full sm:w-80 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="ui-focus-ring w-full sm:w-80 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:text-gray-500 cursor-pointer"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
           <div className="flex items-center gap-3 text-sm text-gray-600">
-            <label className="inline-flex items-center gap-2">
+            <label className="inline-flex items-center gap-2 cursor-pointer">
               <input
                 type="checkbox"
                 className="rounded"
@@ -77,7 +77,7 @@ const MarketplacePage: React.FC = () => {
               />
               Còn hàng
             </label>
-            <label className="inline-flex items-center gap-2">
+            <label className="inline-flex items-center gap-2 cursor-pointer">
               <input
                 type="checkbox"
                 className="rounded"

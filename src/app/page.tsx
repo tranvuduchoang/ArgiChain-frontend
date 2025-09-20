@@ -64,7 +64,7 @@ const HomePage: React.FC = () => {
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Welcome to{' '}
-              <span className="text-green-600">AgriChain</span>
+              <span className="ui-gradient-text">AgriChain</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
               The future of agricultural commerce is here. Connect directly with farmers, 
@@ -73,14 +73,14 @@ const HomePage: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={handleGetStarted}
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold text-lg flex items-center justify-center space-x-2 transition-colors"
+                className="ui-cta-gradient text-white px-8 py-3 rounded-lg font-semibold text-lg flex items-center justify-center space-x-2 transition-colors cursor-pointer"
               >
                 <span>Get Started</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
               <a
                 href="/marketplace"
-                className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors"
+                className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors cursor-pointer"
               >
                 Explore Marketplace
               </a>
@@ -209,7 +209,7 @@ const HomePage: React.FC = () => {
           </p>
           <button
             onClick={handleGetStarted}
-            className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold text-lg flex items-center justify-center space-x-2 mx-auto transition-colors"
+            className="ui-cta-gradient text-white px-8 py-3 rounded-lg font-semibold text-lg flex items-center justify-center space-x-2 mx-auto transition-colors cursor-pointer"
           >
             <ShoppingCart className="w-5 h-5" />
             <span>Start Trading Now</span>
