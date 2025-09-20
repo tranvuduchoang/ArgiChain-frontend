@@ -50,18 +50,25 @@ const OrderPageContent: React.FC = () => {
     setError('');
     setSuccess('');
     try {
-      // TODO: Lấy buyerId từ context/wallet
-      const buyerId = 1;
+      if (!isConnected || !account) {
+        throw new Error('Vui lòng kết nối ví trước khi đặt hàng');
+      }
+
+      // Tạo transaction hash thật (mock cho demo)
+      const transactionHash = `0x${Math.random().toString(16).substr(2, 64)}`;
+      
       const order = await createOrder({
-        userId: buyerId.toString(),
+        userId: account, // Sử dụng wallet address làm userId
         supplierId: product.supplier.id,
-        transactionHash: 'mock-tx-hash', // TODO: Get from blockchain
-        chainId: 2442,
-        buyerWalletAddress: 'mock-wallet-address', // TODO: Get from wallet
+        transactionHash: transactionHash,
+        chainId: 1337, // Hardhat local chain ID
+        //chainId: 2442, // Cardona testnet chain ID
+        buyerWalletAddress: account,
         items: [{ productId: product.id, quantity }],
         deliveryAddress: address,
-        deliveryMethod: 'standard',
+        deliveryMethod: 'STANDARD',
         paymentMethod: 'CRYPTO',
+        currency: 'MATIC',
       });
       setSuccess('Đặt hàng thành công!');
       setTimeout(() => router.push('/profile/orders'), 1500);

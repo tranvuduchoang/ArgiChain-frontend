@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useWallet } from '@/contexts/WalletContext';
-import { Wallet, User, Globe, Menu, X, ChevronDown, Package, Plus, Settings, LogOut } from 'lucide-react';
+import { Wallet, User, Globe, Menu, X, ChevronDown, Package, Plus, Settings, LogOut, ShoppingBag } from 'lucide-react';
 
 const Header: React.FC = () => {
   const { isConnected, account, balance, connect, disconnect, isLoading } = useWallet();
@@ -203,11 +203,11 @@ const Header: React.FC = () => {
                         )}
                         
                         <button
-                          onClick={() => window.location.href = '/profile'}
+                          onClick={() => window.location.href = '/purchased-products'}
                           className="w-full flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                         >
-                          <Settings size={16} />
-                          <span>Hồ sơ cá nhân</span>
+                          <ShoppingBag size={16} />
+                          <span>Những sản phẩm đã mua</span>
                         </button>
                         
                         <button
