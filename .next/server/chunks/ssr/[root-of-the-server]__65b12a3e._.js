@@ -176,7 +176,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
 const ProductDetailPage = ()=>{
     const params = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useParams"])();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
-    const id = Number(params.id);
+    const id = params.id;
     const [product, setProduct] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [reviews, setReviews] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [supplier, setSupplier] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -186,9 +186,9 @@ const ProductDetailPage = ()=>{
         if (!id) return;
         setLoading(true);
         Promise.all([
-            (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fetchProductDetail"])(id.toString()),
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fetchProductDetail"])(id),
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fetchReviews"])({
-                productId: id.toString()
+                productId: id
             })
         ]).then(([prod, revs])=>{
             setProduct(prod);
@@ -320,16 +320,10 @@ const ProductDetailPage = ()=>{
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "text-green-600 font-bold text-2xl",
                                 children: [
-                                    product.price,
+                                    "TOKEN: ",
+                                    product.pricePerUnit,
                                     " ",
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-xs",
-                                        children: "TOKEN"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/marketplace/[id]/page.tsx",
-                                        lineNumber: 71,
-                                        columnNumber: 78
-                                    }, ("TURBOPACK compile-time value", void 0))
+                                    product.currency
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/marketplace/[id]/page.tsx",
@@ -340,7 +334,9 @@ const ProductDetailPage = ()=>{
                                 className: "text-gray-400 text-sm",
                                 children: [
                                     "Còn lại: ",
-                                    product.quantity
+                                    product.availableSupply,
+                                    "/",
+                                    product.totalSupply
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/marketplace/[id]/page.tsx",

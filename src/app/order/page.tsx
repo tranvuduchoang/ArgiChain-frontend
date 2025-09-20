@@ -2,12 +2,14 @@
 import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { fetchProductDetail, createOrder } from '@/utils/api';
+import { useWallet } from '@/contexts/WalletContext';
 import { motion } from 'framer-motion';
 
 const OrderPageContent: React.FC = () => {
   const params = useSearchParams();
   const router = useRouter();
-  const productId = Number(params.get('productId'));
+  const { account, isConnected } = useWallet();
+  const productId = params.get('productId');
   const [product, setProduct] = useState<any>(null);
   const [quantity, setQuantity] = useState(1);
   const [address, setAddress] = useState('');
@@ -19,16 +21,24 @@ const OrderPageContent: React.FC = () => {
   useEffect(() => {
     if (!productId) return;
     setLoading(true);
-    fetchProductDetail(productId.toString())
+    fetchProductDetail(productId)
       .then((prod) => {
         setProduct(prod);
+        
+        // Check if user is trying to buy their own product
+        if (isConnected && account && prod.supplier?.user?.walletAddress === account) {
+          setError('Bạn không thể mua sản phẩm của chính mình!');
+          setLoading(false);
+          return;
+        }
+        
         setLoading(false);
       })
       .catch((err) => {
         setError(err.message || 'Lỗi không xác định');
         setLoading(false);
       });
-  }, [productId]);
+  }, [productId, isConnected, account]);
 
   const handleOrder = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,8 +100,8 @@ const OrderPageContent: React.FC = () => {
           <img src={product.imageUrl} alt={product.name} className="w-24 h-24 object-cover rounded-lg bg-gray-50" />
           <div className="flex-1">
             <div className="font-semibold text-lg">{product.name}</div>
-            <div className="text-green-600 font-bold">{product.price} TOKEN</div>
-            <div className="text-xs text-gray-400">Còn lại: {product.quantity}</div>
+            <div className="text-green-600 font-bold">TOKEN: {product.pricePerUnit} {product.currency}</div>
+            <div className="text-xs text-gray-400">Còn lại: {product.availableSupply}/{product.totalSupply}</div>
           </div>
         </div>
         <div>

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const SupplierPage: React.FC = () => {
   const params = useParams();
-  const id = Number(params.id);
+  const id = params.id as string;
   const [supplier, setSupplier] = useState<any>(null);
   const [products, setProducts] = useState<any[]>([]);
   const [reviews, setReviews] = useState<any[]>([]);
@@ -17,9 +17,9 @@ const SupplierPage: React.FC = () => {
     if (!id) return;
     setLoading(true);
     Promise.all([
-      fetchSupplierDetail(id.toString()),
+      fetchSupplierDetail(id),
       fetchProducts(),
-      fetchReviews({ supplierId: id.toString() }),
+      fetchReviews({ supplierId: id }),
     ])
       .then(([sup, prods, revs]) => {
         setSupplier(sup);
@@ -57,8 +57,8 @@ const SupplierPage: React.FC = () => {
     <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">
       <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
         <div className="font-semibold text-lg">{supplier.name || 'Supplier #' + supplier.id}</div>
-        <div className="text-gray-500">Địa chỉ ví: {supplier.walletAddress}</div>
-        <div className="text-gray-500">Email: {supplier.email}</div>
+        <div className="text-gray-500">Địa chỉ ví: {supplier.user.walletAddress}</div>
+        <div className="text-gray-500">Email: {supplier.contactEmail}</div>
       </div>
       <div className="mb-8">
         <h3 className="text-xl font-semibold mb-2">Sản phẩm của supplier</h3>
@@ -74,8 +74,8 @@ const SupplierPage: React.FC = () => {
                 layout
               >
                 <div className="font-semibold">{product.name}</div>
-                <div className="text-green-600 font-bold">{product.price} TOKEN</div>
-                <div className="text-xs text-gray-400">Còn lại: {product.quantity}</div>
+                <div className="text-green-600 font-bold">TOKEN: {product.pricePerUnit} {product.currency}</div>
+                <div className="text-xs text-gray-400">Còn lại: {product.availableSupply}/{product.totalSupply}</div>
               </motion.div>
             ))
           )}

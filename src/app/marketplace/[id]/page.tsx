@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const ProductDetailPage: React.FC = () => {
   const params = useParams();
   const router = useRouter();
-  const id = Number(params.id);
+  const id = params.id as string;
   const [product, setProduct] = useState<any>(null);
   const [reviews, setReviews] = useState<any[]>([]);
   const [supplier, setSupplier] = useState<any>(null);
@@ -18,8 +18,8 @@ const ProductDetailPage: React.FC = () => {
     if (!id) return;
     setLoading(true);
     Promise.all([
-      fetchProductDetail(id.toString()),
-      fetchReviews({ productId: id.toString() }),
+      fetchProductDetail(id),
+      fetchReviews({ productId: id }),
     ])
       .then(([prod, revs]) => {
         setProduct(prod);
@@ -68,8 +68,8 @@ const ProductDetailPage: React.FC = () => {
         <div className="flex-1 flex flex-col gap-4">
           <h2 className="text-2xl font-bold text-gray-800">{product.name}</h2>
           <div className="text-gray-500">Supplier: <span className="font-semibold">#{product.supplierId} {supplier?.name && `- ${supplier.name}`}</span></div>
-          <div className="text-green-600 font-bold text-2xl">{product.price} <span className="text-xs">TOKEN</span></div>
-          <div className="text-gray-400 text-sm">Còn lại: {product.quantity}</div>
+          <div className="text-green-600 font-bold text-2xl">TOKEN: {product.pricePerUnit} {product.currency}</div>
+          <div className="text-gray-400 text-sm">Còn lại: {product.availableSupply}/{product.totalSupply}</div>
           <div className="flex gap-2 mt-2">
             <button
               className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 px-6 font-semibold transition-colors shadow"

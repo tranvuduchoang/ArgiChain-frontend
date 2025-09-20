@@ -175,7 +175,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
 ;
 const SupplierPage = ()=>{
     const params = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useParams"])();
-    const id = Number(params.id);
+    const id = params.id;
     const [supplier, setSupplier] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [products, setProducts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [reviews, setReviews] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
@@ -185,10 +185,10 @@ const SupplierPage = ()=>{
         if (!id) return;
         setLoading(true);
         Promise.all([
-            (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fetchSupplierDetail"])(id.toString()),
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fetchSupplierDetail"])(id),
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fetchProducts"])(),
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fetchReviews"])({
-                supplierId: id.toString()
+                supplierId: id
             })
         ]).then(([sup, prods, revs])=>{
             setSupplier(sup);
@@ -259,7 +259,7 @@ const SupplierPage = ()=>{
                         className: "text-gray-500",
                         children: [
                             "Địa chỉ ví: ",
-                            supplier.walletAddress
+                            supplier.user.walletAddress
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/supplier/[id]/page.tsx",
@@ -270,7 +270,7 @@ const SupplierPage = ()=>{
                         className: "text-gray-500",
                         children: [
                             "Email: ",
-                            supplier.email
+                            supplier.contactEmail
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/supplier/[id]/page.tsx",
@@ -321,8 +321,10 @@ const SupplierPage = ()=>{
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "text-green-600 font-bold",
                                         children: [
-                                            product.price,
-                                            " TOKEN"
+                                            "TOKEN: ",
+                                            product.pricePerUnit,
+                                            " ",
+                                            product.currency
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/[id]/page.tsx",
@@ -333,7 +335,9 @@ const SupplierPage = ()=>{
                                         className: "text-xs text-gray-400",
                                         children: [
                                             "Còn lại: ",
-                                            product.quantity
+                                            product.availableSupply,
+                                            "/",
+                                            product.totalSupply
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/[id]/page.tsx",
