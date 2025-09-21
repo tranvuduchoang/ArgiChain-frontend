@@ -4,10 +4,12 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Package, Upload, DollarSign, Hash, Image as ImageIcon } from 'lucide-react';
 import { useWallet } from '@/contexts/WalletContext';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const CreateProductPage: React.FC = () => {
   const router = useRouter();
   const { account, isConnected } = useWallet();
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -98,11 +100,11 @@ const CreateProductPage: React.FC = () => {
 
       if (!productResponse.ok) {
         const errorData = await productResponse.json();
-        throw new Error(errorData.error || 'Có lỗi xảy ra khi tạo sản phẩm');
+        throw new Error(errorData.error || `${t("common.error")} khi tạo ${t("suppliers.products")}`);
       }
 
       const product = await productResponse.json();
-      setSuccess('Tạo sản phẩm thành công! Bạn có thể mint NFT cho sản phẩm này.');
+      setSuccess(`Tạo ${t("suppliers.products")} thành công! Bạn có thể mint NFT cho ${t("suppliers.products")} này.`);
 
       // Redirect to mint page after 2 seconds
       setTimeout(() => {
@@ -110,7 +112,7 @@ const CreateProductPage: React.FC = () => {
       }, 2000);
 
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Có lỗi xảy ra');
+      setError(err instanceof Error ? err.message : t("common.error"));
     } finally {
       setLoading(false);
     }
@@ -124,7 +126,7 @@ const CreateProductPage: React.FC = () => {
             Vui lòng kết nối ví
           </h1>
           <p className="text-gray-600 mb-6">
-            Bạn cần kết nối ví để tạo sản phẩm
+            {t("createProduct.needWallet")}
           </p>
           <button
             onClick={() => router.push('/')}
@@ -162,10 +164,10 @@ const CreateProductPage: React.FC = () => {
             Quay lại
           </button>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Tạo sản phẩm mới
+            {t("createProduct.title")}
           </h1>
           <p className="text-gray-600">
-            Tạo sản phẩm và mint NFT để bán trên marketplace
+            {t("createProduct.subtitle")}
           </p>
         </div>
 
@@ -180,7 +182,7 @@ const CreateProductPage: React.FC = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 <Package size={16} className="inline mr-2" />
-                Tên sản phẩm *
+                {t("createProduct.productName")} *
               </label>
               <input
                 type="text"
@@ -189,14 +191,14 @@ const CreateProductPage: React.FC = () => {
                 onChange={handleInputChange}
                 required
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                placeholder="Nhập tên sản phẩm"
+                placeholder={t("createProduct.productName")}
               />
             </div>
 
             {/* Description */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Mô tả sản phẩm *
+                {t("createProduct.productDescription")} *
               </label>
               <textarea
                 name="description"
@@ -205,7 +207,7 @@ const CreateProductPage: React.FC = () => {
                 required
                 rows={4}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                placeholder="Mô tả chi tiết về sản phẩm"
+                placeholder={t("createProduct.productDescription")}
               />
             </div>
 
@@ -213,7 +215,7 @@ const CreateProductPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Danh mục *
+                  {t("createProduct.category")} *
                 </label>
                 <select
                   name="category"
@@ -222,20 +224,20 @@ const CreateProductPage: React.FC = () => {
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
-                  <option value="">Chọn danh mục</option>
-                  <option value="Rau củ">Rau củ</option>
-                  <option value="Trái cây">Trái cây</option>
-                  <option value="Ngũ cốc">Ngũ cốc</option>
-                  <option value="Thịt cá">Thịt cá</option>
-                  <option value="Đồ uống">Đồ uống</option>
-                  <option value="Khác">Khác</option>
+                  <option value="">{t("createProduct.selectCategory")}</option>
+                  <option value="Rau củ">{t("createProduct.vegetables")}</option>
+                  <option value="Trái cây">{t("createProduct.fruits")}</option>
+                  <option value="Ngũ cốc">{t("createProduct.grains")}</option>
+                  <option value="Thịt cá">{t("createProduct.meat")}</option>
+                  <option value="Đồ uống">{t("createProduct.beverages")}</option>
+                  <option value="Khác">{t("createProduct.other")}</option>
                 </select>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   <Hash size={16} className="inline mr-2" />
-                  Tags (phân cách bằng dấu phẩy)
+                  {t("createProduct.tags")}
                 </label>
                 <input
                   type="text"
@@ -243,7 +245,7 @@ const CreateProductPage: React.FC = () => {
                   value={formData.tags}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  placeholder="hữu cơ, tươi, sạch"
+                  placeholder={t("createProduct.tagsPlaceholder")}
                 />
               </div>
             </div>
@@ -253,7 +255,7 @@ const CreateProductPage: React.FC = () => {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   <DollarSign size={16} className="inline mr-2" />
-                  Giá mỗi đơn vị *
+                  {t("createProduct.pricePerUnit")} *
                 </label>
                 <input
                   type="number"
@@ -269,7 +271,7 @@ const CreateProductPage: React.FC = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Đơn vị tiền tệ
+                  {t("createProduct.currency")}
                 </label>
                 <select
                   name="currency"
@@ -284,7 +286,7 @@ const CreateProductPage: React.FC = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Số lượng tổng *
+                  {t("createProduct.totalQuantity")} *
                 </label>
                 <input
                   type="number"
@@ -302,7 +304,7 @@ const CreateProductPage: React.FC = () => {
             {/* Unit */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Đơn vị đo
+                  {t("createProduct.unit")}
               </label>
               <select
                 name="unit"
@@ -314,8 +316,8 @@ const CreateProductPage: React.FC = () => {
                 <option value="g">g</option>
                 <option value="l">l</option>
                 <option value="ml">ml</option>
-                <option value="cái">cái</option>
-                <option value="hộp">hộp</option>
+                <option value="cái">{t("createProduct.piece")}</option>
+                <option value="hộp">{t("createProduct.box")}</option>
               </select>
             </div>
 
@@ -323,7 +325,7 @@ const CreateProductPage: React.FC = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 <ImageIcon size={16} className="inline mr-2" />
-                Hình ảnh URL (tùy chọn)
+                {t("createProduct.imageUrl")}
               </label>
               <input
                 type="url"
@@ -345,7 +347,7 @@ const CreateProductPage: React.FC = () => {
                 className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
               />
               <label className="ml-2 block text-sm text-gray-700">
-                Sản phẩm hữu cơ
+                {t("createProduct.organic")}
               </label>
             </div>
 
@@ -384,7 +386,7 @@ const CreateProductPage: React.FC = () => {
                 disabled={loading}
                 className="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:bg-gray-400 transition-colors"
               >
-                {loading ? 'Đang tạo...' : 'Tạo sản phẩm'}
+                {loading ? t("createProduct.creating") : t("createProduct.create")}
               </button>
             </div>
           </form>

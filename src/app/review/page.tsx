@@ -2,8 +2,10 @@
 import React, { useState } from 'react';
 import { submitReview } from '@/utils/api';
 import { motion } from 'framer-motion';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const ReviewPage: React.FC = () => {
+  const { t } = useTranslation();
   const [type, setType] = useState<'product' | 'supplier'>('product');
   const [id, setId] = useState('');
   const [rating, setRating] = useState(5);
@@ -53,7 +55,7 @@ const ReviewPage: React.FC = () => {
           </label>
         </div>
         <div>
-          <label className="block mb-1 font-medium">ID {type === 'product' ? 'sản phẩm' : 'supplier'}</label>
+          <label className="block mb-1 font-medium">ID {type === 'product' ? '{t("suppliers.products")}' : 'supplier'}</label>
           <input
             type="number"
             value={id}

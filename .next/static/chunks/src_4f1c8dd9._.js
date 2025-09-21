@@ -10,11 +10,16 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/useTranslation.ts [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
 ;
 ;
 const ProductCard = (param)=>{
     let { listing, onViewDetail, onBuy } = param;
     var _listing_productImages, _listing_tags;
+    _s();
+    const { t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"])();
     var _listing_productImages_;
     const primaryImage = (_listing_productImages_ = (_listing_productImages = listing.productImages) === null || _listing_productImages === void 0 ? void 0 : _listing_productImages[0]) !== null && _listing_productImages_ !== void 0 ? _listing_productImages_ : '/placeholder-product.png';
     const formattedPrice = "".concat(listing.pricePerUnit, " ").concat(listing.currency);
@@ -50,7 +55,7 @@ const ProductCard = (param)=>{
                         loading: "lazy"
                     }, void 0, false, {
                         fileName: "[project]/src/components/ProductCard.tsx",
-                        lineNumber: 27,
+                        lineNumber: 29,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     isMinted && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -58,13 +63,13 @@ const ProductCard = (param)=>{
                         children: "NFT Minted"
                     }, void 0, false, {
                         fileName: "[project]/src/components/ProductCard.tsx",
-                        lineNumber: 34,
+                        lineNumber: 36,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ProductCard.tsx",
-                lineNumber: 26,
+                lineNumber: 28,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -76,7 +81,7 @@ const ProductCard = (param)=>{
                         children: listing.productName
                     }, void 0, false, {
                         fileName: "[project]/src/components/ProductCard.tsx",
-                        lineNumber: 38,
+                        lineNumber: 40,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -88,7 +93,7 @@ const ProductCard = (param)=>{
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard.tsx",
-                        lineNumber: 39,
+                        lineNumber: 41,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -99,7 +104,7 @@ const ProductCard = (param)=>{
                                 children: listing.category
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard.tsx",
-                                lineNumber: 43,
+                                lineNumber: 45,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             (_listing_tags = listing.tags) === null || _listing_tags === void 0 ? void 0 : _listing_tags.slice(0, 2).map((tag)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -107,13 +112,13 @@ const ProductCard = (param)=>{
                                     children: tag
                                 }, tag, false, {
                                     fileName: "[project]/src/components/ProductCard.tsx",
-                                    lineNumber: 45,
+                                    lineNumber: 47,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard.tsx",
-                        lineNumber: 42,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -124,7 +129,7 @@ const ProductCard = (param)=>{
                                 children: formattedPrice
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard.tsx",
-                                lineNumber: 51,
+                                lineNumber: 53,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -136,19 +141,19 @@ const ProductCard = (param)=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/ProductCard.tsx",
-                                lineNumber: 52,
+                                lineNumber: 54,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard.tsx",
-                        lineNumber: 50,
+                        lineNumber: 52,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ProductCard.tsx",
-                lineNumber: 37,
+                lineNumber: 39,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -158,35 +163,40 @@ const ProductCard = (param)=>{
                         type: "button",
                         className: "flex-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 font-semibold transition-colors ui-focus-ring cursor-pointer",
                         onClick: ()=>onBuy(listing.productId),
-                        children: "Place Order"
+                        children: t("marketplace.placeOrder")
                     }, void 0, false, {
                         fileName: "[project]/src/components/ProductCard.tsx",
-                        lineNumber: 58,
+                        lineNumber: 60,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         type: "button",
                         className: "flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg py-2 font-semibold border border-gray-200 ui-focus-ring cursor-pointer",
                         onClick: ()=>onViewDetail(listing.productId),
-                        children: "View Details"
+                        children: t("marketplace.viewDetails")
                     }, void 0, false, {
                         fileName: "[project]/src/components/ProductCard.tsx",
-                        lineNumber: 64,
+                        lineNumber: 66,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ProductCard.tsx",
-                lineNumber: 57,
+                lineNumber: 59,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/ProductCard.tsx",
-        lineNumber: 18,
+        lineNumber: 20,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
+_s(ProductCard, "zlIdU9EjM2llFt74AbE2KsUJXyM=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"]
+    ];
+});
 _c = ProductCard;
 const __TURBOPACK__default__export__ = ProductCard;
 var _c;
@@ -352,6 +362,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ProductCard.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/api.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/useTranslation.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
@@ -360,9 +371,11 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 const MarketplacePage = ()=>{
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
+    const { t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"])();
     const [listings, setListings] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [search, setSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
     const [onlyMinted, setOnlyMinted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -379,7 +392,7 @@ const MarketplacePage = ()=>{
                 }
             }["MarketplacePage.useEffect"]).catch({
                 "MarketplacePage.useEffect": (err)=>{
-                    setError(err.message || 'Không thể tải danh sách sản phẩm');
+                    setError(err.message || t('common.error'));
                 }
             }["MarketplacePage.useEffect"]).finally({
                 "MarketplacePage.useEffect": ()=>setLoading(false)
@@ -423,24 +436,24 @@ const MarketplacePage = ()=>{
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                                 className: "text-3xl font-bold ui-gradient-text",
-                                children: "Marketplace"
+                                children: t('marketplace.title')
                             }, void 0, false, {
                                 fileName: "[project]/src/app/marketplace/page.tsx",
-                                lineNumber: 59,
+                                lineNumber: 61,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-gray-500",
-                                children: "Khám phá các lô nông sản đã được token hóa và giao dịch bằng crypto minh bạch."
+                                children: t('marketplace.subtitle')
                             }, void 0, false, {
                                 fileName: "[project]/src/app/marketplace/page.tsx",
-                                lineNumber: 60,
+                                lineNumber: 62,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/marketplace/page.tsx",
-                        lineNumber: 58,
+                        lineNumber: 60,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -448,13 +461,13 @@ const MarketplacePage = ()=>{
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                 type: "search",
-                                placeholder: "Tìm kiếm theo tên sản phẩm, supplier, tag...",
+                                placeholder: t("marketplace.searchPlaceholder"),
                                 className: "ui-focus-ring w-full sm:w-80 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:text-gray-500 cursor-pointer",
                                 value: search,
                                 onChange: (e)=>setSearch(e.target.value)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/marketplace/page.tsx",
-                                lineNumber: 63,
+                                lineNumber: 65,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -470,14 +483,14 @@ const MarketplacePage = ()=>{
                                                 onChange: ()=>setOnlyInStock((prev)=>!prev)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/marketplace/page.tsx",
-                                                lineNumber: 72,
+                                                lineNumber: 74,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
-                                            "Còn hàng"
+                                            t("marketplace.inStock")
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/marketplace/page.tsx",
-                                        lineNumber: 71,
+                                        lineNumber: 73,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -490,32 +503,32 @@ const MarketplacePage = ()=>{
                                                 onChange: ()=>setOnlyMinted((prev)=>!prev)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/marketplace/page.tsx",
-                                                lineNumber: 81,
+                                                lineNumber: 83,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
-                                            "Đã mint NFT"
+                                            t("marketplace.mintedNFT")
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/marketplace/page.tsx",
-                                        lineNumber: 80,
+                                        lineNumber: 82,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/marketplace/page.tsx",
-                                lineNumber: 70,
+                                lineNumber: 72,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/marketplace/page.tsx",
-                        lineNumber: 62,
+                        lineNumber: 64,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/marketplace/page.tsx",
-                lineNumber: 57,
+                lineNumber: 59,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -532,12 +545,12 @@ const MarketplacePage = ()=>{
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/app/marketplace/page.tsx",
-                    lineNumber: 95,
+                    lineNumber: 97,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/marketplace/page.tsx",
-                lineNumber: 94,
+                lineNumber: 96,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0)),
             error && !loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -553,7 +566,7 @@ const MarketplacePage = ()=>{
                 children: error
             }, void 0, false, {
                 fileName: "[project]/src/app/marketplace/page.tsx",
-                lineNumber: 104,
+                lineNumber: 106,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0)),
             !loading && !error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -563,11 +576,13 @@ const MarketplacePage = ()=>{
                     filteredListings.length,
                     " / ",
                     listings.length,
-                    " sản phẩm."
+                    " ",
+                    t("suppliers.products"),
+                    "."
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/marketplace/page.tsx",
-                lineNumber: 114,
+                lineNumber: 116,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -590,10 +605,10 @@ const MarketplacePage = ()=>{
                     },
                     children: filteredListings.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "col-span-full text-center text-gray-400 py-10 border border-dashed rounded-lg",
-                        children: "Không tìm thấy sản phẩm phù hợp."
+                        children: t("marketplace.noProducts")
                     }, void 0, false, {
                         fileName: "[project]/src/app/marketplace/page.tsx",
-                        lineNumber: 131,
+                        lineNumber: 133,
                         columnNumber: 15
                     }, ("TURBOPACK compile-time value", void 0)) : filteredListings.map((listing)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             listing: listing,
@@ -601,29 +616,30 @@ const MarketplacePage = ()=>{
                             onBuy: handleBuy
                         }, listing.listingId, false, {
                             fileName: "[project]/src/app/marketplace/page.tsx",
-                            lineNumber: 136,
+                            lineNumber: 138,
                             columnNumber: 17
                         }, ("TURBOPACK compile-time value", void 0)))
                 }, void 0, false, {
                     fileName: "[project]/src/app/marketplace/page.tsx",
-                    lineNumber: 121,
+                    lineNumber: 123,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/marketplace/page.tsx",
-                lineNumber: 119,
+                lineNumber: 121,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/marketplace/page.tsx",
-        lineNumber: 56,
+        lineNumber: 58,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(MarketplacePage, "iWy8LstPtM2gL+6m/ZXCmsjLrrY=", false, function() {
+_s(MarketplacePage, "5GM9KKlBJS8oYFPXuyncMNMsVjs=", false, function() {
     return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"]
     ];
 });
 _c = MarketplacePage;

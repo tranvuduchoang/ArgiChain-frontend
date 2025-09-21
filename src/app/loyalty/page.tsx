@@ -54,7 +54,7 @@ const LoyaltyPage: React.FC = () => {
       <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
         <h3 className="font-semibold mb-2">Điểm tích lũy theo supplier</h3>
         {loading ? (
-          <div className="text-blue-500">Đang tải...</div>
+          <div className="text-blue-500">{t("common.loading")}</div>
         ) : loyalty.length === 0 ? (
           <div className="text-gray-500">Chưa có điểm loyalty nào.</div>
         ) : (

@@ -4,8 +4,10 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { fetchProductDetail, createOrder } from '@/utils/api';
 import { useWallet } from '@/contexts/WalletContext';
 import { motion } from 'framer-motion';
+import { useTranslation } from '@/hooks/useTranslation';
 
-const OrderPageContent: React.FC = () => {
+const OrderPageContent: React.FC = () => {  const { t } = useTranslation();
+
   const params = useSearchParams();
   const router = useRouter();
   const { account, isConnected } = useWallet();
@@ -27,7 +29,7 @@ const OrderPageContent: React.FC = () => {
         
         // Check if user is trying to buy their own product
         if (isConnected && account && prod.supplier?.user?.walletAddress === account) {
-          setError('Bạn không thể mua sản phẩm của chính mình!');
+          setError('Bạn không thể mua {t("suppliers.products")} của chính mình!');
           setLoading(false);
           return;
         }

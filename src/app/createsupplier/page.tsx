@@ -64,7 +64,7 @@ const CreateSupplierPage: React.FC = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Có lỗi xảy ra khi tạo nhà cung cấp');
+        throw new Error(errorData.error || '{t("common.error")} khi tạo nhà cung cấp');
       }
 
       const result = await response.json();
@@ -76,7 +76,7 @@ const CreateSupplierPage: React.FC = () => {
       }, 2000);
 
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Có lỗi xảy ra');
+      setError(err instanceof Error ? err.message : '{t("common.error")}');
     } finally {
       setLoading(false);
     }
@@ -159,7 +159,7 @@ const CreateSupplierPage: React.FC = () => {
                 required
                 rows={4}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                placeholder="Mô tả về doanh nghiệp và sản phẩm của bạn"
+                placeholder="Mô tả về doanh nghiệp và {t("suppliers.products")} của bạn"
               />
             </div>
 

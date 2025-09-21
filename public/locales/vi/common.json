@@ -1,0 +1,140 @@
+{
+  "navigation": {
+    "home": "Trang chủ",
+    "marketplace": "Marketplace",
+    "suppliers": "Nhà cung cấp",
+    "profile": "Hồ sơ cá nhân",
+    "purchasedProducts": "Sản phẩm đã mua"
+  },
+  "auth": {
+    "connectWallet": "Kết nối ví",
+    "disconnectWallet": "Ngắt kết nối",
+    "becomeSupplier": "Trở thành nhà cung cấp",
+    "yourSupplier": "Nhà cung cấp của bạn"
+  },
+  "marketplace": {
+    "title": "Marketplace",
+    "subtitle": "Khám phá các lô nông sản đã được token hóa và giao dịch bằng crypto minh bạch",
+    "searchPlaceholder": "Tìm kiếm theo tên sản phẩm, supplier, tag...",
+    "inStock": "Còn hàng",
+    "mintedNFT": "Đã mint NFT",
+    "placeOrder": "Đặt hàng",
+    "viewDetails": "Xem chi tiết",
+    "noProducts": "Không tìm thấy sản phẩm phù hợp",
+    "showingProducts": "Hiển thị {{count}} / {{total}} sản phẩm"
+  },
+  "suppliers": {
+    "title": "Nhà cung cấp",
+    "subtitle": "Khám phá các nhà cung cấp nông sản uy tín và chất lượng",
+    "searchPlaceholder": "Tìm kiếm nhà cung cấp...",
+    "viewDetails": "Xem chi tiết",
+    "totalSuppliers": "Tổng nhà cung cấp",
+    "totalProducts": "Tổng sản phẩm",
+    "averageRating": "Đánh giá trung bình",
+    "noSuppliers": "Không tìm thấy nhà cung cấp phù hợp",
+    "products": "sản phẩm"
+  },
+  "product": {
+    "supplier": "Nhà cung cấp",
+    "price": "Giá",
+    "available": "Còn lại",
+    "order": "Đặt hàng",
+    "reviews": "Đánh giá sản phẩm",
+    "noReviews": "Chưa có đánh giá nào"
+  },
+  "supplier": {
+    "walletAddress": "Địa chỉ ví",
+    "email": "Email",
+    "products": "Sản phẩm của supplier",
+    "reviews": "Đánh giá về supplier",
+    "noProducts": "Chưa có sản phẩm nào",
+    "noReviews": "Chưa có đánh giá nào"
+  },
+  "order": {
+    "title": "Đặt hàng",
+    "productDetails": "Chi tiết sản phẩm",
+    "quantity": "Số lượng",
+    "deliveryAddress": "Địa chỉ giao hàng",
+    "deliveryMethod": "Phương thức giao hàng",
+    "paymentMethod": "Phương thức thanh toán",
+    "notes": "Ghi chú",
+    "total": "Tổng cộng",
+    "placeOrder": "Đặt hàng",
+    "processing": "Đang xử lý...",
+    "success": "Đặt hàng thành công!",
+    "error": "Có lỗi xảy ra khi đặt hàng"
+  },
+  "purchasedProducts": {
+    "title": "Những sản phẩm đã mua",
+    "noProducts": "Bạn chưa mua bất kì sản phẩm nào",
+    "findProducts": "Tìm sản phẩm mong muốn",
+    "orderNumber": "Đơn hàng #{{number}}",
+    "orderDate": "Ngày đặt: {{date}}",
+    "totalAmount": "{{amount}} {{currency}}",
+    "status": {
+      "paid": "Đã thanh toán",
+      "pending": "Đang xử lý",
+      "cancelled": "Đã hủy"
+    },
+    "deliveryStatus": {
+      "completed": "Đã hoàn thành",
+      "confirmed": "Đã xác nhận",
+      "pending": "Chờ xác nhận",
+      "disputed": "Có vấn đề"
+    },
+    "confirmDelivery": "Xác nhận đã nhận hàng",
+    "processing": "Đang xử lý..."
+  },
+  "deliveryConfirmation": {
+    "title": "Xác nhận đã nhận hàng & Đánh giá",
+    "orderNumber": "Đơn hàng #{{orderId}}",
+    "productName": "{{productName}}",
+    "rating": "Đánh giá sản phẩm:",
+    "comment": "Nhận xét của bạn (tùy chọn):",
+    "commentPlaceholder": "Viết nhận xét về sản phẩm...",
+    "complaint": "Sản phẩm có vấn đề (khiếu nại)",
+    "qualityRating": "Chất lượng sản phẩm:",
+    "qualityGood": "Tốt",
+    "qualityBad": "Không tốt",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận",
+    "submitting": "Đang gửi...",
+    "success": "Xác nhận giao hàng thành công! NFT đã được burn.",
+    "error": "Có lỗi xảy ra khi xác nhận giao hàng. Vui lòng thử lại."
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "error": "Có lỗi xảy ra",
+    "retry": "Thử lại",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "previous": "Trước đó",
+    "close": "Đóng",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "search": "Tìm kiếm",
+    "filter": "Lọc",
+    "sort": "Sắp xếp",
+    "refresh": "Làm mới",
+    "copy": "Sao chép",
+    "share": "Chia sẻ",
+    "download": "Tải xuống",
+    "upload": "Tải lên",
+    "select": "Chọn",
+    "all": "Tất cả",
+    "none": "Không có",
+    "yes": "Có",
+    "no": "Không",
+    "ok": "OK",
+    "success": "Thành công",
+    "warning": "Cảnh báo",
+    "info": "Thông tin",
+    "required": "Bắt buộc",
+    "optional": "Tùy chọn",
+    "dashboard": "Bảng điều khiển",
+    "connecting": "Đang kết nối..."
+  }
+}

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useWallet } from '@/contexts/WalletContext';
+import { useTranslation } from '@/hooks/useTranslation';
 import { 
   Leaf, 
   Shield, 
@@ -15,6 +16,7 @@ import {
 
 const HomePage: React.FC = () => {
   const { isConnected, connect } = useWallet();
+  const { t } = useTranslation();
 
   const handleGetStarted = async () => {
     if (!isConnected) {
@@ -29,31 +31,31 @@ const HomePage: React.FC = () => {
   const features = [
     {
       icon: <Leaf className="w-8 h-8 text-green-600" />,
-      title: "Fresh Agricultural Products",
-      description: "Direct connection between farmers and consumers, ensuring fresh and quality products."
+      title: t("home.freshProducts"),
+      description: t("home.freshProductsDesc")
     },
     {
       icon: <Shield className="w-8 h-8 text-green-600" />,
-      title: "Blockchain Security",
-      description: "Transparent and secure transactions using Polygon blockchain technology."
+      title: t("home.blockchainSecurity"),
+      description: t("home.blockchainSecurityDesc")
     },
     {
       icon: <Users className="w-8 h-8 text-green-600" />,
-      title: "Trusted Suppliers",
-      description: "Verified farmers and suppliers with transparent product information."
+      title: t("home.trustedSuppliers"),
+      description: t("home.trustedSuppliersDesc")
     },
     {
       icon: <Zap className="w-8 h-8 text-green-600" />,
-      title: "Fast Transactions",
-      description: "Quick and efficient crypto payments with instant confirmation."
+      title: t("home.fastTransactions"),
+      description: t("home.fastTransactionsDesc")
     }
   ];
 
   const stats = [
-    { number: "100+", label: "Verified Suppliers" },
-    { number: "1000+", label: "Products Listed" },
-    { number: "5000+", label: "Happy Customers" },
-    { number: "99.9%", label: "Transaction Success" }
+    { number: "100+", label: t("home.verifiedSuppliers") },
+    { number: "1000+", label: t("home.productsListed") },
+    { number: "5000+", label: t("home.happyCustomers") },
+    { number: "99.9%", label: t("home.transactionSuccess") }
   ];
 
   return (
@@ -63,26 +65,25 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Welcome to{' '}
+              {t("home.welcome")}{' '}
               <span className="ui-gradient-text">AgriChain</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              The future of agricultural commerce is here. Connect directly with farmers, 
-              buy fresh products with crypto, and experience the power of blockchain technology.
+              {t("home.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={handleGetStarted}
                 className="ui-cta-gradient text-white px-8 py-3 rounded-lg font-semibold text-lg flex items-center justify-center space-x-2 transition-colors cursor-pointer"
               >
-                <span>Get Started</span>
+                <span>{t("home.getStarted")}</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
               <a
                 href="/marketplace"
                 className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors cursor-pointer"
               >
-                Explore Marketplace
+                {t("home.exploreMarketplace")}
               </a>
             </div>
           </div>
@@ -94,10 +95,10 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose AgriChain?
+              {t("home.whyChoose")}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Experience the benefits of decentralized agricultural commerce
+              {t("home.whyChooseSubtitle")}
             </p>
           </div>
           
@@ -124,10 +125,10 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              AgriChain in Numbers
+              {t("home.inNumbers")}
             </h2>
             <p className="text-xl text-green-100">
-              Growing community of farmers and consumers
+              {t("home.growingCommunity")}
             </p>
           </div>
           
@@ -151,10 +152,10 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              How It Works
+              {t("home.howItWorks")}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Simple steps to start trading agricultural products
+              {t("home.howItWorksSubtitle")}
             </p>
           </div>
           
@@ -164,10 +165,10 @@ const HomePage: React.FC = () => {
                 1
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Connect Wallet
+                {t("home.connectWallet")}
               </h3>
               <p className="text-gray-600">
-                Connect your MetaMask wallet to access the marketplace
+                {t("home.connectWalletDesc")}
               </p>
             </div>
             
@@ -176,10 +177,10 @@ const HomePage: React.FC = () => {
                 2
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Browse Products
+                {t("home.browseProducts")}
               </h3>
               <p className="text-gray-600">
-                Explore fresh agricultural products from verified suppliers
+                {t("home.browseProductsDesc")}
               </p>
             </div>
             
@@ -188,10 +189,10 @@ const HomePage: React.FC = () => {
                 3
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Buy & Collect
+                {t("home.buyCollect")}
               </h3>
               <p className="text-gray-600">
-                Purchase with crypto and collect your products
+                {t("home.buyCollectDesc")}
               </p>
             </div>
           </div>
@@ -202,17 +203,17 @@ const HomePage: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Ready to Start?
+            {t("home.readyToStart")}
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Join thousands of farmers and consumers already using AgriChain
+            {t("home.readyToStartDesc")}
           </p>
           <button
             onClick={handleGetStarted}
             className="ui-cta-gradient text-white px-8 py-3 rounded-lg font-semibold text-lg flex items-center justify-center space-x-2 mx-auto transition-colors cursor-pointer"
           >
             <ShoppingCart className="w-5 h-5" />
-            <span>Start Trading Now</span>
+            <span>{t("home.startTrading")}</span>
           </button>
         </div>
       </section>

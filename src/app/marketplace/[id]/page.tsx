@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { fetchProductDetail, fetchReviews, fetchSupplierDetail } from '@/utils/api';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from '@/hooks/useTranslation';
 
-const ProductDetailPage: React.FC = () => {
+const ProductDetailPage: React.FC = () => {  const { t } = useTranslation();
+
   const params = useParams();
   const router = useRouter();
   const id = params.id as string;
@@ -81,7 +83,7 @@ const ProductDetailPage: React.FC = () => {
         </div>
       </div>
       <div className="mt-10">
-        <h3 className="text-xl font-semibold mb-2">Đánh giá sản phẩm</h3>
+        <h3 className="text-xl font-semibold mb-2">Đánh giá {t("suppliers.products")}</h3>
         <AnimatePresence>
           {reviews.length === 0 ? (
             <div className="text-gray-500">Chưa có đánh giá nào.</div>

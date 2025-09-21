@@ -156,6 +156,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navi
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/contexts/WalletContext.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/api.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/useTranslation.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Package$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/package.js [app-client] (ecmascript) <export default as Package>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trending$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__TrendingUp$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/trending-up.js [app-client] (ecmascript) <export default as TrendingUp>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/dollar-sign.js [app-client] (ecmascript) <export default as DollarSign>");
@@ -172,10 +173,12 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 const SupplierDashboard = ()=>{
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const { account, isConnected } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useWallet"])();
+    const { t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"])();
     const [stats, setStats] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         totalProducts: 0,
         activeListings: 0,
@@ -272,7 +275,7 @@ const SupplierDashboard = ()=>{
                         children: "Supplier Dashboard"
                     }, void 0, false, {
                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                        lineNumber: 129,
+                        lineNumber: 131,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -280,18 +283,18 @@ const SupplierDashboard = ()=>{
                         children: "Vui lòng kết nối ví để xem dashboard của bạn"
                     }, void 0, false, {
                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                        lineNumber: 130,
+                        lineNumber: 132,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                lineNumber: 128,
+                lineNumber: 130,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-            lineNumber: 127,
+            lineNumber: 129,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -312,17 +315,17 @@ const SupplierDashboard = ()=>{
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                    lineNumber: 140,
+                    lineNumber: 142,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                lineNumber: 139,
+                lineNumber: 141,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-            lineNumber: 138,
+            lineNumber: 140,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -342,84 +345,84 @@ const SupplierDashboard = ()=>{
                 children: error
             }, void 0, false, {
                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                lineNumber: 153,
+                lineNumber: 155,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-            lineNumber: 152,
+            lineNumber: 154,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
     const statCards = [
         {
-            title: 'Tổng sản phẩm',
+            title: t("suppliers.totalProducts"),
             value: stats.totalProducts,
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Package$3e$__["Package"], {
                 className: "w-6 h-6"
             }, void 0, false, {
                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                lineNumber: 168,
+                lineNumber: 170,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             color: 'bg-blue-500'
         },
         {
-            title: 'Đã mint NFT',
+            title: t("marketplace.mintedNFT"),
             value: stats.mintedProducts,
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$award$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Award$3e$__["Award"], {
                 className: "w-6 h-6"
             }, void 0, false, {
                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                lineNumber: 174,
+                lineNumber: 176,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             color: 'bg-purple-500'
         },
         {
-            title: 'Tổng bán hàng',
+            title: t("dashboard.totalSales"),
             value: stats.totalSales,
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trending$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__TrendingUp$3e$__["TrendingUp"], {
                 className: "w-6 h-6"
             }, void 0, false, {
                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                lineNumber: 180,
+                lineNumber: 182,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             color: 'bg-green-500'
         },
         {
-            title: 'Doanh thu (MATIC)',
+            title: t("dashboard.revenue"),
             value: stats.totalRevenue,
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__["DollarSign"], {
                 className: "w-6 h-6"
             }, void 0, false, {
                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                lineNumber: 186,
+                lineNumber: 188,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             color: 'bg-yellow-500'
         },
         {
-            title: 'Tồn kho',
+            title: t("dashboard.inventory"),
             value: stats.availableInventory,
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Package$3e$__["Package"], {
                 className: "w-6 h-6"
             }, void 0, false, {
                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                lineNumber: 192,
+                lineNumber: 194,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             color: 'bg-orange-500'
         },
         {
-            title: 'Đánh giá TB',
+            title: t("dashboard.averageRating"),
             value: stats.averageRating.toFixed(1),
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__["Star"], {
                 className: "w-6 h-6"
             }, void 0, false, {
                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                lineNumber: 198,
+                lineNumber: 200,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             color: 'bg-pink-500'
@@ -437,35 +440,36 @@ const SupplierDashboard = ()=>{
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                                     className: "text-3xl font-bold text-gray-900 mb-2",
-                                    children: "Supplier Dashboard"
+                                    children: t("dashboard.title")
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                    lineNumber: 208,
+                                    lineNumber: 210,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-gray-600",
-                                    children: "Quản lý sản phẩm và theo dõi hiệu suất bán hàng"
+                                    children: t("dashboard.subtitle")
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                    lineNumber: 209,
+                                    lineNumber: 211,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "text-sm text-gray-500 mt-2",
                                     children: [
-                                        "Địa chỉ ví: ",
+                                        t("dashboard.walletAddress"),
+                                        ": ",
                                         account
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                    lineNumber: 210,
+                                    lineNumber: 212,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                            lineNumber: 207,
+                            lineNumber: 209,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -476,31 +480,31 @@ const SupplierDashboard = ()=>{
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                    lineNumber: 218,
+                                    lineNumber: 220,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    children: "Tạo sản phẩm"
+                                    children: t("dashboard.createProduct")
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                    lineNumber: 219,
+                                    lineNumber: 221,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                            lineNumber: 214,
+                            lineNumber: 216,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                    lineNumber: 206,
+                    lineNumber: 208,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                lineNumber: 205,
+                lineNumber: 207,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -528,7 +532,7 @@ const SupplierDashboard = ()=>{
                                             children: stat.title
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                            lineNumber: 236,
+                                            lineNumber: 238,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -536,13 +540,13 @@ const SupplierDashboard = ()=>{
                                             children: stat.value
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                            lineNumber: 237,
+                                            lineNumber: 239,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                    lineNumber: 235,
+                                    lineNumber: 237,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -550,23 +554,23 @@ const SupplierDashboard = ()=>{
                                     children: stat.icon
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                    lineNumber: 239,
+                                    lineNumber: 241,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                            lineNumber: 234,
+                            lineNumber: 236,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     }, stat.title, false, {
                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                        lineNumber: 227,
+                        lineNumber: 229,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)))
             }, void 0, false, {
                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                lineNumber: 225,
+                lineNumber: 227,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -580,24 +584,24 @@ const SupplierDashboard = ()=>{
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                         className: "text-xl font-semibold text-gray-900",
-                                        children: "Sản phẩm gần đây"
+                                        children: t("dashboard.recentProducts")
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                        lineNumber: 251,
+                                        lineNumber: 253,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         className: "text-green-600 hover:text-green-700 font-medium",
-                                        children: "Xem tất cả"
+                                        children: t("dashboard.viewAll")
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                        lineNumber: 252,
+                                        lineNumber: 254,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                lineNumber: 250,
+                                lineNumber: 252,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -609,20 +613,20 @@ const SupplierDashboard = ()=>{
                                             className: "w-12 h-12 mx-auto mb-4 text-gray-300"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                            lineNumber: 260,
+                                            lineNumber: 262,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            children: "Chưa có sản phẩm nào"
+                                            children: t("dashboard.noProducts")
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                            lineNumber: 261,
+                                            lineNumber: 263,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                    lineNumber: 259,
+                                    lineNumber: 261,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)) : products.map((product, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                                         className: "flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors",
@@ -644,12 +648,12 @@ const SupplierDashboard = ()=>{
                                                     className: "w-6 h-6 text-gray-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                    lineNumber: 273,
+                                                    lineNumber: 275,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                lineNumber: 272,
+                                                lineNumber: 274,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -660,7 +664,7 @@ const SupplierDashboard = ()=>{
                                                         children: product.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                        lineNumber: 276,
+                                                        lineNumber: 278,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -669,17 +673,18 @@ const SupplierDashboard = ()=>{
                                                             product.availableSupply,
                                                             "/",
                                                             product.totalSupply,
-                                                            " còn lại"
+                                                            " ",
+                                                            t("dashboard.remaining")
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                        lineNumber: 277,
+                                                        lineNumber: 279,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                lineNumber: 275,
+                                                lineNumber: 277,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -694,7 +699,7 @@ const SupplierDashboard = ()=>{
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                        lineNumber: 282,
+                                                        lineNumber: 284,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     product.mintTxHash && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -702,30 +707,30 @@ const SupplierDashboard = ()=>{
                                                         children: "NFT"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                        lineNumber: 286,
+                                                        lineNumber: 288,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                lineNumber: 281,
+                                                lineNumber: 283,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, product.id, true, {
                                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                        lineNumber: 265,
+                                        lineNumber: 267,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                lineNumber: 257,
+                                lineNumber: 259,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                        lineNumber: 249,
+                        lineNumber: 251,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -733,10 +738,10 @@ const SupplierDashboard = ()=>{
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                 className: "text-xl font-semibold text-gray-900 mb-6",
-                                children: "Thao tác nhanh"
+                                children: t("dashboard.quickActions")
                             }, void 0, false, {
                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                lineNumber: 299,
+                                lineNumber: 301,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -756,21 +761,21 @@ const SupplierDashboard = ()=>{
                                                 className: "w-5 h-5 text-green-600"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                lineNumber: 308,
+                                                lineNumber: 310,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "font-medium text-green-900",
-                                                children: "Thêm sản phẩm mới"
+                                                children: t("dashboard.addNewProduct")
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                lineNumber: 309,
+                                                lineNumber: 311,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                        lineNumber: 302,
+                                        lineNumber: 304,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -787,21 +792,21 @@ const SupplierDashboard = ()=>{
                                                 className: "w-5 h-5 text-purple-600"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                lineNumber: 318,
+                                                lineNumber: 320,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "font-medium text-purple-900",
-                                                children: "Mint NFT cho sản phẩm"
+                                                children: t("dashboard.mintNFT")
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                lineNumber: 319,
+                                                lineNumber: 321,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                        lineNumber: 312,
+                                        lineNumber: 314,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -817,21 +822,21 @@ const SupplierDashboard = ()=>{
                                                 className: "w-5 h-5 text-blue-600"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                lineNumber: 327,
+                                                lineNumber: 329,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "font-medium text-blue-900",
-                                                children: "Xem tất cả đơn hàng"
+                                                children: t("dashboard.viewOrders")
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                lineNumber: 328,
+                                                lineNumber: 330,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                        lineNumber: 322,
+                                        lineNumber: 324,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -847,52 +852,53 @@ const SupplierDashboard = ()=>{
                                                 className: "w-5 h-5 text-yellow-600"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                lineNumber: 336,
+                                                lineNumber: 338,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "font-medium text-yellow-900",
-                                                children: "Xem báo cáo doanh thu"
+                                                children: t("dashboard.viewRevenue")
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                                lineNumber: 337,
+                                                lineNumber: 339,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                        lineNumber: 331,
+                                        lineNumber: 333,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                                lineNumber: 301,
+                                lineNumber: 303,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                        lineNumber: 298,
+                        lineNumber: 300,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-                lineNumber: 247,
+                lineNumber: 249,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/supplier/dashboard/page.tsx",
-        lineNumber: 204,
+        lineNumber: 206,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(SupplierDashboard, "EfnL8/JYqp1/7algerQl0ihw7TA=", false, function() {
+_s(SupplierDashboard, "gmLCbx5yVwzix6XSrJsNxOaYtHo=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useWallet"]
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useWallet"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"]
     ];
 });
 _c = SupplierDashboard;

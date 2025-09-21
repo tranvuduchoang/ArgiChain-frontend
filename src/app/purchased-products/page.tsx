@@ -5,6 +5,7 @@ import { useWallet } from '@/contexts/WalletContext';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import DeliveryConfirmationModal, { DeliveryConfirmationData } from '@/components/DeliveryConfirmationModal';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface OrderItem {
   id: string;
@@ -46,7 +47,8 @@ interface Order {
   };
 }
 
-const PurchasedProductsPage: React.FC = () => {
+const PurchasedProductsPage: React.FC = () => {  const { t } = useTranslation();
+
   const { account, isConnected } = useWallet();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
@@ -157,7 +159,7 @@ const PurchasedProductsPage: React.FC = () => {
       alert('Xác nhận giao hàng thành công! NFT đã được burn.');
     } catch (error) {
       console.error('Error confirming delivery:', error);
-      alert('Có lỗi xảy ra khi xác nhận giao hàng. Vui lòng thử lại.');
+      alert('{t("common.error")} khi xác nhận giao hàng. Vui lòng thử lại.');
     } finally {
       setIsConfirming(false);
     }
@@ -178,8 +180,8 @@ const PurchasedProductsPage: React.FC = () => {
       <div className="min-h-screen bg-gray-50 py-8">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center py-12">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">Những sản phẩm đã mua</h1>
-            <p className="text-gray-600 mb-8">Vui lòng kết nối ví để xem danh sách sản phẩm đã mua</p>
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">{t("purchased.title")}</h1>
+            <p className="text-gray-600 mb-8">{t("purchased.connectWallet")}</p>
             <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
               Kết nối ví
             </button>
@@ -210,7 +212,7 @@ const PurchasedProductsPage: React.FC = () => {
       <div className="min-h-screen bg-gray-50 py-8">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center py-12">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">Những sản phẩm đã mua</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">{t("purchased.title")}</h1>
             <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
               <p className="text-red-600">{error}</p>
             </div>
@@ -218,7 +220,7 @@ const PurchasedProductsPage: React.FC = () => {
               onClick={() => window.location.reload()}
               className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Thử lại
+              {t("common.retry")}
             </button>
           </div>
         </div>
@@ -241,8 +243,8 @@ const PurchasedProductsPage: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                 </svg>
               </div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-4">Những sản phẩm đã mua</h1>
-              <p className="text-gray-600 mb-8 text-lg">Bạn chưa mua bất kì sản phẩm nào</p>
+              <h1 className="text-3xl font-bold text-gray-900 mb-4">{t("purchased.title")}</h1>
+              <p className="text-gray-600 mb-8 text-lg">{t("purchased.noProducts")}</p>
               <Link 
                 href="/marketplace"
                 className="inline-flex items-center bg-green-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 transition-colors text-lg font-medium"
@@ -250,7 +252,7 @@ const PurchasedProductsPage: React.FC = () => {
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-                Tìm sản phẩm mong muốn
+                {t("purchased.findProducts")}
               </Link>
             </motion.div>
           </div>
@@ -267,7 +269,7 @@ const PurchasedProductsPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-3xl font-bold text-gray-900 mb-8">Những sản phẩm đã mua</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-8">Những {t("suppliers.products")} đã mua</h1>
           
           <div className="space-y-6">
             {orders.map((order) => (
@@ -363,7 +365,7 @@ const PurchasedProductsPage: React.FC = () => {
 
                         {/* Supplier Info */}
                         <div className="text-right">
-                          <p className="text-sm text-gray-500">Nhà cung cấp:</p>
+                          <p className="text-sm text-gray-500">{t("suppliers.title")}:</p>
                           <p className="font-medium text-gray-900">{item.product.supplier.name}</p>
                           <p className="text-xs text-gray-400">
                             {item.product.supplier.user.walletAddress.slice(0, 6)}...{item.product.supplier.user.walletAddress.slice(-4)}

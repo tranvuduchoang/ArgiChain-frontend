@@ -4,10 +4,12 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Package, Plus, Award, Eye } from 'lucide-react';
 import { useWallet } from '@/contexts/WalletContext';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const SupplierProductsPage: React.FC = () => {
   const router = useRouter();
   const { account, isConnected } = useWallet();
+  const { t } = useTranslation();
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -44,14 +46,14 @@ const SupplierProductsPage: React.FC = () => {
       // Lấy sản phẩm của supplier
       const productsResponse = await fetch(`http://localhost:5000/api/products?supplierId=${supplier.id}`);
       if (!productsResponse.ok) {
-        throw new Error('Không thể lấy danh sách sản phẩm');
+        throw new Error(`Không thể lấy danh sách ${t("suppliers.products")}`);
       }
       
       const productsData = await productsResponse.json();
       setProducts(productsData);
 
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Có lỗi xảy ra');
+      setError(err instanceof Error ? err.message : t("common.error"));
     } finally {
       setLoading(false);
     }
@@ -69,7 +71,7 @@ const SupplierProductsPage: React.FC = () => {
             Vui lòng kết nối ví
           </h1>
           <p className="text-gray-600 mb-6">
-            Bạn cần kết nối ví để xem sản phẩm
+            {t("products.needWallet")}
           </p>
           <button
             onClick={() => router.push('/')}
@@ -87,7 +89,7 @@ const SupplierProductsPage: React.FC = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Đang tải sản phẩm...</p>
+          <p className="text-gray-600">{t("products.loading")}</p>
         </div>
       </div>
     );
@@ -98,7 +100,7 @@ const SupplierProductsPage: React.FC = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">
-            Có lỗi xảy ra
+            {t("common.error")}
           </h1>
           <p className="text-gray-600 mb-6">{error}</p>
           <button
@@ -126,15 +128,15 @@ const SupplierProductsPage: React.FC = () => {
           </button>
           <div className="flex justify-between items-start">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Quản lý sản phẩm</h1>
-              <p className="text-gray-600">Quản lý và mint NFT cho sản phẩm của bạn</p>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">{t("products.manage")}</h1>
+              <p className="text-gray-600">{t("products.manageAndMint")}</p>
             </div>
             <button
               onClick={() => router.push('/supplier/create-product')}
               className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
             >
               <Plus size={20} />
-              <span>Tạo sản phẩm mới</span>
+              <span>{t("products.createNew")}</span>
             </button>
           </div>
         </div>
@@ -143,13 +145,13 @@ const SupplierProductsPage: React.FC = () => {
         {products.length === 0 ? (
           <div className="text-center py-12">
             <Package size={64} className="mx-auto text-gray-400 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Chưa có sản phẩm nào</h3>
-            <p className="text-gray-600 mb-6">Hãy tạo sản phẩm đầu tiên của bạn</p>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">{t("products.noProducts")}</h3>
+            <p className="text-gray-600 mb-6">{t("products.createFirst")}</p>
             <button
               onClick={() => router.push('/supplier/create-product')}
               className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors"
             >
-              Tạo sản phẩm mới
+              {t("products.createNew")}
             </button>
           </div>
         ) : (

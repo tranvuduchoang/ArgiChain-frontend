@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useWallet } from '@/contexts/WalletContext';
 import { fetchSupplierDetail, fetchProducts, fetchMarketplaceListings } from '@/utils/api';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from '@/hooks/useTranslation';
 import { 
   Package, 
   TrendingUp, 
@@ -31,6 +32,7 @@ interface DashboardStats {
 const SupplierDashboard: React.FC = () => {
   const router = useRouter();
   const { account, isConnected } = useWallet();
+  const { t } = useTranslation();
   const [stats, setStats] = useState<DashboardStats>({
     totalProducts: 0,
     activeListings: 0,
@@ -163,37 +165,37 @@ const SupplierDashboard: React.FC = () => {
 
   const statCards = [
     {
-      title: 'Tổng sản phẩm',
+      title: t("suppliers.totalProducts"),
       value: stats.totalProducts,
       icon: <Package className="w-6 h-6" />,
       color: 'bg-blue-500',
     },
     {
-      title: 'Đã mint NFT',
+      title: t("marketplace.mintedNFT"),
       value: stats.mintedProducts,
       icon: <Award className="w-6 h-6" />,
       color: 'bg-purple-500',
     },
     {
-      title: 'Tổng bán hàng',
+      title: t("dashboard.totalSales"),
       value: stats.totalSales,
       icon: <TrendingUp className="w-6 h-6" />,
       color: 'bg-green-500',
     },
     {
-      title: 'Doanh thu (MATIC)',
+      title: t("dashboard.revenue"),
       value: stats.totalRevenue,
       icon: <DollarSign className="w-6 h-6" />,
       color: 'bg-yellow-500',
     },
     {
-      title: 'Tồn kho',
+      title: t("dashboard.inventory"),
       value: stats.availableInventory,
       icon: <Package className="w-6 h-6" />,
       color: 'bg-orange-500',
     },
     {
-      title: 'Đánh giá TB',
+      title: t("dashboard.averageRating"),
       value: stats.averageRating.toFixed(1),
       icon: <Star className="w-6 h-6" />,
       color: 'bg-pink-500',
@@ -205,10 +207,10 @@ const SupplierDashboard: React.FC = () => {
       <div className="mb-8">
         <div className="flex justify-between items-start">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Supplier Dashboard</h1>
-            <p className="text-gray-600">Quản lý sản phẩm và theo dõi hiệu suất bán hàng</p>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">{t("dashboard.title")}</h1>
+            <p className="text-gray-600">{t("dashboard.subtitle")}</p>
             <div className="text-sm text-gray-500 mt-2">
-              Địa chỉ ví: {account}
+              {t("dashboard.walletAddress")}: {account}
             </div>
           </div>
           <button
@@ -216,7 +218,7 @@ const SupplierDashboard: React.FC = () => {
             className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
           >
             <Plus size={20} />
-            <span>Tạo sản phẩm</span>
+            <span>{t("dashboard.createProduct")}</span>
           </button>
         </div>
       </div>
@@ -248,9 +250,9 @@ const SupplierDashboard: React.FC = () => {
         {/* Recent Products */}
         <div className="bg-white rounded-xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-gray-900">Sản phẩm gần đây</h2>
+            <h2 className="text-xl font-semibold text-gray-900">{t("dashboard.recentProducts")}</h2>
             <button className="text-green-600 hover:text-green-700 font-medium">
-              Xem tất cả
+              {t("dashboard.viewAll")}
             </button>
           </div>
           
@@ -258,7 +260,7 @@ const SupplierDashboard: React.FC = () => {
             {products.length === 0 ? (
               <div className="text-center text-gray-500 py-8">
                 <Package className="w-12 h-12 mx-auto mb-4 text-gray-300" />
-                <p>Chưa có sản phẩm nào</p>
+                <p>{t("dashboard.noProducts")}</p>
               </div>
             ) : (
               products.map((product, index) => (
@@ -275,7 +277,7 @@ const SupplierDashboard: React.FC = () => {
                   <div className="flex-1">
                     <h3 className="font-medium text-gray-900">{product.name}</h3>
                     <p className="text-sm text-gray-500">
-                      {product.availableSupply}/{product.totalSupply} còn lại
+                      {product.availableSupply}/{product.totalSupply} {t("dashboard.remaining")}
                     </p>
                   </div>
                   <div className="text-right">
@@ -296,7 +298,7 @@ const SupplierDashboard: React.FC = () => {
 
         {/* Quick Actions */}
         <div className="bg-white rounded-xl shadow-lg p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">Thao tác nhanh</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-6">{t("dashboard.quickActions")}</h2>
           
           <div className="space-y-4">
             <motion.button
@@ -306,7 +308,7 @@ const SupplierDashboard: React.FC = () => {
               whileTap={{ scale: 0.98 }}
             >
               <Package className="w-5 h-5 text-green-600" />
-              <span className="font-medium text-green-900">Thêm sản phẩm mới</span>
+              <span className="font-medium text-green-900">{t("dashboard.addNewProduct")}</span>
             </motion.button>
             
             <motion.button
@@ -316,7 +318,7 @@ const SupplierDashboard: React.FC = () => {
               whileTap={{ scale: 0.98 }}
             >
               <Award className="w-5 h-5 text-purple-600" />
-              <span className="font-medium text-purple-900">Mint NFT cho sản phẩm</span>
+              <span className="font-medium text-purple-900">{t("dashboard.mintNFT")}</span>
             </motion.button>
             
             <motion.button
@@ -325,7 +327,7 @@ const SupplierDashboard: React.FC = () => {
               whileTap={{ scale: 0.98 }}
             >
               <Eye className="w-5 h-5 text-blue-600" />
-              <span className="font-medium text-blue-900">Xem tất cả đơn hàng</span>
+              <span className="font-medium text-blue-900">{t("dashboard.viewOrders")}</span>
             </motion.button>
             
             <motion.button
@@ -334,7 +336,7 @@ const SupplierDashboard: React.FC = () => {
               whileTap={{ scale: 0.98 }}
             >
               <TrendingUp className="w-5 h-5 text-yellow-600" />
-              <span className="font-medium text-yellow-900">Xem báo cáo doanh thu</span>
+              <span className="font-medium text-yellow-900">{t("dashboard.viewRevenue")}</span>
             </motion.button>
           </div>
         </div>

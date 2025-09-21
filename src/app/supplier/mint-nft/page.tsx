@@ -4,11 +4,13 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Package, Coins, Hash, Image as ImageIcon, Upload } from 'lucide-react';
 import { useWallet } from '@/contexts/WalletContext';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const MintNFTPageContent: React.FC = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { account, isConnected } = useWallet();
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -110,7 +112,7 @@ const MintNFTPageContent: React.FC = () => {
 
       if (!prepareResponse.ok) {
         const errorData = await prepareResponse.json();
-        throw new Error(errorData.error || 'Có lỗi xảy ra khi chuẩn bị mint');
+        throw new Error(errorData.error || `${t("common.error")} khi chuẩn bị mint`);
       }
 
       const mintParams = await prepareResponse.json();
@@ -147,7 +149,7 @@ const MintNFTPageContent: React.FC = () => {
 
       if (!confirmResponse.ok) {
         const errorData = await confirmResponse.json();
-        throw new Error(errorData.error || 'Có lỗi xảy ra khi xác nhận mint');
+        throw new Error(errorData.error || `${t("common.error")} khi xác nhận mint`);
       }
 
       const result = await confirmResponse.json();
@@ -159,7 +161,7 @@ const MintNFTPageContent: React.FC = () => {
       }, 3000);
 
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Có lỗi xảy ra');
+      setError(err instanceof Error ? err.message : t("common.error"));
     } finally {
       setLoading(false);
     }
@@ -191,7 +193,7 @@ const MintNFTPageContent: React.FC = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">
-            Đang tải thông tin sản phẩm...
+            {t("mintNFT.loading")}
           </h1>
         </div>
       </div>
@@ -211,10 +213,10 @@ const MintNFTPageContent: React.FC = () => {
             Quay lại
           </button>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Mint NFT cho sản phẩm
+            {t("mintNFT.title")}
           </h1>
           <p className="text-gray-600">
-            Tạo NFT để bán sản phẩm trên marketplace
+            {t("mintNFT.subtitle")}
           </p>
         </div>
 
@@ -225,11 +227,11 @@ const MintNFTPageContent: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             className="bg-white rounded-lg shadow-md p-6"
           >
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Thông tin sản phẩm</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-4">{t("mintNFT.productInfo")}</h2>
             
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Tên sản phẩm</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t("mintNFT.productName")}</label>
                 <p className="text-gray-900">{product.name}</p>
               </div>
               
@@ -276,14 +278,14 @@ const MintNFTPageContent: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             className="bg-white rounded-lg shadow-md p-6"
           >
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Thông tin mint NFT</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-4">{t("mintNFT.title")}</h2>
             
             <form onSubmit={handleMintNFT} className="space-y-6">
               {/* Quantity */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   <Hash size={16} className="inline mr-2" />
-                  Số lượng NFT cần mint *
+                  {t("mintNFT.quantity")} *
                 </label>
                 <input
                   type="number"
@@ -413,7 +415,7 @@ const MintNFTPageContent: React.FC = () => {
                   disabled={loading}
                   className="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:bg-gray-400 transition-colors"
                 >
-                  {loading ? 'Đang mint...' : 'Mint NFT'}
+                  {loading ? t("mintNFT.minting") : t("mintNFT.mint")}
                 </button>
               </div>
             </form>

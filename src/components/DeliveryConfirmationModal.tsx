@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface DeliveryConfirmationModalProps {
   isOpen: boolean;
@@ -27,6 +28,7 @@ const DeliveryConfirmationModal: React.FC<DeliveryConfirmationModalProps> = ({
   orderId,
   productName
 }) => {
+  const { t } = useTranslation();
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState('');
   const [hasComplaint, setHasComplaint] = useState(false);
@@ -109,7 +111,7 @@ const DeliveryConfirmationModal: React.FC<DeliveryConfirmationModalProps> = ({
                 {/* Rating */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Đánh giá sản phẩm (1-5 sao)
+                    Đánh giá {t("suppliers.products")} (1-5 sao)
                   </label>
                   <div className="flex space-x-1">
                     {[1, 2, 3, 4, 5].map((star) => (
@@ -138,7 +140,7 @@ const DeliveryConfirmationModal: React.FC<DeliveryConfirmationModalProps> = ({
                 {/* Quality Rating */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Chất lượng sản phẩm
+                    Chất lượng {t("suppliers.products")}
                   </label>
                   <div className="flex space-x-4">
                     <label className="flex items-center">
@@ -178,7 +180,7 @@ const DeliveryConfirmationModal: React.FC<DeliveryConfirmationModalProps> = ({
                     onChange={(e) => setComment(e.target.value)}
                     rows={3}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm..."
+                    placeholder={`Chia sẻ trải nghiệm của bạn về ${t("suppliers.products")}...`}
                     disabled={isSubmitting}
                   />
                 </div>
@@ -194,7 +196,7 @@ const DeliveryConfirmationModal: React.FC<DeliveryConfirmationModalProps> = ({
                       disabled={isSubmitting}
                     />
                     <span className="text-sm text-gray-700">
-                      Tôi gặp vấn đề với sản phẩm này (khiếu nại)
+                      Tôi gặp vấn đề với {t("suppliers.products")} này (khiếu nại)
                     </span>
                   </label>
                 </div>

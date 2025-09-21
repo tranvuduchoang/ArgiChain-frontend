@@ -5,9 +5,11 @@ import { useRouter } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import ProductCard from '@/components/ProductCard';
 import { fetchMarketplaceListings, MarketplaceListingItem } from '@/utils/api';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const MarketplacePage: React.FC = () => {
   const router = useRouter();
+  const { t } = useTranslation();
   const [listings, setListings] = useState<MarketplaceListingItem[]>([]);
   const [search, setSearch] = useState('');
   const [onlyMinted, setOnlyMinted] = useState(false);
@@ -23,7 +25,7 @@ const MarketplacePage: React.FC = () => {
         setError(null);
       })
       .catch((err: Error) => {
-        setError(err.message || 'Không thể tải danh sách sản phẩm');
+        setError(err.message || t('common.error'));
       })
       .finally(() => setLoading(false));
   }, []);
@@ -56,13 +58,13 @@ const MarketplacePage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="bg-white/70 backdrop-blur border border-gray-100 rounded-xl p-4 flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 ui-soft-shadow">
         <div>
-          <h1 className="text-3xl font-bold ui-gradient-text">Marketplace</h1>
-          <p className="text-gray-500">Khám phá các lô nông sản đã được token hóa và giao dịch bằng crypto minh bạch.</p>
+          <h1 className="text-3xl font-bold ui-gradient-text">{t('marketplace.title')}</h1>
+          <p className="text-gray-500">{t('marketplace.subtitle')}</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-3">
           <input
             type="search"
-            placeholder="Tìm kiếm theo tên sản phẩm, supplier, tag..."
+            placeholder={t("marketplace.searchPlaceholder")}
             className="ui-focus-ring w-full sm:w-80 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:text-gray-500 cursor-pointer"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -75,7 +77,7 @@ const MarketplacePage: React.FC = () => {
                 checked={onlyInStock}
                 onChange={() => setOnlyInStock((prev) => !prev)}
               />
-              Còn hàng
+              {t("marketplace.inStock")}
             </label>
             <label className="inline-flex items-center gap-2 cursor-pointer">
               <input
@@ -84,7 +86,7 @@ const MarketplacePage: React.FC = () => {
                 checked={onlyMinted}
                 onChange={() => setOnlyMinted((prev) => !prev)}
               />
-              Đã mint NFT
+              {t("marketplace.mintedNFT")}
             </label>
           </div>
         </div>
@@ -112,7 +114,7 @@ const MarketplacePage: React.FC = () => {
 
       {!loading && !error && (
         <div className="text-sm text-gray-500 mb-4">
-          Hiển thị {filteredListings.length} / {listings.length} sản phẩm.
+          Hiển thị {filteredListings.length} / {listings.length} {t("suppliers.products")}.
         </div>
       )}
 
@@ -129,7 +131,7 @@ const MarketplacePage: React.FC = () => {
           >
             {filteredListings.length === 0 ? (
               <div className="col-span-full text-center text-gray-400 py-10 border border-dashed rounded-lg">
-                Không tìm thấy sản phẩm phù hợp.
+                {t("marketplace.noProducts")}
               </div>
             ) : (
               filteredListings.map((listing) => (

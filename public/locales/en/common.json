@@ -1,0 +1,140 @@
+{
+  "navigation": {
+    "home": "Home",
+    "marketplace": "Marketplace",
+    "suppliers": "Suppliers",
+    "profile": "Personal Profile",
+    "purchasedProducts": "Purchased Products"
+  },
+  "auth": {
+    "connectWallet": "Connect Wallet",
+    "disconnectWallet": "Disconnect",
+    "becomeSupplier": "Become Supplier",
+    "yourSupplier": "Your Supplier"
+  },
+  "marketplace": {
+    "title": "Marketplace",
+    "subtitle": "Discover tokenized agricultural products and trade with transparent crypto transactions",
+    "searchPlaceholder": "Search by product name, supplier, tag...",
+    "inStock": "In Stock",
+    "mintedNFT": "Minted NFT",
+    "placeOrder": "Place Order",
+    "viewDetails": "View Details",
+    "noProducts": "No products found matching your criteria",
+    "showingProducts": "Showing {{count}} / {{total}} products"
+  },
+  "suppliers": {
+    "title": "Suppliers",
+    "subtitle": "Discover trusted and quality agricultural suppliers",
+    "searchPlaceholder": "Search suppliers...",
+    "viewDetails": "View Details",
+    "totalSuppliers": "Total Suppliers",
+    "totalProducts": "Total Products",
+    "averageRating": "Average Rating",
+    "noSuppliers": "No suppliers found matching your criteria",
+    "products": "products"
+  },
+  "product": {
+    "supplier": "Supplier",
+    "price": "Price",
+    "available": "Available",
+    "order": "Order",
+    "reviews": "Product Reviews",
+    "noReviews": "No reviews yet"
+  },
+  "supplier": {
+    "walletAddress": "Wallet Address",
+    "email": "Email",
+    "products": "Supplier Products",
+    "reviews": "Supplier Reviews",
+    "noProducts": "No products available",
+    "noReviews": "No reviews yet"
+  },
+  "order": {
+    "title": "Place Order",
+    "productDetails": "Product Details",
+    "quantity": "Quantity",
+    "deliveryAddress": "Delivery Address",
+    "deliveryMethod": "Delivery Method",
+    "paymentMethod": "Payment Method",
+    "notes": "Notes",
+    "total": "Total",
+    "placeOrder": "Place Order",
+    "processing": "Processing...",
+    "success": "Order placed successfully!",
+    "error": "Error occurred while placing order"
+  },
+  "purchasedProducts": {
+    "title": "Purchased Products",
+    "noProducts": "You haven't purchased any products yet",
+    "findProducts": "Find Desired Products",
+    "orderNumber": "Order #{{number}}",
+    "orderDate": "Order Date: {{date}}",
+    "totalAmount": "{{amount}} {{currency}}",
+    "status": {
+      "paid": "Paid",
+      "pending": "Processing",
+      "cancelled": "Cancelled"
+    },
+    "deliveryStatus": {
+      "completed": "Completed",
+      "confirmed": "Confirmed",
+      "pending": "Pending Confirmation",
+      "disputed": "Disputed"
+    },
+    "confirmDelivery": "Confirm Delivery Received",
+    "processing": "Processing..."
+  },
+  "deliveryConfirmation": {
+    "title": "Confirm Delivery & Review",
+    "orderNumber": "Order #{{orderId}}",
+    "productName": "{{productName}}",
+    "rating": "Product Rating:",
+    "comment": "Your Comment (optional):",
+    "commentPlaceholder": "Write your product review...",
+    "complaint": "Product has issues (complaint)",
+    "qualityRating": "Product Quality:",
+    "qualityGood": "Good",
+    "qualityBad": "Bad",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "submitting": "Submitting...",
+    "success": "Delivery confirmation successful! NFT has been burned.",
+    "error": "Error occurred while confirming delivery. Please try again."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "edit": "Edit",
+    "delete": "Delete",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "refresh": "Refresh",
+    "copy": "Copy",
+    "share": "Share",
+    "download": "Download",
+    "upload": "Upload",
+    "select": "Select",
+    "all": "All",
+    "none": "None",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "required": "Required",
+    "optional": "Optional",
+    "dashboard": "Dashboard",
+    "connecting": "Connecting..."
+  }
+}

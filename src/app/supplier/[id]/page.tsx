@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { fetchSupplierDetail, fetchProducts, fetchReviews } from '@/utils/api';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from '@/hooks/useTranslation';
 
-const SupplierPage: React.FC = () => {
+const SupplierPage: React.FC = () => {  const { t } = useTranslation();
+
   const params = useParams();
   const id = params.id as string;
   const [supplier, setSupplier] = useState<any>(null);
@@ -64,7 +66,7 @@ const SupplierPage: React.FC = () => {
         <h3 className="text-xl font-semibold mb-2">Sản phẩm của supplier</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {products.length === 0 ? (
-            <div className="col-span-full text-gray-500">Chưa có sản phẩm nào.</div>
+            <div className="col-span-full text-gray-500">Chưa có {t("suppliers.products")} nào.</div>
           ) : (
             products.map((product: any) => (
               <motion.div

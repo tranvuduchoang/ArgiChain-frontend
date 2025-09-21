@@ -2,13 +2,15 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useWallet } from '@/contexts/WalletContext';
+import { useTranslation } from '@/hooks/useTranslation';
+import LanguageSwitcher from './LanguageSwitcher';
 import { Wallet, User, Globe, Menu, X, ChevronDown, Package, Plus, Settings, LogOut, ShoppingBag } from 'lucide-react';
 
 const Header: React.FC = () => {
   const { isConnected, account, balance, connect, disconnect, isLoading } = useWallet();
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<'EN' | 'VI'>('EN');
   const [isSupplier, setIsSupplier] = useState(false);
   const [supplierData, setSupplierData] = useState<any>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
@@ -37,9 +39,6 @@ const Header: React.FC = () => {
     setIsUserMenuOpen(false);
   };
 
-  const toggleLanguage = () => {
-    setLanguage(language === 'EN' ? 'VI' : 'EN');
-  };
 
   const formatAddress = (address: string) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
@@ -118,26 +117,26 @@ const Header: React.FC = () => {
               href="/"
               className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
-              {language === 'EN' ? 'Home' : 'Trang chủ'}
+{t('navigation.home')}
             </a>
             <a
               href="/marketplace"
               className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
-              {language === 'EN' ? 'Marketplace' : 'Thị trường'}
+{t('navigation.marketplace')}
             </a>
             <a
               href="/suppliers"
               className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
-              {language === 'EN' ? 'Suppliers' : 'Nhà cung cấp'}
+{t('navigation.suppliers')}
             </a>
             {isConnected && (
               <a
                 href="/supplier/dashboard"
                 className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
-                {language === 'EN' ? 'Dashboard' : 'Bảng điều khiển'}
+{t('common.dashboard')}
               </a>
             )}
           </nav>
@@ -145,13 +144,7 @@ const Header: React.FC = () => {
           {/* Right side - Language and Wallet */}
           <div className="flex items-center space-x-4">
             {/* Language Toggle */}
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center space-x-1 text-gray-700 hover:text-green-600 hover:underline underline-offset-4 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-            >
-              <Globe size={16} />
-              <span>{language}</span>
-            </button>
+            <LanguageSwitcher />
 
             {/* Wallet Connection */}
             <div className="hidden md:block">
@@ -190,7 +183,7 @@ const Header: React.FC = () => {
                             className="w-full flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                           >
                             <Package size={16} />
-                            <span>Nhà cung cấp của bạn</span>
+                            <span>{t('auth.yourSupplier')}</span>
                           </button>
                         ) : (
                           <button
@@ -198,7 +191,7 @@ const Header: React.FC = () => {
                             className="w-full flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                           >
                             <Plus size={16} />
-                            <span>Trở thành nhà cung cấp</span>
+                            <span>{t('auth.becomeSupplier')}</span>
                           </button>
                         )}
                         
@@ -207,7 +200,7 @@ const Header: React.FC = () => {
                           className="w-full flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                         >
                           <ShoppingBag size={16} />
-                          <span>Những sản phẩm đã mua</span>
+                          <span>{t('navigation.purchasedProducts')}</span>
                         </button>
                         
                         <button
@@ -215,7 +208,7 @@ const Header: React.FC = () => {
                           className="w-full flex items-center space-x-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
                         >
                           <LogOut size={16} />
-                          <span>Ngắt kết nối</span>
+                          <span>{t('auth.disconnectWallet')}</span>
                         </button>
                       </div>
                     </div>
@@ -230,8 +223,8 @@ const Header: React.FC = () => {
                   <Wallet size={16} />
                   <span>
                     {isLoading 
-                      ? (language === 'EN' ? 'Connecting...' : 'Đang kết nối...')
-                      : (language === 'EN' ? 'Connect Wallet' : 'Kết nối ví')
+                      ? t('common.connecting')
+                      : t('auth.connectWallet')
                     }
                   </span>
                 </button>
@@ -258,26 +251,26 @@ const Header: React.FC = () => {
                 href="/"
                 className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 block px-3 py-2 rounded-md text-base font-medium"
               >
-                {language === 'EN' ? 'Home' : 'Trang chủ'}
+  {t('navigation.home')}
               </a>
               <a
                 href="/marketplace"
                 className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 block px-3 py-2 rounded-md text-base font-medium"
               >
-                Marketplace
+{t('navigation.marketplace')}
               </a>
               <a
                 href="/suppliers"
                 className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 block px-3 py-2 rounded-md text-base font-medium"
               >
-                {language === 'EN' ? 'Suppliers' : 'Nhà cung cấp'}
+  {t('navigation.suppliers')}
               </a>
               {isConnected && (
                 <a
                   href="/supplier/dashboard"
                   className="text-gray-700 hover:text-green-600 hover:underline underline-offset-4 block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  {language === 'EN' ? 'Dashboard' : 'Bảng điều khiển'}
+  {t('common.dashboard')}
                 </a>
               )}
               
@@ -306,7 +299,7 @@ const Header: React.FC = () => {
                           className="w-full flex items-center space-x-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                         >
                           <Package size={16} />
-                          <span>Nhà cung cấp của bạn</span>
+                            <span>{t('auth.yourSupplier')}</span>
                         </button>
                       ) : (
                         <button
@@ -323,7 +316,7 @@ const Header: React.FC = () => {
                         className="w-full flex items-center space-x-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                       >
                         <Settings size={16} />
-                        <span>Hồ sơ cá nhân</span>
+                        <span>{t('navigation.profile')}</span>
                       </button>
                       
                       <button
@@ -344,8 +337,8 @@ const Header: React.FC = () => {
                     <Wallet size={16} />
                     <span>
                       {isLoading 
-                        ? (language === 'EN' ? 'Connecting...' : 'Đang kết nối...')
-                        : (language === 'EN' ? 'Connect Wallet' : 'Kết nối ví')
+                        ? t('common.connecting')
+                        : t('auth.connectWallet')
                       }
                     </span>
                   </button>

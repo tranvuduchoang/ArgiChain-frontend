@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchSupplierDetail } from '@/utils/api';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from '@/hooks/useTranslation';
 import { 
   Building2, 
   MapPin, 
@@ -27,9 +28,10 @@ interface SupplierCardProps {
     };
   };
   onViewDetail: (supplierId: string) => void;
+  t: (key: string) => string;
 }
 
-const SupplierCard: React.FC<SupplierCardProps> = ({ supplier, onViewDetail }) => {
+const SupplierCard: React.FC<SupplierCardProps> = ({ supplier, onViewDetail, t }) => {
   return (
     <motion.div
       className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow border border-gray-100 ring-1 ring-gray-100 hover:ring-green-300 transform transition-transform ui-hover-lift"
@@ -87,7 +89,7 @@ const SupplierCard: React.FC<SupplierCardProps> = ({ supplier, onViewDetail }) =
         <div className="flex items-center space-x-4 text-sm text-gray-500">
           <div className="flex items-center space-x-1">
             <Package className="w-4 h-4" />
-            <span>{supplier.totalProducts || 0} sản phẩm</span>
+            <span>{supplier.totalProducts || 0} {t("suppliers.products")}</span>
           </div>
         </div>
         
@@ -96,7 +98,7 @@ const SupplierCard: React.FC<SupplierCardProps> = ({ supplier, onViewDetail }) =
           className="flex items-center space-x-1 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors ui-focus-ring cursor-pointer"
         >
           <Eye className="w-4 h-4" />
-          <span>Xem chi tiết</span>
+          <span>{t("suppliers.viewDetails")}</span>
         </button>
       </div>
     </motion.div>
@@ -104,6 +106,8 @@ const SupplierCard: React.FC<SupplierCardProps> = ({ supplier, onViewDetail }) =
 };
 
 const SuppliersPage: React.FC = () => {
+  const { t } = useTranslation();
+
   const [suppliers, setSuppliers] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -173,8 +177,8 @@ const SuppliersPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold ui-gradient-text mb-2">Nhà cung cấp</h1>
-        <p className="text-gray-600">Khám phá các nhà cung cấp nông sản uy tín và chất lượng</p>
+        <h1 className="text-3xl font-bold ui-gradient-text mb-2">{t("suppliers.title")}</h1>
+        <p className="text-gray-600">{t("suppliers.subtitle")}</p>
       </div>
 
       {/* Search Bar */}
@@ -182,7 +186,7 @@ const SuppliersPage: React.FC = () => {
         <div className="max-w-md">
           <input
             type="search"
-            placeholder="Tìm kiếm nhà cung cấp..."
+            placeholder={t("suppliers.searchPlaceholder")}
             className="ui-focus-ring w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:text-gray-500 cursor-pointer"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -198,7 +202,7 @@ const SuppliersPage: React.FC = () => {
               <Building2 className="w-6 h-6 text-blue-600" />
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-600">Tổng nhà cung cấp</p>
+              <p className="text-sm font-medium text-gray-600">{t("suppliers.totalSuppliers")}</p>
               <p className="text-2xl font-bold text-gray-900">{suppliers.length}</p>
             </div>
           </div>
@@ -210,7 +214,7 @@ const SuppliersPage: React.FC = () => {
               <Package className="w-6 h-6 text-green-600" />
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-600">Tổng sản phẩm</p>
+              <p className="text-sm font-medium text-gray-600">{t("suppliers.totalProducts")}</p>
               <p className="text-2xl font-bold text-gray-900">
                 {suppliers.reduce((sum, s) => sum + (s.totalProducts || 0), 0)}
               </p>
@@ -224,7 +228,7 @@ const SuppliersPage: React.FC = () => {
               <Star className="w-6 h-6 text-yellow-600" />
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-600">Đánh giá trung bình</p>
+              <p className="text-sm font-medium text-gray-600">{t("suppliers.averageRating")}</p>
               <p className="text-2xl font-bold text-gray-900">
                 {(suppliers.reduce((sum, s) => sum + (s.rating || 0), 0) / suppliers.length || 0).toFixed(1)}
               </p>
@@ -246,7 +250,7 @@ const SuppliersPage: React.FC = () => {
         >
           {filteredSuppliers.length === 0 ? (
             <div className="col-span-full text-center text-gray-500 py-10 border border-dashed rounded-lg">
-              Không tìm thấy nhà cung cấp phù hợp.
+              {t("suppliers.noSuppliers")}
             </div>
           ) : (
             filteredSuppliers.map((supplier) => (
@@ -254,6 +258,7 @@ const SuppliersPage: React.FC = () => {
                 key={supplier.id}
                 supplier={supplier}
                 onViewDetail={handleViewDetail}
+                t={t}
               />
             ))
           )}

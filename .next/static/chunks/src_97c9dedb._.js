@@ -12,14 +12,17 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/useTranslation.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
 ;
 ;
+;
 const DeliveryConfirmationModal = (param)=>{
     let { isOpen, onClose, onConfirm, orderId, productName } = param;
     _s();
+    const { t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"])();
     const [rating, setRating] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(5);
     const [comment, setComment] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
     const [hasComplaint, setHasComplaint] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -68,7 +71,7 @@ const DeliveryConfirmationModal = (param)=>{
                     onClick: handleClose
                 }, void 0, false, {
                     fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                    lineNumber: 70,
+                    lineNumber: 72,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -99,7 +102,7 @@ const DeliveryConfirmationModal = (param)=>{
                                         children: "Xác nhận đã nhận hàng"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                        lineNumber: 88,
+                                        lineNumber: 90,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -118,23 +121,23 @@ const DeliveryConfirmationModal = (param)=>{
                                                 d: "M6 18L18 6M6 6l12 12"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                lineNumber: 97,
+                                                lineNumber: 99,
                                                 columnNumber: 21
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                            lineNumber: 96,
+                                            lineNumber: 98,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                        lineNumber: 91,
+                                        lineNumber: 93,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                lineNumber: 87,
+                                lineNumber: 89,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -145,7 +148,7 @@ const DeliveryConfirmationModal = (param)=>{
                                         children: "Sản phẩm đã nhận"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                        lineNumber: 104,
+                                        lineNumber: 106,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -153,13 +156,13 @@ const DeliveryConfirmationModal = (param)=>{
                                         children: productName
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                        lineNumber: 105,
+                                        lineNumber: 107,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                lineNumber: 103,
+                                lineNumber: 105,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -170,10 +173,14 @@ const DeliveryConfirmationModal = (param)=>{
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                 className: "block text-sm font-medium text-gray-700 mb-2",
-                                                children: "Đánh giá sản phẩm (1-5 sao)"
-                                            }, void 0, false, {
+                                                children: [
+                                                    "Đánh giá ",
+                                                    t("suppliers.products"),
+                                                    " (1-5 sao)"
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                lineNumber: 111,
+                                                lineNumber: 113,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -192,12 +199,12 @@ const DeliveryConfirmationModal = (param)=>{
                                                         children: "★"
                                                     }, star, false, {
                                                         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                        lineNumber: 116,
+                                                        lineNumber: 118,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0)))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                lineNumber: 114,
+                                                lineNumber: 116,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -211,23 +218,26 @@ const DeliveryConfirmationModal = (param)=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                lineNumber: 129,
+                                                lineNumber: 131,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                        lineNumber: 110,
+                                        lineNumber: 112,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                 className: "block text-sm font-medium text-gray-700 mb-2",
-                                                children: "Chất lượng sản phẩm"
-                                            }, void 0, false, {
+                                                children: [
+                                                    "Chất lượng ",
+                                                    t("suppliers.products")
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                lineNumber: 140,
+                                                lineNumber: 142,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -246,7 +256,7 @@ const DeliveryConfirmationModal = (param)=>{
                                                                 disabled: isSubmitting
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                                lineNumber: 145,
+                                                                lineNumber: 147,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -254,13 +264,13 @@ const DeliveryConfirmationModal = (param)=>{
                                                                 children: "Tốt"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                                lineNumber: 154,
+                                                                lineNumber: 156,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                        lineNumber: 144,
+                                                        lineNumber: 146,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -276,7 +286,7 @@ const DeliveryConfirmationModal = (param)=>{
                                                                 disabled: isSubmitting
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                                lineNumber: 157,
+                                                                lineNumber: 159,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -284,25 +294,25 @@ const DeliveryConfirmationModal = (param)=>{
                                                                 children: "Kém"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                                lineNumber: 166,
+                                                                lineNumber: 168,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                        lineNumber: 156,
+                                                        lineNumber: 158,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                lineNumber: 143,
+                                                lineNumber: 145,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                        lineNumber: 139,
+                                        lineNumber: 141,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -312,7 +322,7 @@ const DeliveryConfirmationModal = (param)=>{
                                                 children: "Nhận xét (tùy chọn)"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                lineNumber: 173,
+                                                lineNumber: 175,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -320,17 +330,17 @@ const DeliveryConfirmationModal = (param)=>{
                                                 onChange: (e)=>setComment(e.target.value),
                                                 rows: 3,
                                                 className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent",
-                                                placeholder: "Chia sẻ trải nghiệm của bạn về sản phẩm...",
+                                                placeholder: "Chia sẻ trải nghiệm của bạn về ".concat(t("suppliers.products"), "..."),
                                                 disabled: isSubmitting
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                lineNumber: 176,
+                                                lineNumber: 178,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                        lineNumber: 172,
+                                        lineNumber: 174,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -345,26 +355,30 @@ const DeliveryConfirmationModal = (param)=>{
                                                     disabled: isSubmitting
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                    lineNumber: 189,
+                                                    lineNumber: 191,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     className: "text-sm text-gray-700",
-                                                    children: "Tôi gặp vấn đề với sản phẩm này (khiếu nại)"
-                                                }, void 0, false, {
+                                                    children: [
+                                                        "Tôi gặp vấn đề với ",
+                                                        t("suppliers.products"),
+                                                        " này (khiếu nại)"
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                    lineNumber: 196,
+                                                    lineNumber: 198,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                            lineNumber: 188,
+                                            lineNumber: 190,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                        lineNumber: 187,
+                                        lineNumber: 189,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -378,7 +392,7 @@ const DeliveryConfirmationModal = (param)=>{
                                                 children: "Hủy"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                lineNumber: 204,
+                                                lineNumber: 206,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -388,45 +402,49 @@ const DeliveryConfirmationModal = (param)=>{
                                                 children: isSubmitting ? 'Đang xử lý...' : 'Xác nhận đã nhận hàng'
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                                lineNumber: 212,
+                                                lineNumber: 214,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                        lineNumber: 203,
+                                        lineNumber: 205,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                                lineNumber: 108,
+                                lineNumber: 110,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                        lineNumber: 85,
+                        lineNumber: 87,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-                    lineNumber: 79,
+                    lineNumber: 81,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-            lineNumber: 68,
+            lineNumber: 70,
             columnNumber: 9
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/components/DeliveryConfirmationModal.tsx",
-        lineNumber: 66,
+        lineNumber: 68,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(DeliveryConfirmationModal, "ojdoLaafBJOU23S3mqiZNP8uSfE=");
+_s(DeliveryConfirmationModal, "TSfpletxK+oGdJGx4tk14GOKX/o=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"]
+    ];
+});
 _c = DeliveryConfirmationModal;
 const __TURBOPACK__default__export__ = DeliveryConfirmationModal;
 var _c;
@@ -449,6 +467,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletCon
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$DeliveryConfirmationModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/DeliveryConfirmationModal.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/useTranslation.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
@@ -457,9 +476,11 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 const PurchasedProductsPage = ()=>{
     var _selectedOrder_items_;
     _s();
+    const { t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"])();
     const { account, isConnected } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useWallet"])();
     const [orders, setOrders] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
@@ -563,7 +584,7 @@ const PurchasedProductsPage = ()=>{
             alert('Xác nhận giao hàng thành công! NFT đã được burn.');
         } catch (error) {
             console.error('Error confirming delivery:', error);
-            alert('Có lỗi xảy ra khi xác nhận giao hàng. Vui lòng thử lại.');
+            alert('{t("common.error")} khi xác nhận giao hàng. Vui lòng thử lại.');
         } finally{
             setIsConfirming(false);
         }
@@ -586,18 +607,18 @@ const PurchasedProductsPage = ()=>{
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                             className: "text-3xl font-bold text-gray-900 mb-4",
-                            children: "Những sản phẩm đã mua"
+                            children: t("purchased.title")
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 181,
+                            lineNumber: 183,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-gray-600 mb-8",
-                            children: "Vui lòng kết nối ví để xem danh sách sản phẩm đã mua"
+                            children: t("purchased.connectWallet")
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 182,
+                            lineNumber: 184,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -605,23 +626,23 @@ const PurchasedProductsPage = ()=>{
                             children: "Kết nối ví"
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 183,
+                            lineNumber: 185,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                    lineNumber: 180,
+                    lineNumber: 182,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                lineNumber: 179,
+                lineNumber: 181,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/purchased-products/page.tsx",
-            lineNumber: 178,
+            lineNumber: 180,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -644,22 +665,22 @@ const PurchasedProductsPage = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                        lineNumber: 197,
+                        lineNumber: 199,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                    lineNumber: 196,
+                    lineNumber: 198,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                lineNumber: 195,
+                lineNumber: 197,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/purchased-products/page.tsx",
-            lineNumber: 194,
+            lineNumber: 196,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -673,10 +694,10 @@ const PurchasedProductsPage = ()=>{
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                             className: "text-3xl font-bold text-gray-900 mb-4",
-                            children: "Những sản phẩm đã mua"
+                            children: t("purchased.title")
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 213,
+                            lineNumber: 215,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -686,37 +707,37 @@ const PurchasedProductsPage = ()=>{
                                 children: error
                             }, void 0, false, {
                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                lineNumber: 215,
+                                lineNumber: 217,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 214,
+                            lineNumber: 216,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: ()=>window.location.reload(),
                             className: "bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors",
-                            children: "Thử lại"
+                            children: t("common.retry")
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 217,
+                            lineNumber: 219,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                    lineNumber: 212,
+                    lineNumber: 214,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                lineNumber: 211,
+                lineNumber: 213,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/purchased-products/page.tsx",
-            lineNumber: 210,
+            lineNumber: 212,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -754,33 +775,33 @@ const PurchasedProductsPage = ()=>{
                                         d: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                        lineNumber: 241,
+                                        lineNumber: 243,
                                         columnNumber: 19
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                    lineNumber: 240,
+                                    lineNumber: 242,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                lineNumber: 239,
+                                lineNumber: 241,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                                 className: "text-3xl font-bold text-gray-900 mb-4",
-                                children: "Những sản phẩm đã mua"
+                                children: t("purchased.title")
                             }, void 0, false, {
                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                lineNumber: 244,
+                                lineNumber: 246,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-gray-600 mb-8 text-lg",
-                                children: "Bạn chưa mua bất kì sản phẩm nào"
+                                children: t("purchased.noProducts")
                             }, void 0, false, {
                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                lineNumber: 245,
+                                lineNumber: 247,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -799,40 +820,40 @@ const PurchasedProductsPage = ()=>{
                                             d: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                            lineNumber: 251,
+                                            lineNumber: 253,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                        lineNumber: 250,
+                                        lineNumber: 252,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
-                                    "Tìm sản phẩm mong muốn"
+                                    t("purchased.findProducts")
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                lineNumber: 246,
+                                lineNumber: 248,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                        lineNumber: 234,
+                        lineNumber: 236,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                    lineNumber: 233,
+                    lineNumber: 235,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                lineNumber: 232,
+                lineNumber: 234,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/purchased-products/page.tsx",
-            lineNumber: 231,
+            lineNumber: 233,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -856,10 +877,14 @@ const PurchasedProductsPage = ()=>{
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                             className: "text-3xl font-bold text-gray-900 mb-8",
-                            children: "Những sản phẩm đã mua"
-                        }, void 0, false, {
+                            children: [
+                                "Những ",
+                                t("suppliers.products"),
+                                " đã mua"
+                            ]
+                        }, void 0, true, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 270,
+                            lineNumber: 272,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -894,7 +919,7 @@ const PurchasedProductsPage = ()=>{
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                lineNumber: 285,
+                                                                lineNumber: 287,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -905,13 +930,13 @@ const PurchasedProductsPage = ()=>{
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                lineNumber: 288,
+                                                                lineNumber: 290,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                        lineNumber: 284,
+                                                        lineNumber: 286,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -926,7 +951,7 @@ const PurchasedProductsPage = ()=>{
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                lineNumber: 293,
+                                                                lineNumber: 295,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -937,7 +962,7 @@ const PurchasedProductsPage = ()=>{
                                                                         children: order.status === 'PAID' ? 'Đã thanh toán' : order.status === 'PENDING' ? 'Đang xử lý' : 'Đã hủy'
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                        lineNumber: 297,
+                                                                        lineNumber: 299,
                                                                         columnNumber: 25
                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                     order.deliveryStatus && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -945,30 +970,30 @@ const PurchasedProductsPage = ()=>{
                                                                         children: order.deliveryStatus === 'COMPLETED' ? 'Đã hoàn thành' : order.deliveryStatus === 'CONFIRMED' ? 'Đã xác nhận' : order.deliveryStatus === 'PENDING' ? 'Chờ xác nhận' : 'Có vấn đề'
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                        lineNumber: 307,
+                                                                        lineNumber: 309,
                                                                         columnNumber: 27
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                lineNumber: 296,
+                                                                lineNumber: 298,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                        lineNumber: 292,
+                                                        lineNumber: 294,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                lineNumber: 283,
+                                                lineNumber: 285,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                            lineNumber: 282,
+                                            lineNumber: 284,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -987,7 +1012,7 @@ const PurchasedProductsPage = ()=>{
                                                                         className: "w-16 h-16 object-cover rounded-lg"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                        lineNumber: 332,
+                                                                        lineNumber: 334,
                                                                         columnNumber: 29
                                                                     }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         className: "w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center",
@@ -1003,22 +1028,22 @@ const PurchasedProductsPage = ()=>{
                                                                                 d: "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                                lineNumber: 340,
+                                                                                lineNumber: 342,
                                                                                 columnNumber: 33
                                                                             }, ("TURBOPACK compile-time value", void 0))
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 339,
+                                                                            lineNumber: 341,
                                                                             columnNumber: 31
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                        lineNumber: 338,
+                                                                        lineNumber: 340,
                                                                         columnNumber: 29
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                    lineNumber: 330,
+                                                                    lineNumber: 332,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1029,7 +1054,7 @@ const PurchasedProductsPage = ()=>{
                                                                             children: item.product.name
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 348,
+                                                                            lineNumber: 350,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1037,7 +1062,7 @@ const PurchasedProductsPage = ()=>{
                                                                             children: item.product.description
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 351,
+                                                                            lineNumber: 353,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1051,7 +1076,7 @@ const PurchasedProductsPage = ()=>{
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                                    lineNumber: 355,
+                                                                                    lineNumber: 357,
                                                                                     columnNumber: 29
                                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1064,19 +1089,19 @@ const PurchasedProductsPage = ()=>{
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                                    lineNumber: 358,
+                                                                                    lineNumber: 360,
                                                                                     columnNumber: 29
                                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 354,
+                                                                            lineNumber: 356,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                    lineNumber: 347,
+                                                                    lineNumber: 349,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1084,10 +1109,13 @@ const PurchasedProductsPage = ()=>{
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                             className: "text-sm text-gray-500",
-                                                                            children: "Nhà cung cấp:"
-                                                                        }, void 0, false, {
+                                                                            children: [
+                                                                                t("suppliers.title"),
+                                                                                ":"
+                                                                            ]
+                                                                        }, void 0, true, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 366,
+                                                                            lineNumber: 368,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1095,7 +1123,7 @@ const PurchasedProductsPage = ()=>{
                                                                             children: item.product.supplier.name
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 367,
+                                                                            lineNumber: 369,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1107,24 +1135,24 @@ const PurchasedProductsPage = ()=>{
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 368,
+                                                                            lineNumber: 370,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                    lineNumber: 365,
+                                                                    lineNumber: 367,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, item.id, true, {
                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                            lineNumber: 328,
+                                                            lineNumber: 330,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                    lineNumber: 326,
+                                                    lineNumber: 328,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1135,7 +1163,7 @@ const PurchasedProductsPage = ()=>{
                                                             children: "Thông tin giao hàng:"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                            lineNumber: 378,
+                                                            lineNumber: 380,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1143,13 +1171,13 @@ const PurchasedProductsPage = ()=>{
                                                             children: order.deliveryAddress
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                            lineNumber: 379,
+                                                            lineNumber: 381,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                    lineNumber: 377,
+                                                    lineNumber: 379,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 order.status === 'PAID' && order.deliveryStatus === 'PENDING' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1161,40 +1189,40 @@ const PurchasedProductsPage = ()=>{
                                                         children: isConfirming ? 'Đang xử lý...' : 'Xác nhận đã nhận hàng'
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                        lineNumber: 385,
+                                                        lineNumber: 387,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                    lineNumber: 384,
+                                                    lineNumber: 386,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                            lineNumber: 325,
+                                            lineNumber: 327,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, order.id, true, {
                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                    lineNumber: 274,
+                                    lineNumber: 276,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)))
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 272,
+                            lineNumber: 274,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                    lineNumber: 265,
+                    lineNumber: 267,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                lineNumber: 264,
+                lineNumber: 266,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             selectedOrder && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$DeliveryConfirmationModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1205,18 +1233,19 @@ const PurchasedProductsPage = ()=>{
                 productName: ((_selectedOrder_items_ = selectedOrder.items[0]) === null || _selectedOrder_items_ === void 0 ? void 0 : _selectedOrder_items_.product.name) || 'Sản phẩm'
             }, void 0, false, {
                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                lineNumber: 403,
+                lineNumber: 405,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/purchased-products/page.tsx",
-        lineNumber: 263,
+        lineNumber: 265,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(PurchasedProductsPage, "OuY/UgsKjyVVRXyKZA+Io21iRlQ=", false, function() {
+_s(PurchasedProductsPage, "oxWErTgsBoK8PrfMQatdYakXhEk=", false, function() {
     return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"],
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useWallet"]
     ];
 });

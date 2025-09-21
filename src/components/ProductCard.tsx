@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MarketplaceListingItem } from '@/utils/api';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface ProductCardProps {
   listing: MarketplaceListingItem;
@@ -9,6 +10,7 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ listing, onViewDetail, onBuy }) => {
+  const { t } = useTranslation();
   const primaryImage = listing.productImages?.[0] ?? '/placeholder-product.png';
   const formattedPrice = `${listing.pricePerUnit} ${listing.currency}`;
   const remainingLabel = `${listing.availableSupply}/${listing.totalSupply}`;
@@ -59,13 +61,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ listing, onViewDetail, onBuy 
           className="flex-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 font-semibold transition-colors ui-focus-ring cursor-pointer"
           onClick={() => onBuy(listing.productId)}
         >
-          Place Order
+          {t("marketplace.placeOrder")}
         </button>
         <button type="button"
           className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg py-2 font-semibold border border-gray-200 ui-focus-ring cursor-pointer"
           onClick={() => onViewDetail(listing.productId)}
         >
-          View Details
+          {t("marketplace.viewDetails")}
         </button>
       </div>
     </motion.div>
