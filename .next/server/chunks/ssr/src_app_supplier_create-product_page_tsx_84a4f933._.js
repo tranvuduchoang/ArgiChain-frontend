@@ -115,16 +115,16 @@ const CreateProductPage = ()=>{
             });
             if (!productResponse.ok) {
                 const errorData = await productResponse.json();
-                throw new Error(errorData.error || '{t("common.error")} khi tạo {t("suppliers.products")}');
+                throw new Error(errorData.error || `${t("common.error")} khi tạo ${t("suppliers.products")}`);
             }
             const product = await productResponse.json();
-            setSuccess('Tạo {t("suppliers.products")} thành công! Bạn có thể mint NFT cho {t("suppliers.products")} này.');
+            setSuccess(`Tạo ${t("suppliers.products")} thành công! Bạn có thể mint NFT cho ${t("suppliers.products")} này.`);
             // Redirect to mint page after 2 seconds
             setTimeout(()=>{
                 router.push(`/supplier/mint-nft?productId=${product.id}`);
             }, 2000);
         } catch (err) {
-            setError(err instanceof Error ? err.message : '{t("common.error")}');
+            setError(err instanceof Error ? err.message : t("common.error"));
         } finally{
             setLoading(false);
         }
@@ -145,11 +145,8 @@ const CreateProductPage = ()=>{
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "text-gray-600 mb-6",
-                        children: [
-                            "Bạn cần kết nối ví để tạo ",
-                            t("suppliers.products")
-                        ]
-                    }, void 0, true, {
+                        children: t("createProduct.needWallet")
+                    }, void 0, false, {
                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
                         lineNumber: 128,
                         columnNumber: 11
@@ -228,24 +225,16 @@ const CreateProductPage = ()=>{
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                             className: "text-3xl font-bold text-gray-900 mb-2",
-                            children: [
-                                "Tạo ",
-                                t("suppliers.products"),
-                                " mới"
-                            ]
-                        }, void 0, true, {
+                            children: t("createProduct.title")
+                        }, void 0, false, {
                             fileName: "[project]/src/app/supplier/create-product/page.tsx",
                             lineNumber: 166,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-gray-600",
-                            children: [
-                                "Tạo ",
-                                t("suppliers.products"),
-                                " và mint NFT để bán trên marketplace"
-                            ]
-                        }, void 0, true, {
+                            children: t("createProduct.subtitle")
+                        }, void 0, false, {
                             fileName: "[project]/src/app/supplier/create-product/page.tsx",
                             lineNumber: 169,
                             columnNumber: 11
@@ -283,8 +272,7 @@ const CreateProductPage = ()=>{
                                                 lineNumber: 184,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
-                                            "Tên ",
-                                            t("suppliers.products"),
+                                            t("createProduct.productName"),
                                             " *"
                                         ]
                                     }, void 0, true, {
@@ -299,7 +287,7 @@ const CreateProductPage = ()=>{
                                         onChange: handleInputChange,
                                         required: true,
                                         className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500",
-                                        placeholder: `Nhập tên ${t("suppliers.products")}`
+                                        placeholder: t("createProduct.productName")
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                         lineNumber: 187,
@@ -316,8 +304,7 @@ const CreateProductPage = ()=>{
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                         className: "block text-sm font-medium text-gray-700 mb-2",
                                         children: [
-                                            "Mô tả ",
-                                            t("suppliers.products"),
+                                            t("createProduct.productDescription"),
                                             " *"
                                         ]
                                     }, void 0, true, {
@@ -332,7 +319,7 @@ const CreateProductPage = ()=>{
                                         required: true,
                                         rows: 4,
                                         className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500",
-                                        placeholder: `Mô tả chi tiết về ${t("suppliers.products")}`
+                                        placeholder: t("createProduct.productDescription")
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                         lineNumber: 203,
@@ -351,8 +338,11 @@ const CreateProductPage = ()=>{
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                 className: "block text-sm font-medium text-gray-700 mb-2",
-                                                children: "Danh mục *"
-                                            }, void 0, false, {
+                                                children: [
+                                                    t("createProduct.category"),
+                                                    " *"
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                                 lineNumber: 217,
                                                 columnNumber: 17
@@ -366,7 +356,7 @@ const CreateProductPage = ()=>{
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         value: "",
-                                                        children: "Chọn danh mục"
+                                                        children: t("createProduct.selectCategory")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                                         lineNumber: 227,
@@ -374,7 +364,7 @@ const CreateProductPage = ()=>{
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         value: "Rau củ",
-                                                        children: "Rau củ"
+                                                        children: t("createProduct.vegetables")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                                         lineNumber: 228,
@@ -382,7 +372,7 @@ const CreateProductPage = ()=>{
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         value: "Trái cây",
-                                                        children: "Trái cây"
+                                                        children: t("createProduct.fruits")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                                         lineNumber: 229,
@@ -390,7 +380,7 @@ const CreateProductPage = ()=>{
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         value: "Ngũ cốc",
-                                                        children: "Ngũ cốc"
+                                                        children: t("createProduct.grains")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                                         lineNumber: 230,
@@ -398,7 +388,7 @@ const CreateProductPage = ()=>{
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         value: "Thịt cá",
-                                                        children: "Thịt cá"
+                                                        children: t("createProduct.meat")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                                         lineNumber: 231,
@@ -406,7 +396,7 @@ const CreateProductPage = ()=>{
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         value: "Đồ uống",
-                                                        children: "Đồ uống"
+                                                        children: t("createProduct.beverages")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                                         lineNumber: 232,
@@ -414,7 +404,7 @@ const CreateProductPage = ()=>{
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         value: "Khác",
-                                                        children: "Khác"
+                                                        children: t("createProduct.other")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                                         lineNumber: 233,
@@ -445,7 +435,7 @@ const CreateProductPage = ()=>{
                                                         lineNumber: 239,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
-                                                    "Tags (phân cách bằng dấu phẩy)"
+                                                    t("createProduct.tags")
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
@@ -458,7 +448,7 @@ const CreateProductPage = ()=>{
                                                 value: formData.tags,
                                                 onChange: handleInputChange,
                                                 className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500",
-                                                placeholder: "hữu cơ, tươi, sạch"
+                                                placeholder: t("createProduct.tagsPlaceholder")
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                                 lineNumber: 242,
@@ -492,7 +482,8 @@ const CreateProductPage = ()=>{
                                                         lineNumber: 257,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
-                                                    "Giá mỗi đơn vị *"
+                                                    t("createProduct.pricePerUnit"),
+                                                    " *"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
@@ -523,7 +514,7 @@ const CreateProductPage = ()=>{
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                 className: "block text-sm font-medium text-gray-700 mb-2",
-                                                children: "Đơn vị tiền tệ"
+                                                children: t("createProduct.currency")
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                                 lineNumber: 273,
@@ -567,8 +558,11 @@ const CreateProductPage = ()=>{
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                 className: "block text-sm font-medium text-gray-700 mb-2",
-                                                children: "Số lượng tổng *"
-                                            }, void 0, false, {
+                                                children: [
+                                                    t("createProduct.totalQuantity"),
+                                                    " *"
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                                 lineNumber: 288,
                                                 columnNumber: 17
@@ -603,7 +597,7 @@ const CreateProductPage = ()=>{
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                         className: "block text-sm font-medium text-gray-700 mb-2",
-                                        children: "Đơn vị đo"
+                                        children: t("createProduct.unit")
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                         lineNumber: 306,
@@ -649,7 +643,7 @@ const CreateProductPage = ()=>{
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                 value: "cái",
-                                                children: "cái"
+                                                children: t("createProduct.piece")
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                                 lineNumber: 319,
@@ -657,7 +651,7 @@ const CreateProductPage = ()=>{
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                 value: "hộp",
-                                                children: "hộp"
+                                                children: t("createProduct.box")
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                                 lineNumber: 320,
@@ -688,7 +682,7 @@ const CreateProductPage = ()=>{
                                                 lineNumber: 327,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
-                                            "Hình ảnh URL (tùy chọn)"
+                                            t("createProduct.imageUrl")
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
@@ -729,7 +723,7 @@ const CreateProductPage = ()=>{
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                         className: "ml-2 block text-sm text-gray-700",
-                                        children: "Sản phẩm hữu cơ"
+                                        children: t("createProduct.organic")
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                         lineNumber: 349,
@@ -790,7 +784,7 @@ const CreateProductPage = ()=>{
                                         type: "submit",
                                         disabled: loading,
                                         className: "px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:bg-gray-400 transition-colors",
-                                        children: loading ? 'Đang tạo...' : 'Tạo {t("suppliers.products")}'
+                                        children: loading ? t("createProduct.creating") : t("createProduct.create")
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
                                         lineNumber: 384,

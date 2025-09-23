@@ -8,6 +8,7 @@ var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 __turbopack_context__.s({
     "default": ()=>__TURBOPACK__default__export__
 });
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
@@ -17,9 +18,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$hash$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Hash$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/hash.js [app-client] (ecmascript) <export default as Hash>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Image$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/image.js [app-client] (ecmascript) <export default as Image>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/contexts/WalletContext.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/useTranslation.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/blockchain.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
+;
+;
 ;
 ;
 ;
@@ -30,6 +35,7 @@ const MintNFTPageContent = ()=>{
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSearchParams"])();
     const { account, isConnected } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useWallet"])();
+    const { t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"])();
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
     const [success, setSuccess] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
@@ -42,8 +48,8 @@ const MintNFTPageContent = ()=>{
         description: '',
         image: '',
         tokenId: 1,
-        contractAddress: '',
-        chainId: 2442
+        contractAddress: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BLOCKCHAIN_CONFIG"].NFT_ADDRESS,
+        chainId: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BLOCKCHAIN_CONFIG"].CHAIN_ID
     });
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "MintNFTPageContent.useEffect": ()=>{
@@ -129,7 +135,7 @@ const MintNFTPageContent = ()=>{
             });
             if (!prepareResponse.ok) {
                 const errorData = await prepareResponse.json();
-                throw new Error(errorData.error || 'Có lỗi xảy ra khi chuẩn bị mint');
+                throw new Error(errorData.error || "".concat(t("common.error"), " khi chuẩn bị mint"));
             }
             const mintParams = await prepareResponse.json();
             // Update mintData with data from prepare response
@@ -139,28 +145,35 @@ const MintNFTPageContent = ()=>{
                     contractAddress: mintParams.contractAddress || '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
                     chainId: mintParams.chainId || 2442
                 }));
-            // Step 2: Simulate blockchain transaction (in real app, this would be actual blockchain call)
+            // Step 2: Mint NFT on blockchain
             setSuccess('Đang mint NFT... Vui lòng chờ xác nhận giao dịch blockchain.');
-            // Simulate transaction delay
-            await new Promise((resolve)=>setTimeout(resolve, 3000));
-            // Step 3: Confirm mint
+            const contractAddress = mintParams.contractAddress || (("TURBOPACK compile-time truthy", 1) ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_AGRICHAIN_NFT_ADDRESS : "TURBOPACK unreachable") || __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BLOCKCHAIN_CONFIG"].NFT_ADDRESS;
+            const tokenId = mintParams.tokenId || 1;
+            const quantity = parseInt(mintData.quantity.toString());
+            // Call blockchain mint function
+            const transactionHash = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mintNFT"])(contractAddress, account, tokenId, quantity);
+            setSuccess("Giao dịch đã được gửi! Hash: ".concat(transactionHash, ". Đang chờ xác nhận..."));
+            // Wait for transaction confirmation
+            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["waitForTransaction"])(transactionHash, 1);
+            setSuccess("NFT đã được mint thành công! Hash: ".concat(transactionHash));
+            // Step 3: Confirm mint in backend
             const confirmResponse = await fetch("http://localhost:5000/api/products/".concat(product.id, "/mint/confirm"), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    tokenId: mintParams.tokenId || 1,
-                    contractAddress: mintParams.contractAddress || '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
-                    transactionHash: "0x".concat(Math.random().toString(16).substr(2, 64)),
-                    mintedQuantity: parseInt(mintData.quantity.toString()),
-                    chainId: mintParams.chainId || 2442,
-                    buyerAddress: account
+                    tokenId: tokenId,
+                    contractAddress: contractAddress,
+                    transactionHash: transactionHash,
+                    mintedQuantity: quantity,
+                    chainId: mintParams.chainId || __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BLOCKCHAIN_CONFIG"].CHAIN_ID,
+                    toAddress: account
                 })
             });
             if (!confirmResponse.ok) {
                 const errorData = await confirmResponse.json();
-                throw new Error(errorData.error || 'Có lỗi xảy ra khi xác nhận mint');
+                throw new Error(errorData.error || "".concat(t("common.error"), " khi xác nhận mint"));
             }
             const result = await confirmResponse.json();
             setSuccess("Mint NFT thành công! Transaction hash: ".concat(result.transactionHash));
@@ -169,7 +182,7 @@ const MintNFTPageContent = ()=>{
                 router.push('/supplier/dashboard');
             }, 3000);
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'Có lỗi xảy ra');
+            setError(err instanceof Error ? err.message : t("common.error"));
         } finally{
             setLoading(false);
         }
@@ -185,7 +198,7 @@ const MintNFTPageContent = ()=>{
                         children: "Vui lòng kết nối ví"
                     }, void 0, false, {
                         fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                        lineNumber: 172,
+                        lineNumber: 191,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -193,7 +206,7 @@ const MintNFTPageContent = ()=>{
                         children: "Bạn cần kết nối ví để mint NFT"
                     }, void 0, false, {
                         fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                        lineNumber: 175,
+                        lineNumber: 194,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -202,18 +215,18 @@ const MintNFTPageContent = ()=>{
                         children: "Về trang chủ"
                     }, void 0, false, {
                         fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                        lineNumber: 178,
+                        lineNumber: 197,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                lineNumber: 171,
+                lineNumber: 190,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-            lineNumber: 170,
+            lineNumber: 189,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -224,20 +237,20 @@ const MintNFTPageContent = ()=>{
                 className: "text-center",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                     className: "text-2xl font-bold text-gray-900 mb-4",
-                    children: "Đang tải thông tin sản phẩm..."
+                    children: t("mintNFT.loading")
                 }, void 0, false, {
                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                    lineNumber: 193,
+                    lineNumber: 212,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                lineNumber: 192,
+                lineNumber: 211,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-            lineNumber: 191,
+            lineNumber: 210,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -258,36 +271,36 @@ const MintNFTPageContent = ()=>{
                                     className: "mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                    lineNumber: 210,
+                                    lineNumber: 229,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 "Quay lại"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                            lineNumber: 206,
+                            lineNumber: 225,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                             className: "text-3xl font-bold text-gray-900 mb-2",
-                            children: "Mint NFT cho sản phẩm"
+                            children: t("mintNFT.title")
                         }, void 0, false, {
                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                            lineNumber: 213,
+                            lineNumber: 232,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-gray-600",
-                            children: "Tạo NFT để bán sản phẩm trên marketplace"
+                            children: t("mintNFT.subtitle")
                         }, void 0, false, {
                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                            lineNumber: 216,
+                            lineNumber: 235,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                    lineNumber: 205,
+                    lineNumber: 224,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -306,10 +319,10 @@ const MintNFTPageContent = ()=>{
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                     className: "text-xl font-bold text-gray-900 mb-4",
-                                    children: "Thông tin sản phẩm"
+                                    children: t("mintNFT.productInfo")
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                    lineNumber: 228,
+                                    lineNumber: 247,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -319,10 +332,10 @@ const MintNFTPageContent = ()=>{
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                     className: "block text-sm font-medium text-gray-700 mb-1",
-                                                    children: "Tên sản phẩm"
+                                                    children: t("mintNFT.productName")
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 232,
+                                                    lineNumber: 251,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -330,13 +343,13 @@ const MintNFTPageContent = ()=>{
                                                     children: product.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 233,
+                                                    lineNumber: 252,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 231,
+                                            lineNumber: 250,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -346,7 +359,7 @@ const MintNFTPageContent = ()=>{
                                                     children: "Mô tả"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 237,
+                                                    lineNumber: 256,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -354,13 +367,13 @@ const MintNFTPageContent = ()=>{
                                                     children: product.description
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 238,
+                                                    lineNumber: 257,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 236,
+                                            lineNumber: 255,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -373,7 +386,7 @@ const MintNFTPageContent = ()=>{
                                                             children: "Giá"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                            lineNumber: 243,
+                                                            lineNumber: 262,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -385,13 +398,13 @@ const MintNFTPageContent = ()=>{
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                            lineNumber: 244,
+                                                            lineNumber: 263,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 242,
+                                                    lineNumber: 261,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -401,7 +414,7 @@ const MintNFTPageContent = ()=>{
                                                             children: "Tổng số lượng"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                            lineNumber: 248,
+                                                            lineNumber: 267,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -413,19 +426,19 @@ const MintNFTPageContent = ()=>{
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                            lineNumber: 249,
+                                                            lineNumber: 268,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 247,
+                                                    lineNumber: 266,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 241,
+                                            lineNumber: 260,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -435,7 +448,7 @@ const MintNFTPageContent = ()=>{
                                                     children: "Danh mục"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 254,
+                                                    lineNumber: 273,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -443,13 +456,13 @@ const MintNFTPageContent = ()=>{
                                                     children: product.category
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 255,
+                                                    lineNumber: 274,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 253,
+                                            lineNumber: 272,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         product.tags && product.tags.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -459,7 +472,7 @@ const MintNFTPageContent = ()=>{
                                                     children: "Tags"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 260,
+                                                    lineNumber: 279,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -469,30 +482,30 @@ const MintNFTPageContent = ()=>{
                                                             children: tag
                                                         }, index, false, {
                                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                            lineNumber: 263,
+                                                            lineNumber: 282,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 261,
+                                                    lineNumber: 280,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 259,
+                                            lineNumber: 278,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                    lineNumber: 230,
+                                    lineNumber: 249,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                            lineNumber: 223,
+                            lineNumber: 242,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -508,10 +521,10 @@ const MintNFTPageContent = ()=>{
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                     className: "text-xl font-bold text-gray-900 mb-4",
-                                    children: "Thông tin mint NFT"
+                                    children: t("mintNFT.title")
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                    lineNumber: 279,
+                                    lineNumber: 298,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -528,14 +541,15 @@ const MintNFTPageContent = ()=>{
                                                             className: "inline mr-2"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                            lineNumber: 285,
+                                                            lineNumber: 304,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
-                                                        "Số lượng NFT cần mint *"
+                                                        t("mintNFT.quantity"),
+                                                        " *"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 284,
+                                                    lineNumber: 303,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -549,7 +563,7 @@ const MintNFTPageContent = ()=>{
                                                     className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 288,
+                                                    lineNumber: 307,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -561,13 +575,13 @@ const MintNFTPageContent = ()=>{
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 298,
+                                                    lineNumber: 317,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 283,
+                                            lineNumber: 302,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -580,14 +594,14 @@ const MintNFTPageContent = ()=>{
                                                             className: "inline mr-2"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                            lineNumber: 306,
+                                                            lineNumber: 325,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         "Metadata URI (tùy chọn)"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 305,
+                                                    lineNumber: 324,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -599,13 +613,13 @@ const MintNFTPageContent = ()=>{
                                                     placeholder: "https://agrichain.com/metadata/123"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 309,
+                                                    lineNumber: 328,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 304,
+                                            lineNumber: 323,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -615,7 +629,7 @@ const MintNFTPageContent = ()=>{
                                                     children: "Tên NFT *"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 321,
+                                                    lineNumber: 340,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -627,13 +641,13 @@ const MintNFTPageContent = ()=>{
                                                     className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 324,
+                                                    lineNumber: 343,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 320,
+                                            lineNumber: 339,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -643,7 +657,7 @@ const MintNFTPageContent = ()=>{
                                                     children: "Mô tả NFT *"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 336,
+                                                    lineNumber: 355,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -655,13 +669,13 @@ const MintNFTPageContent = ()=>{
                                                     className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 339,
+                                                    lineNumber: 358,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 335,
+                                            lineNumber: 354,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -674,14 +688,14 @@ const MintNFTPageContent = ()=>{
                                                             className: "inline mr-2"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                            lineNumber: 352,
+                                                            lineNumber: 371,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         "Hình ảnh NFT *"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 351,
+                                                    lineNumber: 370,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -694,13 +708,13 @@ const MintNFTPageContent = ()=>{
                                                     placeholder: "https://example.com/nft-image.jpg"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 355,
+                                                    lineNumber: 374,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 350,
+                                            lineNumber: 369,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -711,7 +725,7 @@ const MintNFTPageContent = ()=>{
                                                     children: "Chi phí mint"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 368,
+                                                    lineNumber: 387,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -724,20 +738,20 @@ const MintNFTPageContent = ()=>{
                                                                     children: "Gas fee (ước tính):"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                                    lineNumber: 371,
+                                                                    lineNumber: 390,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     children: "0.001 MATIC"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                                    lineNumber: 372,
+                                                                    lineNumber: 391,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                            lineNumber: 370,
+                                                            lineNumber: 389,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -747,32 +761,32 @@ const MintNFTPageContent = ()=>{
                                                                     children: "Tổng cộng:"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                                    lineNumber: 375,
+                                                                    lineNumber: 394,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     children: "0.001 MATIC"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                                    lineNumber: 376,
+                                                                    lineNumber: 395,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                            lineNumber: 374,
+                                                            lineNumber: 393,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 369,
+                                                    lineNumber: 388,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 367,
+                                            lineNumber: 386,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -788,7 +802,7 @@ const MintNFTPageContent = ()=>{
                                             children: error
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 383,
+                                            lineNumber: 402,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         success && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -804,7 +818,7 @@ const MintNFTPageContent = ()=>{
                                             children: success
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 393,
+                                            lineNumber: 412,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -817,60 +831,61 @@ const MintNFTPageContent = ()=>{
                                                     children: "Hủy"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 404,
+                                                    lineNumber: 423,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     type: "submit",
                                                     disabled: loading,
                                                     className: "px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:bg-gray-400 transition-colors",
-                                                    children: loading ? 'Đang mint...' : 'Mint NFT'
+                                                    children: loading ? t("mintNFT.minting") : t("mintNFT.mint")
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                                    lineNumber: 411,
+                                                    lineNumber: 430,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                            lineNumber: 403,
+                                            lineNumber: 422,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                                    lineNumber: 281,
+                                    lineNumber: 300,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                            lineNumber: 274,
+                            lineNumber: 293,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-                    lineNumber: 221,
+                    lineNumber: 240,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-            lineNumber: 203,
+            lineNumber: 222,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-        lineNumber: 202,
+        lineNumber: 221,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(MintNFTPageContent, "s/XTzEth8eNb40LrqqEdR/R5tS0=", false, function() {
+_s(MintNFTPageContent, "GXQGCMmYE5ua3ypkxmhBpGdkfK0=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSearchParams"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useWallet"]
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useWallet"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"]
     ];
 });
 _c = MintNFTPageContent;
@@ -880,17 +895,17 @@ const MintNFTPage = ()=>{
             children: "Loading..."
         }, void 0, false, {
             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-            lineNumber: 429,
+            lineNumber: 448,
             columnNumber: 25
         }, void 0),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MintNFTPageContent, {}, void 0, false, {
             fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-            lineNumber: 430,
+            lineNumber: 449,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/app/supplier/mint-nft/page.tsx",
-        lineNumber: 429,
+        lineNumber: 448,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

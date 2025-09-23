@@ -391,7 +391,7 @@ const MarketplacePage = ()=>{
                                 children: t('marketplace.title')
                             }, void 0, false, {
                                 fileName: "[project]/src/app/marketplace/page.tsx",
-                                lineNumber: 61,
+                                lineNumber: 62,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -399,13 +399,13 @@ const MarketplacePage = ()=>{
                                 children: t('marketplace.subtitle')
                             }, void 0, false, {
                                 fileName: "[project]/src/app/marketplace/page.tsx",
-                                lineNumber: 62,
+                                lineNumber: 63,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/marketplace/page.tsx",
-                        lineNumber: 60,
+                        lineNumber: 61,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -419,7 +419,7 @@ const MarketplacePage = ()=>{
                                 onChange: (e)=>setSearch(e.target.value)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/marketplace/page.tsx",
-                                lineNumber: 65,
+                                lineNumber: 66,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -435,14 +435,14 @@ const MarketplacePage = ()=>{
                                                 onChange: ()=>setOnlyInStock((prev)=>!prev)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/marketplace/page.tsx",
-                                                lineNumber: 74,
+                                                lineNumber: 75,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             t("marketplace.inStock")
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/marketplace/page.tsx",
-                                        lineNumber: 73,
+                                        lineNumber: 74,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -455,32 +455,32 @@ const MarketplacePage = ()=>{
                                                 onChange: ()=>setOnlyMinted((prev)=>!prev)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/marketplace/page.tsx",
-                                                lineNumber: 83,
+                                                lineNumber: 84,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             t("marketplace.mintedNFT")
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/marketplace/page.tsx",
-                                        lineNumber: 82,
+                                        lineNumber: 83,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/marketplace/page.tsx",
-                                lineNumber: 72,
+                                lineNumber: 73,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/marketplace/page.tsx",
-                        lineNumber: 64,
+                        lineNumber: 65,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/marketplace/page.tsx",
-                lineNumber: 59,
+                lineNumber: 60,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -497,12 +497,12 @@ const MarketplacePage = ()=>{
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/app/marketplace/page.tsx",
-                    lineNumber: 97,
+                    lineNumber: 98,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/marketplace/page.tsx",
-                lineNumber: 96,
+                lineNumber: 97,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0)),
             error && !loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -518,7 +518,7 @@ const MarketplacePage = ()=>{
                 children: error
             }, void 0, false, {
                 fileName: "[project]/src/app/marketplace/page.tsx",
-                lineNumber: 106,
+                lineNumber: 107,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0)),
             !loading && !error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -534,7 +534,7 @@ const MarketplacePage = ()=>{
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/marketplace/page.tsx",
-                lineNumber: 116,
+                lineNumber: 117,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -560,7 +560,7 @@ const MarketplacePage = ()=>{
                         children: t("marketplace.noProducts")
                     }, void 0, false, {
                         fileName: "[project]/src/app/marketplace/page.tsx",
-                        lineNumber: 133,
+                        lineNumber: 134,
                         columnNumber: 15
                     }, ("TURBOPACK compile-time value", void 0)) : filteredListings.map((listing)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                             listing: listing,
@@ -568,23 +568,23 @@ const MarketplacePage = ()=>{
                             onBuy: handleBuy
                         }, listing.listingId, false, {
                             fileName: "[project]/src/app/marketplace/page.tsx",
-                            lineNumber: 138,
+                            lineNumber: 139,
                             columnNumber: 17
                         }, ("TURBOPACK compile-time value", void 0)))
                 }, void 0, false, {
                     fileName: "[project]/src/app/marketplace/page.tsx",
-                    lineNumber: 123,
+                    lineNumber: 124,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/marketplace/page.tsx",
-                lineNumber: 121,
+                lineNumber: 122,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/marketplace/page.tsx",
-        lineNumber: 58,
+        lineNumber: 59,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

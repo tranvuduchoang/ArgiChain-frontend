@@ -12,33 +12,37 @@ __turbopack_context__.s({
     "formatBalance": ()=>formatBalance,
     "getAccountBalance": ()=>getAccountBalance,
     "getCurrentAccount": ()=>getCurrentAccount,
+    "getTransactionReceipt": ()=>getTransactionReceipt,
     "isWalletConnected": ()=>isWalletConnected,
-    "switchToMumbai": ()=>switchToMumbai
+    "mintNFT": ()=>mintNFT,
+    "switchToBSC": ()=>switchToBSC,
+    "waitForTransaction": ()=>waitForTransaction
 });
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 const BLOCKCHAIN_CONFIG = {
-    // Cardona zkEVM Testnet
-    CHAIN_ID: 2442,
-    CHAIN_NAME: 'Cardona zkEVM Testnet',
-    RPC_URL: 'https://rpc.cardona.zkevm-rpc.com',
-    EXPLORER_URL: 'https://mumbai.polygonscan.com',
-    // Contract addresses (will be updated after deployment)
-    TOKEN_ADDRESS: '',
-    NFT_ADDRESS: '',
-    MARKETPLACE_ADDRESS: '',
+    // BSC Testnet
+    CHAIN_ID: 97,
+    CHAIN_NAME: 'BSC Testnet',
+    RPC_URL: 'https://data-seed-prebsc-1-s1.binance.org:8545',
+    EXPLORER_URL: 'https://testnet.bscscan.com',
+    // Contract addresses (from .env)
+    TOKEN_ADDRESS: (("TURBOPACK compile-time truthy", 1) ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_AGRICHAIN_TOKEN_ADDRESS : "TURBOPACK unreachable") || '0xF7a86e7582c97ba3269BD2F4bc708e258f8F0C48',
+    NFT_ADDRESS: (("TURBOPACK compile-time truthy", 1) ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_AGRICHAIN_NFT_ADDRESS : "TURBOPACK unreachable") || '0xA7A5abD38742932A83bA1ED84960794F0123FfC7',
+    MARKETPLACE_ADDRESS: (("TURBOPACK compile-time truthy", 1) ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_AGRICHAIN_MARKETPLACE_ADDRESS : "TURBOPACK unreachable") || '0x82f4e5Bfc0cF35C0a415f298317485c2BDbD5F5b',
     // Network configuration
     NETWORK_CONFIG: {
-        chainId: '0x98a',
-        chainName: 'Cardona zkEVM Testnet',
+        chainId: '0x61',
+        chainName: 'BSC Testnet',
         nativeCurrency: {
-            name: 'MATIC',
-            symbol: 'MATIC',
+            name: 'BNB',
+            symbol: 'BNB',
             decimals: 18
         },
         rpcUrls: [
-            'https://rpc.cardona.zkevm-rpc.com'
+            'https://data-seed-prebsc-1-s1.binance.org:8545'
         ],
         blockExplorerUrls: [
-            'https://mumbai.polygonscan.com'
+            'https://testnet.bscscan.com'
         ]
     }
 };
@@ -49,8 +53,8 @@ const connectWallet = async ()=>{
             const accounts = await window.ethereum.request({
                 method: 'eth_requestAccounts'
             });
-            // Switch to Mumbai testnet
-            await switchToMumbai();
+            // Switch to BSC testnet
+            await switchToBSC();
             return accounts[0];
         } catch (error) {
             console.error('Error connecting to MetaMask:', error);
@@ -60,7 +64,7 @@ const connectWallet = async ()=>{
         throw new Error('MetaMask is not installed');
     }
 };
-const switchToMumbai = async ()=>{
+const switchToBSC = async ()=>{
     try {
         await window.ethereum.request({
             method: 'wallet_switchEthereumChain',
@@ -81,7 +85,7 @@ const switchToMumbai = async ()=>{
                     ]
                 });
             } catch (addError) {
-                console.error('Error adding Mumbai network:', addError);
+                console.error('Error adding BSC Testnet network:', addError);
                 throw addError;
             }
         } else {
@@ -109,21 +113,121 @@ const getCurrentAccount = async ()=>{
 };
 const getAccountBalance = async (address)=>{
     if (typeof window.ethereum !== 'undefined') {
-        const balance = await window.ethereum.request({
-            method: 'eth_getBalance',
-            params: [
-                address,
-                'latest'
-            ]
-        });
-        return balance;
+        try {
+            // Import ethers dynamically
+            const { ethers } = await __turbopack_context__.r("[project]/node_modules/ethers/lib.esm/index.js [app-client] (ecmascript, async loader)")(__turbopack_context__.i);
+            // Get provider from MetaMask
+            const provider = new ethers.BrowserProvider(window.ethereum);
+            // Get balance
+            const balance = await provider.getBalance(address);
+            return balance.toString();
+        } catch (error) {
+            console.error('Error getting balance:', error);
+            return '0';
+        }
     }
     return '0';
 };
 const formatBalance = (balance)=>{
-    const wei = BigInt(balance);
-    const matic = Number(wei) / Math.pow(10, 18);
-    return matic.toFixed(4);
+    try {
+        // Manual calculation for now
+        const wei = BigInt(balance);
+        const bnb = Number(wei) / Math.pow(10, 18);
+        return bnb.toFixed(4);
+    } catch (error) {
+        console.error('Error formatting balance:', error);
+        return '0.0000';
+    }
+};
+const mintNFT = async function(contractAddress, to, tokenId, quantity) {
+    let data = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : '0x';
+    if (typeof window.ethereum === 'undefined') {
+        throw new Error('MetaMask is not installed');
+    }
+    try {
+        // Import ethers dynamically
+        const { ethers } = await __turbopack_context__.r("[project]/node_modules/ethers/lib.esm/index.js [app-client] (ecmascript, async loader)")(__turbopack_context__.i);
+        // Get provider from MetaMask
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        const signer = await provider.getSigner();
+        // Get contract ABI (simplified for ERC1155 mint)
+        const contractABI = [
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "to",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bytes",
+                        "name": "data",
+                        "type": "bytes"
+                    }
+                ],
+                "name": "mint",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            }
+        ];
+        // Create contract instance
+        const contract = new ethers.Contract(contractAddress, contractABI, signer);
+        // Call mint function
+        const tx = await contract.mint(to, tokenId, quantity, data, {
+            gasLimit: 500000
+        });
+        return tx.hash;
+    } catch (error) {
+        console.error('Error minting NFT:', error);
+        throw error;
+    }
+};
+const getTransactionReceipt = async (txHash)=>{
+    if (typeof window.ethereum === 'undefined') {
+        throw new Error('MetaMask is not installed');
+    }
+    try {
+        // Import ethers dynamically
+        const { ethers } = await __turbopack_context__.r("[project]/node_modules/ethers/lib.esm/index.js [app-client] (ecmascript, async loader)")(__turbopack_context__.i);
+        // Get provider from MetaMask
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        // Get transaction receipt
+        const receipt = await provider.getTransactionReceipt(txHash);
+        return receipt;
+    } catch (error) {
+        console.error('Error getting transaction receipt:', error);
+        throw error;
+    }
+};
+const waitForTransaction = async function(txHash) {
+    let confirmations = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 1;
+    try {
+        // Import ethers dynamically
+        const { ethers } = await __turbopack_context__.r("[project]/node_modules/ethers/lib.esm/index.js [app-client] (ecmascript, async loader)")(__turbopack_context__.i);
+        // Get provider from MetaMask
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        // Wait for transaction confirmation
+        const receipt = await provider.waitForTransaction(txHash, confirmations);
+        if (receipt && receipt.status === 1) {
+            return receipt;
+        } else {
+            throw new Error('Transaction failed');
+        }
+    } catch (error) {
+        console.error('Error waiting for transaction:', error);
+        throw error;
+    }
 };
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);

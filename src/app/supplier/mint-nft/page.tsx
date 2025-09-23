@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Package, Coins, Hash, Image as ImageIcon, Upload } from 'lucide-react';
 import { useWallet } from '@/contexts/WalletContext';
 import { useTranslation } from '@/hooks/useTranslation';
+import { mintNFT, waitForTransaction, BLOCKCHAIN_CONFIG } from '@/utils/blockchain';
 
 const MintNFTPageContent: React.FC = () => {
   const router = useRouter();
@@ -16,7 +17,7 @@ const MintNFTPageContent: React.FC = () => {
   const [success, setSuccess] = useState('');
   const [product, setProduct] = useState<any>(null);
   const [supplierData, setSupplierData] = useState<any>(null);
-
+     
   const [mintData, setMintData] = useState({
     quantity: 1,
     metadataUri: '',
@@ -24,8 +25,8 @@ const MintNFTPageContent: React.FC = () => {
     description: '',
     image: '',
     tokenId: 1,
-    contractAddress: '',
-    chainId: 2442,
+    contractAddress: BLOCKCHAIN_CONFIG.NFT_ADDRESS,
+    chainId: BLOCKCHAIN_CONFIG.CHAIN_ID,
   });
 
   useEffect(() => {
@@ -125,25 +126,41 @@ const MintNFTPageContent: React.FC = () => {
         chainId: mintParams.chainId || 2442,
       }));
       
-      // Step 2: Simulate blockchain transaction (in real app, this would be actual blockchain call)
+      // Step 2: Mint NFT on blockchain
       setSuccess('Đang mint NFT... Vui lòng chờ xác nhận giao dịch blockchain.');
       
-      // Simulate transaction delay
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      const contractAddress = mintParams.contractAddress || (typeof window !== 'undefined' ? process.env.NEXT_PUBLIC_AGRICHAIN_NFT_ADDRESS : undefined) || BLOCKCHAIN_CONFIG.NFT_ADDRESS;
+      const tokenId = mintParams.tokenId || 1;
+      const quantity = parseInt(mintData.quantity.toString());
       
-      // Step 3: Confirm mint
+      // Call blockchain mint function
+      const transactionHash = await mintNFT(
+        contractAddress,
+        account, // Mint to supplier's wallet
+        tokenId,
+        quantity
+      );
+      
+      setSuccess(`Giao dịch đã được gửi! Hash: ${transactionHash}. Đang chờ xác nhận...`);
+      
+      // Wait for transaction confirmation
+      await waitForTransaction(transactionHash, 1);
+      
+      setSuccess(`NFT đã được mint thành công! Hash: ${transactionHash}`);
+      
+      // Step 3: Confirm mint in backend
       const confirmResponse = await fetch(`http://localhost:5000/api/products/${product.id}/mint/confirm`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          tokenId: mintParams.tokenId || 1, // Use tokenId from prepare response
-          contractAddress: mintParams.contractAddress || '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512', // Use contractAddress from prepare response
-          transactionHash: `0x${Math.random().toString(16).substr(2, 64)}`, // Mock transaction hash
-          mintedQuantity: parseInt(mintData.quantity.toString()),
-          chainId: mintParams.chainId || 2442, // Cardona testnet
-          buyerAddress: account,
+          tokenId: tokenId,
+          contractAddress: contractAddress,
+          transactionHash: transactionHash,
+          mintedQuantity: quantity,
+          chainId: mintParams.chainId || BLOCKCHAIN_CONFIG.CHAIN_ID,
+          toAddress: account,
         }),
       });
 
