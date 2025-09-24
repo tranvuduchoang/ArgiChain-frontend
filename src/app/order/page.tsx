@@ -70,7 +70,7 @@ const OrderPageContent: React.FC = () => {  const { t } = useTranslation();
         deliveryAddress: address,
         deliveryMethod: 'STANDARD',
         paymentMethod: 'CRYPTO',
-        currency: 'MATIC',
+        currency: 'tBNB',
       });
       setSuccess('Đặt hàng thành công!');
       setTimeout(() => router.push('/profile/orders'), 1500);

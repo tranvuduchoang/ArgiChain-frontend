@@ -1,0 +1,21 @@
+/* [project]/src/styles/placeholder-fixes.css [app-client] (css) */
+input::placeholder, textarea::placeholder {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+
+select option:first-child, input[type="text"], input[type="number"], input[type="email"], input[type="password"], input[type="url"], textarea, select {
+  color: #000 !important;
+}
+
+input:focus::placeholder, textarea:focus::placeholder {
+  color: #666 !important;
+  opacity: .7 !important;
+}
+
+.form-input::placeholder, .form-textarea::placeholder, .placeholder-black::placeholder, ::placeholder {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+
+/*# sourceMappingURL=src_styles_placeholder-fixes_css_e59ae46c._.single.css.map*/

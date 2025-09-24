@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Package, Coins, Hash, Image as ImageIcon, Upload } from 'lucide-react';
 import { useWallet } from '@/contexts/WalletContext';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useNetworkCurrency } from '@/hooks/useNetworkCurrency';
 import { waitForTransaction, BLOCKCHAIN_CONFIG, switchToBSC } from '@/utils/blockchain';
 import { mintProductNFT, checkSupplierAuthorization } from '@/utils/mintNFT';
 
@@ -12,6 +13,7 @@ const MintNFTPageContent: React.FC = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { account, isConnected } = useWallet();
+  const { currency } = useNetworkCurrency();
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -422,13 +424,13 @@ const MintNFTPageContent: React.FC = () => {
               <div className="bg-gray-50 p-4 rounded-lg">
                 <h3 className="font-medium text-gray-900 mb-2">Chi phí mint</h3>
                 <div className="space-y-1 text-sm">
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-gray-900">
                     <span>Gas fee (ước tính):</span>
-                    <span>0.001 MATIC</span>
+                     <span>0.001 {currency}</span>
                   </div>
-                  <div className="flex justify-between font-medium">
+                  <div className="flex justify-between font-medium text-gray-900">
                     <span>Tổng cộng:</span>
-                    <span>0.001 MATIC</span>
+                     <span>0.001 {currency}</span>
                   </div>
                 </div>
               </div>

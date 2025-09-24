@@ -19,9 +19,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Image$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/image.js [app-client] (ecmascript) <export default as Image>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/contexts/WalletContext.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/useTranslation.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useNetworkCurrency$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/useNetworkCurrency.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
+;
 ;
 ;
 ;
@@ -33,6 +35,7 @@ const CreateProductPage = ()=>{
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const { account, isConnected } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useWallet"])();
     const { t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"])();
+    const { currency } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useNetworkCurrency$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useNetworkCurrency"])();
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
     const [success, setSuccess] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
@@ -43,12 +46,25 @@ const CreateProductPage = ()=>{
         category: '',
         tags: '',
         pricePerUnit: '',
-        currency: 'MATIC',
+        currency: 'tBNB',
         totalSupply: '',
         unit: 'kg',
         images: '',
         isOrganic: false
     });
+    // Update currency when it changes
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "CreateProductPage.useEffect": ()=>{
+            setFormData({
+                "CreateProductPage.useEffect": (prev)=>({
+                        ...prev,
+                        currency: currency
+                    })
+            }["CreateProductPage.useEffect"]);
+        }
+    }["CreateProductPage.useEffect"], [
+        currency
+    ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "CreateProductPage.useEffect": ()=>{
             if (!isConnected || !account) {
@@ -146,7 +162,7 @@ const CreateProductPage = ()=>{
                         children: "Vui lòng kết nối ví"
                     }, void 0, false, {
                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                        lineNumber: 125,
+                        lineNumber: 135,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -154,7 +170,7 @@ const CreateProductPage = ()=>{
                         children: t("createProduct.needWallet")
                     }, void 0, false, {
                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                        lineNumber: 128,
+                        lineNumber: 138,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -163,18 +179,18 @@ const CreateProductPage = ()=>{
                         children: "Về trang chủ"
                     }, void 0, false, {
                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                        lineNumber: 131,
+                        lineNumber: 141,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                lineNumber: 124,
+                lineNumber: 134,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/supplier/create-product/page.tsx",
-            lineNumber: 123,
+            lineNumber: 133,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -188,17 +204,17 @@ const CreateProductPage = ()=>{
                     children: "Đang kiểm tra quyền..."
                 }, void 0, false, {
                     fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                    lineNumber: 146,
+                    lineNumber: 156,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                lineNumber: 145,
+                lineNumber: 155,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/supplier/create-product/page.tsx",
-            lineNumber: 144,
+            lineNumber: 154,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -219,14 +235,14 @@ const CreateProductPage = ()=>{
                                     className: "mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                    lineNumber: 163,
+                                    lineNumber: 173,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 "Quay lại"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                            lineNumber: 159,
+                            lineNumber: 169,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -234,7 +250,7 @@ const CreateProductPage = ()=>{
                             children: t("createProduct.title")
                         }, void 0, false, {
                             fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                            lineNumber: 166,
+                            lineNumber: 176,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -242,13 +258,13 @@ const CreateProductPage = ()=>{
                             children: t("createProduct.subtitle")
                         }, void 0, false, {
                             fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                            lineNumber: 169,
+                            lineNumber: 179,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                    lineNumber: 158,
+                    lineNumber: 168,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -275,7 +291,7 @@ const CreateProductPage = ()=>{
                                                 className: "inline mr-2"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 184,
+                                                lineNumber: 194,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             t("createProduct.productName"),
@@ -283,7 +299,7 @@ const CreateProductPage = ()=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 183,
+                                        lineNumber: 193,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -292,17 +308,17 @@ const CreateProductPage = ()=>{
                                         value: formData.name,
                                         onChange: handleInputChange,
                                         required: true,
-                                        className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500",
+                                        className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black",
                                         placeholder: t("createProduct.productName")
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 187,
+                                        lineNumber: 197,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                lineNumber: 182,
+                                lineNumber: 192,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -315,7 +331,7 @@ const CreateProductPage = ()=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 200,
+                                        lineNumber: 210,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -324,17 +340,17 @@ const CreateProductPage = ()=>{
                                         onChange: handleInputChange,
                                         required: true,
                                         rows: 4,
-                                        className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500",
+                                        className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black",
                                         placeholder: t("createProduct.productDescription")
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 203,
+                                        lineNumber: 213,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                lineNumber: 199,
+                                lineNumber: 209,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -350,7 +366,7 @@ const CreateProductPage = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 217,
+                                                lineNumber: 227,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -358,14 +374,14 @@ const CreateProductPage = ()=>{
                                                 value: formData.category,
                                                 onChange: handleInputChange,
                                                 required: true,
-                                                className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500",
+                                                className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         value: "",
                                                         children: t("createProduct.selectCategory")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                        lineNumber: 227,
+                                                        lineNumber: 237,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -373,7 +389,7 @@ const CreateProductPage = ()=>{
                                                         children: t("createProduct.vegetables")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                        lineNumber: 228,
+                                                        lineNumber: 238,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -381,7 +397,7 @@ const CreateProductPage = ()=>{
                                                         children: t("createProduct.fruits")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                        lineNumber: 229,
+                                                        lineNumber: 239,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -389,7 +405,7 @@ const CreateProductPage = ()=>{
                                                         children: t("createProduct.grains")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                        lineNumber: 230,
+                                                        lineNumber: 240,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -397,7 +413,7 @@ const CreateProductPage = ()=>{
                                                         children: t("createProduct.meat")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                        lineNumber: 231,
+                                                        lineNumber: 241,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -405,7 +421,7 @@ const CreateProductPage = ()=>{
                                                         children: t("createProduct.beverages")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                        lineNumber: 232,
+                                                        lineNumber: 242,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -413,19 +429,19 @@ const CreateProductPage = ()=>{
                                                         children: t("createProduct.other")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                        lineNumber: 233,
+                                                        lineNumber: 243,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 220,
+                                                lineNumber: 230,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 216,
+                                        lineNumber: 226,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -438,14 +454,14 @@ const CreateProductPage = ()=>{
                                                         className: "inline mr-2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                        lineNumber: 239,
+                                                        lineNumber: 249,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     t("createProduct.tags")
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 238,
+                                                lineNumber: 248,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -453,23 +469,23 @@ const CreateProductPage = ()=>{
                                                 name: "tags",
                                                 value: formData.tags,
                                                 onChange: handleInputChange,
-                                                className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500",
+                                                className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black",
                                                 placeholder: t("createProduct.tagsPlaceholder")
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 242,
+                                                lineNumber: 252,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 237,
+                                        lineNumber: 247,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                lineNumber: 215,
+                                lineNumber: 225,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -485,7 +501,7 @@ const CreateProductPage = ()=>{
                                                         className: "inline mr-2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                        lineNumber: 257,
+                                                        lineNumber: 267,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     t("createProduct.pricePerUnit"),
@@ -493,7 +509,7 @@ const CreateProductPage = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 256,
+                                                lineNumber: 266,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -503,17 +519,17 @@ const CreateProductPage = ()=>{
                                                 onChange: handleInputChange,
                                                 required: true,
                                                 step: "0.001",
-                                                className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500",
+                                                className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black",
                                                 placeholder: "0.001"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 260,
+                                                lineNumber: 270,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 255,
+                                        lineNumber: 265,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -523,21 +539,21 @@ const CreateProductPage = ()=>{
                                                 children: t("createProduct.currency")
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 273,
+                                                lineNumber: 283,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                                 name: "currency",
                                                 value: formData.currency,
                                                 onChange: handleInputChange,
-                                                className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500",
+                                                className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                        value: "MATIC",
-                                                        children: "MATIC"
+                                                        value: currency,
+                                                        children: currency
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                        lineNumber: 282,
+                                                        lineNumber: 292,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -545,19 +561,43 @@ const CreateProductPage = ()=>{
                                                         children: "ETH"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                        lineNumber: 283,
+                                                        lineNumber: 293,
+                                                        columnNumber: 19
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "MATIC",
+                                                        children: "MATIC"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/supplier/create-product/page.tsx",
+                                                        lineNumber: 294,
+                                                        columnNumber: 19
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "tBNB",
+                                                        children: "tBNB"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/supplier/create-product/page.tsx",
+                                                        lineNumber: 295,
+                                                        columnNumber: 19
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "BNB",
+                                                        children: "BNB"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/supplier/create-product/page.tsx",
+                                                        lineNumber: 296,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 276,
+                                                lineNumber: 286,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 272,
+                                        lineNumber: 282,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -570,7 +610,7 @@ const CreateProductPage = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 288,
+                                                lineNumber: 301,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -580,23 +620,23 @@ const CreateProductPage = ()=>{
                                                 onChange: handleInputChange,
                                                 required: true,
                                                 min: "1",
-                                                className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500",
+                                                className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black",
                                                 placeholder: "100"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 291,
+                                                lineNumber: 304,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 287,
+                                        lineNumber: 300,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                lineNumber: 254,
+                                lineNumber: 264,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -606,21 +646,21 @@ const CreateProductPage = ()=>{
                                         children: t("createProduct.unit")
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 306,
+                                        lineNumber: 319,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                         name: "unit",
                                         value: formData.unit,
                                         onChange: handleInputChange,
-                                        className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500",
+                                        className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                 value: "kg",
                                                 children: "kg"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 315,
+                                                lineNumber: 328,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -628,7 +668,7 @@ const CreateProductPage = ()=>{
                                                 children: "g"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 316,
+                                                lineNumber: 329,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -636,7 +676,7 @@ const CreateProductPage = ()=>{
                                                 children: "l"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 317,
+                                                lineNumber: 330,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -644,7 +684,7 @@ const CreateProductPage = ()=>{
                                                 children: "ml"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 318,
+                                                lineNumber: 331,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -652,7 +692,7 @@ const CreateProductPage = ()=>{
                                                 children: t("createProduct.piece")
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 319,
+                                                lineNumber: 332,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -660,19 +700,19 @@ const CreateProductPage = ()=>{
                                                 children: t("createProduct.box")
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 320,
+                                                lineNumber: 333,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 309,
+                                        lineNumber: 322,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                lineNumber: 305,
+                                lineNumber: 318,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -685,14 +725,14 @@ const CreateProductPage = ()=>{
                                                 className: "inline mr-2"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                                lineNumber: 327,
+                                                lineNumber: 340,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             t("createProduct.imageUrl")
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 326,
+                                        lineNumber: 339,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -700,17 +740,17 @@ const CreateProductPage = ()=>{
                                         name: "images",
                                         value: formData.images,
                                         onChange: handleInputChange,
-                                        className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500",
+                                        className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black",
                                         placeholder: "https://example.com/image.jpg"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 330,
+                                        lineNumber: 343,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                lineNumber: 325,
+                                lineNumber: 338,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -724,7 +764,7 @@ const CreateProductPage = ()=>{
                                         className: "h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 342,
+                                        lineNumber: 355,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -732,13 +772,13 @@ const CreateProductPage = ()=>{
                                         children: t("createProduct.organic")
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 349,
+                                        lineNumber: 362,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                lineNumber: 341,
+                                lineNumber: 354,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -754,7 +794,7 @@ const CreateProductPage = ()=>{
                                 children: error
                             }, void 0, false, {
                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                lineNumber: 356,
+                                lineNumber: 369,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             success && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -770,7 +810,7 @@ const CreateProductPage = ()=>{
                                 children: success
                             }, void 0, false, {
                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                lineNumber: 366,
+                                lineNumber: 379,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -783,7 +823,7 @@ const CreateProductPage = ()=>{
                                         children: "Hủy"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 377,
+                                        lineNumber: 390,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -793,43 +833,44 @@ const CreateProductPage = ()=>{
                                         children: loading ? t("createProduct.creating") : t("createProduct.create")
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                        lineNumber: 384,
+                                        lineNumber: 397,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                                lineNumber: 376,
+                                lineNumber: 389,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                        lineNumber: 180,
+                        lineNumber: 190,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/app/supplier/create-product/page.tsx",
-                    lineNumber: 175,
+                    lineNumber: 185,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/supplier/create-product/page.tsx",
-            lineNumber: 156,
+            lineNumber: 166,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/app/supplier/create-product/page.tsx",
-        lineNumber: 155,
+        lineNumber: 165,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(CreateProductPage, "JwY7oC2HJ52QRYmYM2foquph0j8=", false, function() {
+_s(CreateProductPage, "+8MfAcgym3PJiexS3BO/6zJ9M1M=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$contexts$2f$WalletContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useWallet"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"]
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTranslation"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useNetworkCurrency$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useNetworkCurrency"]
     ];
 });
 _c = CreateProductPage;

@@ -16,8 +16,8 @@ export const BLOCKCHAIN_CONFIG = {
     chainId: '0x61', // 97 in hex
     chainName: 'BSC Testnet',
     nativeCurrency: {
-      name: 'BNB',
-      symbol: 'BNB',
+      name: 'tBNB',
+      symbol: 'tBNB',
       decimals: 18,
     },
     rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545'],

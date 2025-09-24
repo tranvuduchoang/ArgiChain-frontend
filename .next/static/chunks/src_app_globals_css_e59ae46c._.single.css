@@ -767,6 +767,10 @@
     position: relative;
   }
 
+  .static {
+    position: static;
+  }
+
   .sticky {
     position: -webkit-sticky;
     position: sticky;
@@ -2254,6 +2258,10 @@
     text-underline-offset: 4px;
   }
 
+  .placeholder-black::placeholder {
+    color: var(--color-black);
+  }
+
   .opacity-75 {
     opacity: .75;
   }
@@ -2716,6 +2724,12 @@
     .md\:text-6xl {
       font-size: var(--text-6xl);
       line-height: var(--tw-leading, var(--text-6xl--line-height));
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .lg\:block {
+      display: block;
     }
   }
 

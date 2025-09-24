@@ -1,0 +1,50 @@
+/* Placeholder color fixes - make placeholders black for better visibility */
+
+/* Input fields */
+input::placeholder,
+textarea::placeholder {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* Select dropdown placeholder */
+select option:first-child {
+  color: #000000 !important;
+}
+
+/* Custom input styling for better visibility */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+textarea,
+select {
+  color: #000000 !important;
+}
+
+/* Focus states */
+input:focus::placeholder,
+textarea:focus::placeholder {
+  color: #666666 !important;
+  opacity: 0.7 !important;
+}
+
+/* Specific styling for form inputs */
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* Tailwind CSS override for placeholder color */
+.placeholder-black::placeholder {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* Override any existing placeholder styles */
+*::placeholder {
+  color: #000000 !important;
+  opacity: 1 !important;
+}

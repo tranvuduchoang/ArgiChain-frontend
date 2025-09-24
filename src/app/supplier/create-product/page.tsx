@@ -5,11 +5,13 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Package, Upload, DollarSign, Hash, Image as ImageIcon } from 'lucide-react';
 import { useWallet } from '@/contexts/WalletContext';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useNetworkCurrency } from '@/hooks/useNetworkCurrency';
 
 const CreateProductPage: React.FC = () => {
   const router = useRouter();
   const { account, isConnected } = useWallet();
   const { t } = useTranslation();
+  const { currency } = useNetworkCurrency();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -21,12 +23,20 @@ const CreateProductPage: React.FC = () => {
     category: '',
     tags: '',
     pricePerUnit: '',
-    currency: 'MATIC',
+    currency: 'tBNB', // Default fallback
     totalSupply: '',
     unit: 'kg',
     images: '',
     isOrganic: false,
   });
+
+  // Update currency when it changes
+  useEffect(() => {
+    setFormData(prev => ({
+      ...prev,
+      currency: currency
+    }));
+  }, [currency]);
 
   useEffect(() => {
     if (!isConnected || !account) {
@@ -190,7 +200,7 @@ const CreateProductPage: React.FC = () => {
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black"
                 placeholder={t("createProduct.productName")}
               />
             </div>
@@ -206,7 +216,7 @@ const CreateProductPage: React.FC = () => {
                 onChange={handleInputChange}
                 required
                 rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black"
                 placeholder={t("createProduct.productDescription")}
               />
             </div>
@@ -222,7 +232,7 @@ const CreateProductPage: React.FC = () => {
                   value={formData.category}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black"
                 >
                   <option value="">{t("createProduct.selectCategory")}</option>
                   <option value="Rau củ">{t("createProduct.vegetables")}</option>
@@ -244,7 +254,7 @@ const CreateProductPage: React.FC = () => {
                   name="tags"
                   value={formData.tags}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black"
                   placeholder={t("createProduct.tagsPlaceholder")}
                 />
               </div>
@@ -264,7 +274,7 @@ const CreateProductPage: React.FC = () => {
                   onChange={handleInputChange}
                   required
                   step="0.001"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black"
                   placeholder="0.001"
                 />
               </div>
@@ -277,10 +287,13 @@ const CreateProductPage: React.FC = () => {
                   name="currency"
                   value={formData.currency}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black"
                 >
-                  <option value="MATIC">MATIC</option>
+                  <option value={currency}>{currency}</option>
                   <option value="ETH">ETH</option>
+                  <option value="MATIC">MATIC</option>
+                  <option value="tBNB">tBNB</option>
+                  <option value="BNB">BNB</option>
                 </select>
               </div>
 
@@ -295,7 +308,7 @@ const CreateProductPage: React.FC = () => {
                   onChange={handleInputChange}
                   required
                   min="1"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black"
                   placeholder="100"
                 />
               </div>
@@ -310,7 +323,7 @@ const CreateProductPage: React.FC = () => {
                 name="unit"
                 value={formData.unit}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black"
               >
                 <option value="kg">kg</option>
                 <option value="g">g</option>
@@ -332,7 +345,7 @@ const CreateProductPage: React.FC = () => {
                 name="images"
                 value={formData.images}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black"
                 placeholder="https://example.com/image.jpg"
               />
             </div>

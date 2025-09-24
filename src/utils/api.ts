@@ -189,7 +189,7 @@ export async function fetchMarketplaceListings(): Promise<MarketplaceListingItem
       title: listing.title,
       shortDescription: listing.shortDescription,
       pricePerUnit: product.pricePerUnit ?? '0',
-      currency: product.currency ?? 'MATIC',
+      currency: product.currency ?? 'tBNB',
       availableSupply: product.availableSupply ?? 0,
       totalSupply: product.totalSupply ?? 0,
       isFeatured: Boolean(listing.isFeatured),

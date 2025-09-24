@@ -3,12 +3,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useWallet } from '@/contexts/WalletContext';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useNetworkCurrency } from '@/hooks/useNetworkCurrency';
 import LanguageSwitcher from './LanguageSwitcher';
+import NetworkInfo from './NetworkInfo';
 import { Wallet, User, Globe, Menu, X, ChevronDown, Package, Plus, Settings, LogOut, ShoppingBag } from 'lucide-react';
 
 const Header: React.FC = () => {
   const { isConnected, account, balance, connect, disconnect, isLoading } = useWallet();
   const { t } = useTranslation();
+  const { currency, networkName } = useNetworkCurrency();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isSupplier, setIsSupplier] = useState(false);
@@ -141,10 +144,13 @@ const Header: React.FC = () => {
             )}
           </nav>
 
-          {/* Right side - Language and Wallet */}
+          {/* Right side - Language, Network Info and Wallet */}
           <div className="flex items-center space-x-4">
             {/* Language Toggle */}
             <LanguageSwitcher />
+            
+            {/* Network Info */}
+            <NetworkInfo className="hidden lg:block" />
 
             {/* Wallet Connection */}
             <div className="hidden md:block">
@@ -162,7 +168,7 @@ const Header: React.FC = () => {
                         {formatAddress(account!)}
                       </div>
                       <div className="text-xs text-gray-500">
-                        {balance} MATIC
+                        {balance} {currency}
                       </div>
                     </div>
                     <ChevronDown size={16} className="text-gray-500" />
@@ -287,7 +293,7 @@ const Header: React.FC = () => {
                           {formatAddress(account!)}
                         </div>
                         <div className="text-xs text-gray-500">
-                          {balance} MATIC
+                          {balance} {currency}
                         </div>
                       </div>
                     </div>
