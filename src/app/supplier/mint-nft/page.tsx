@@ -5,7 +5,8 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Package, Coins, Hash, Image as ImageIcon, Upload } from 'lucide-react';
 import { useWallet } from '@/contexts/WalletContext';
 import { useTranslation } from '@/hooks/useTranslation';
-import { mintNFT, waitForTransaction, BLOCKCHAIN_CONFIG } from '@/utils/blockchain';
+import { waitForTransaction, BLOCKCHAIN_CONFIG, switchToBSC } from '@/utils/blockchain';
+import { mintProductNFT, checkSupplierAuthorization } from '@/utils/mintNFT';
 
 const MintNFTPageContent: React.FC = () => {
   const router = useRouter();
@@ -41,6 +42,9 @@ const MintNFTPageContent: React.FC = () => {
       return;
     }
 
+    // Force switch to BSC Testnet
+    switchToBSC().catch(console.error);
+    
     loadProductData(productId);
     checkSupplierStatus();
   }, [isConnected, account, searchParams, router]);
@@ -122,31 +126,62 @@ const MintNFTPageContent: React.FC = () => {
       setMintData(prev => ({
         ...prev,
         tokenId: mintParams.tokenId || 1,
-        contractAddress: mintParams.contractAddress || '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
-        chainId: mintParams.chainId || 2442,
+        contractAddress: mintParams.contractAddress || BLOCKCHAIN_CONFIG.NFT_ADDRESS,
+        chainId: mintParams.chainId || BLOCKCHAIN_CONFIG.CHAIN_ID,
       }));
       
       // Step 2: Mint NFT on blockchain
       setSuccess('Đang mint NFT... Vui lòng chờ xác nhận giao dịch blockchain.');
       
-      const contractAddress = mintParams.contractAddress || (typeof window !== 'undefined' ? process.env.NEXT_PUBLIC_AGRICHAIN_NFT_ADDRESS : undefined) || BLOCKCHAIN_CONFIG.NFT_ADDRESS;
+      // Always use the latest contract address from blockchain config
+      const contractAddress = BLOCKCHAIN_CONFIG.NFT_ADDRESS;
+      console.log('Using contract address:', contractAddress);
       const tokenId = mintParams.tokenId || 1;
       const quantity = parseInt(mintData.quantity.toString());
       
-      // Call blockchain mint function
-      const transactionHash = await mintNFT(
-        contractAddress,
-        account, // Mint to supplier's wallet
-        tokenId,
-        quantity
-      );
+      // Check if user is authorized supplier
+      const isAuthorized = await checkSupplierAuthorization(account, contractAddress);
+      if (!isAuthorized) {
+        throw new Error('Bạn chưa được ủy quyền để mint NFT. Vui lòng liên hệ admin để được ủy quyền.');
+      }
       
-      setSuccess(`Giao dịch đã được gửi! Hash: ${transactionHash}. Đang chờ xác nhận...`);
+      let transactionHash: string;
       
-      // Wait for transaction confirmation
-      await waitForTransaction(transactionHash, 1);
-      
-      setSuccess(`NFT đã được mint thành công! Hash: ${transactionHash}`);
+      try {
+        // Call blockchain mint function using mintProductNFT
+        transactionHash = await mintProductNFT(
+          contractAddress,
+          account, // Mint to supplier's wallet
+          quantity,
+          mintData.name,
+          mintData.description,
+          product.category,
+          product.pricePerUnit,
+          product.totalSupply,
+          product.unit,
+          product.isOrganic || false,
+          product.harvestDate ? new Date(product.harvestDate).getTime() / 1000 : Math.floor(Date.now() / 1000),
+          product.location || 'Unknown',
+          mintData.metadataUri || `https://agrichain.com/metadata/${product.id}`
+        );
+        
+        console.log('Transaction hash received:', transactionHash);
+        
+        if (!transactionHash) {
+          throw new Error('Transaction hash is undefined. Mint may have failed.');
+        }
+        
+        setSuccess(`Giao dịch đã được gửi! Hash: ${transactionHash}. Đang chờ xác nhận...`);
+        
+        // Wait for transaction confirmation
+        await waitForTransaction(transactionHash, 1);
+        
+        setSuccess(`NFT đã được mint thành công! Hash: ${transactionHash}`);
+        
+      } catch (mintError) {
+        console.error('Error during mint process:', mintError);
+        throw new Error(`Lỗi khi mint NFT: ${mintError instanceof Error ? mintError.message : 'Unknown error'}`);
+      }
       
       // Step 3: Confirm mint in backend
       const confirmResponse = await fetch(`http://localhost:5000/api/products/${product.id}/mint/confirm`, {
@@ -170,7 +205,8 @@ const MintNFTPageContent: React.FC = () => {
       }
 
       const result = await confirmResponse.json();
-      setSuccess(`Mint NFT thành công! Transaction hash: ${result.transactionHash}`);
+      const finalTxHash = result.transactionHash || transactionHash;
+      setSuccess(`Mint NFT thành công! Transaction hash: ${finalTxHash}`);
       
       // Redirect to dashboard after 3 seconds
       setTimeout(() => {

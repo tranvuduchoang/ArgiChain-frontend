@@ -159,7 +159,7 @@ const CreateSupplierPage: React.FC = () => {
                 required
                 rows={4}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                placeholder="Mô tả về doanh nghiệp và {t("suppliers.products")} của bạn"
+                placeholder="Mô tả về doanh nghiệp và sản phẩm của bạn"
               />
             </div>
 

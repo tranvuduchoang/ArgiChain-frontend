@@ -31,9 +31,9 @@ const BLOCKCHAIN_CONFIG = {
     RPC_URL: 'https://data-seed-prebsc-1-s1.binance.org:8545',
     EXPLORER_URL: 'https://testnet.bscscan.com',
     // Contract addresses (from .env)
-    TOKEN_ADDRESS: (("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : undefined) || '0xF7a86e7582c97ba3269BD2F4bc708e258f8F0C48',
-    NFT_ADDRESS: (("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : undefined) || '0xA7A5abD38742932A83bA1ED84960794F0123FfC7',
-    MARKETPLACE_ADDRESS: (("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : undefined) || '0x82f4e5Bfc0cF35C0a415f298317485c2BDbD5F5b',
+    TOKEN_ADDRESS: (("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : undefined) || '0x0a5123a377A87321975578ED3C8D3336eF67F28a',
+    NFT_ADDRESS: (("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : undefined) || '0x739ECFc4a3C66e1E0b14B4581C5dA3341586a4E4',
+    MARKETPLACE_ADDRESS: (("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : undefined) || '0xf88559b87f94FF07c6c4297E7D04ab10573e9d62',
     // Network configuration
     NETWORK_CONFIG: {
         chainId: '0x61',

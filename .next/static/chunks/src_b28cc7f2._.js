@@ -26,9 +26,9 @@ const BLOCKCHAIN_CONFIG = {
     RPC_URL: 'https://data-seed-prebsc-1-s1.binance.org:8545',
     EXPLORER_URL: 'https://testnet.bscscan.com',
     // Contract addresses (from .env)
-    TOKEN_ADDRESS: (("TURBOPACK compile-time truthy", 1) ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_AGRICHAIN_TOKEN_ADDRESS : "TURBOPACK unreachable") || '0xF7a86e7582c97ba3269BD2F4bc708e258f8F0C48',
-    NFT_ADDRESS: (("TURBOPACK compile-time truthy", 1) ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_AGRICHAIN_NFT_ADDRESS : "TURBOPACK unreachable") || '0xA7A5abD38742932A83bA1ED84960794F0123FfC7',
-    MARKETPLACE_ADDRESS: (("TURBOPACK compile-time truthy", 1) ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_AGRICHAIN_MARKETPLACE_ADDRESS : "TURBOPACK unreachable") || '0x82f4e5Bfc0cF35C0a415f298317485c2BDbD5F5b',
+    TOKEN_ADDRESS: (("TURBOPACK compile-time truthy", 1) ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_AGRICHAIN_TOKEN_ADDRESS : "TURBOPACK unreachable") || '0x0a5123a377A87321975578ED3C8D3336eF67F28a',
+    NFT_ADDRESS: (("TURBOPACK compile-time truthy", 1) ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_AGRICHAIN_NFT_ADDRESS : "TURBOPACK unreachable") || '0x739ECFc4a3C66e1E0b14B4581C5dA3341586a4E4',
+    MARKETPLACE_ADDRESS: (("TURBOPACK compile-time truthy", 1) ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_AGRICHAIN_MARKETPLACE_ADDRESS : "TURBOPACK unreachable") || '0xf88559b87f94FF07c6c4297E7D04ab10573e9d62',
     // Network configuration
     NETWORK_CONFIG: {
         chainId: '0x61',

@@ -955,10 +955,6 @@
     margin-right: calc(var(--spacing) * 2);
   }
 
-  .mr-3 {
-    margin-right: calc(var(--spacing) * 3);
-  }
-
   .mr-4 {
     margin-right: calc(var(--spacing) * 4);
   }
@@ -1080,10 +1076,6 @@
 
   .h-52 {
     height: calc(var(--spacing) * 52);
-  }
-
-  .h-64 {
-    height: calc(var(--spacing) * 64);
   }
 
   .h-80 {
@@ -2591,12 +2583,6 @@
   @media (hover: hover) {
     .hover\:text-gray-600:hover {
       color: var(--color-gray-600);
-    }
-  }
-
-  @media (hover: hover) {
-    .hover\:text-gray-800:hover {
-      color: var(--color-gray-800);
     }
   }
 
