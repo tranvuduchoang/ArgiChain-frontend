@@ -8,6 +8,8 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { useNetworkCurrency } from '@/hooks/useNetworkCurrency';
 import { waitForTransaction, BLOCKCHAIN_CONFIG, switchToBSC } from '@/utils/blockchain';
 import { mintProductNFT, checkSupplierAuthorization } from '@/utils/mintNFT';
+import { createAutoListing } from '@/utils/autoListing';
+import { ethers } from 'ethers';
 
 const MintNFTPageContent: React.FC = () => {
   const router = useRouter();
@@ -30,6 +32,10 @@ const MintNFTPageContent: React.FC = () => {
     tokenId: 1,
     contractAddress: BLOCKCHAIN_CONFIG.NFT_ADDRESS,
     chainId: BLOCKCHAIN_CONFIG.CHAIN_ID,
+    autoList: true, // Tự động tạo listing sau khi mint
+    listPrice: '', // Giá để list (sẽ lấy từ product.pricePerUnit)
+    listQuantity: 1, // Số lượng để list
+    expiryDays: 30, // Số ngày hết hạn listing
   });
 
   useEffect(() => {
@@ -62,6 +68,7 @@ const MintNFTPageContent: React.FC = () => {
           name: productData.name,
           description: productData.description,
           image: productData.images?.[0] || '',
+          listPrice: productData.pricePerUnit || '0.001', // Lấy giá từ product
         }));
       }
     } catch (error) {
@@ -186,23 +193,77 @@ const MintNFTPageContent: React.FC = () => {
       }
       
       // Step 3: Confirm mint in backend
+      // Get the actual token ID from the mint transaction receipt
+      let actualTokenId = tokenId; // Default to mintParams tokenId
+      
+      // Try to get the actual token ID from the mint transaction receipt
+      try {
+        const mintReceipt = await waitForTransaction(transactionHash, 1);
+        
+        // Create NFT contract instance to parse events
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        const nftContract = new ethers.Contract(
+          contractAddress,
+          [
+            "event ProductNFTMinted(uint256 indexed tokenId, address indexed supplier, uint256 amount, string productName, string metadata)",
+            "function getTotalProducts() external view returns (uint256)"
+          ],
+          provider
+        );
+        
+        // Look for ProductNFTMinted event to get the actual token ID
+        const mintEvent = mintReceipt.logs.find((log: any) => {
+          try {
+            const parsed = nftContract.interface.parseLog(log);
+            return parsed?.name === 'ProductNFTMinted';
+          } catch {
+            return false;
+          }
+        });
+        
+        if (mintEvent) {
+          const parsedEvent = nftContract.interface.parseLog(mintEvent);
+          actualTokenId = Number(parsedEvent?.args[0]); // tokenId is the first argument
+          console.log('🎯 Actual token ID from mint event:', actualTokenId);
+        } else {
+          // Fallback: get the latest token ID from getTotalProducts
+          try {
+            const totalProducts = await nftContract.getTotalProducts();
+            actualTokenId = Number(totalProducts);
+            console.log('🎯 Using latest token ID from getTotalProducts:', actualTokenId);
+          } catch (fallbackError) {
+            console.warn('Could not get total products, using default tokenId:', fallbackError);
+          }
+        }
+      } catch (error) {
+        console.warn('Could not get token ID from mint event, using default:', error);
+      }
+      
+      const confirmTokenId = actualTokenId;
+      
+      const confirmData = {
+        tokenId: confirmTokenId,
+        contractAddress: contractAddress,
+        transactionHash: transactionHash,
+        mintedQuantity: quantity,
+        chainId: mintParams.chainId || BLOCKCHAIN_CONFIG.CHAIN_ID,
+        toAddress: account,
+      };
+      
+      console.log('🔍 Sending confirm data:', confirmData);
+      
       const confirmResponse = await fetch(`http://localhost:5000/api/products/${product.id}/mint/confirm`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          tokenId: tokenId,
-          contractAddress: contractAddress,
-          transactionHash: transactionHash,
-          mintedQuantity: quantity,
-          chainId: mintParams.chainId || BLOCKCHAIN_CONFIG.CHAIN_ID,
-          toAddress: account,
-        }),
+        body: JSON.stringify(confirmData),
       });
 
       if (!confirmResponse.ok) {
         const errorData = await confirmResponse.json();
+        console.error('❌ Backend error response:', errorData);
+        console.error('❌ Response status:', confirmResponse.status);
         throw new Error(errorData.error || `${t("common.error")} khi xác nhận mint`);
       }
 
@@ -210,10 +271,43 @@ const MintNFTPageContent: React.FC = () => {
       const finalTxHash = result.transactionHash || transactionHash;
       setSuccess(`Mint NFT thành công! Transaction hash: ${finalTxHash}`);
       
-      // Redirect to dashboard after 3 seconds
+      // Step 4: Auto create listing if enabled
+      if (mintData.autoList && mintData.listPrice) {
+        try {
+          setSuccess(`Mint NFT thành công! Đang tạo listing tự động...`);
+          
+          // Add a small delay to ensure mint is fully processed
+          await new Promise(resolve => setTimeout(resolve, 2000));
+          
+          console.log('🎯 Creating listing with token ID:', confirmTokenId);
+          console.log('🎯 Listing price:', mintData.listPrice);
+          console.log('🎯 Listing quantity:', mintData.listQuantity);
+          
+          const listingResult = await createAutoListing(
+            confirmTokenId,
+            mintData.listPrice,
+            mintData.listQuantity,
+            mintData.expiryDays,
+            account
+          );
+          
+          setSuccess(`Hoàn thành! NFT đã được mint và listing đã được tạo tự động. 
+            Mint hash: ${finalTxHash}
+            Listing ID: ${listingResult.listingId}
+            Listing hash: ${listingResult.transactionHash}`);
+            
+        } catch (listingError) {
+          console.error('Error creating auto listing:', listingError);
+          setSuccess(`Mint NFT thành công! Tuy nhiên, có lỗi khi tạo listing tự động: ${listingError instanceof Error ? listingError.message : 'Unknown error'}`);
+        }
+      } else {
+        setSuccess(`Mint NFT thành công! Transaction hash: ${finalTxHash}`);
+      }
+      
+      // Redirect to dashboard after 5 seconds
       setTimeout(() => {
         router.push('/supplier/dashboard');
-      }, 3000);
+      }, 5000);
 
     } catch (err) {
       setError(err instanceof Error ? err.message : t("common.error"));
@@ -418,6 +512,84 @@ const MintNFTPageContent: React.FC = () => {
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                   placeholder="https://example.com/nft-image.jpg"
                 />
+              </div>
+
+              {/* Auto Listing Section */}
+              <div className="border-t pt-6">
+                <h3 className="text-lg font-medium text-gray-900 mb-4">Tự động tạo Listing</h3>
+                
+                {/* Auto List Toggle */}
+                <div className="flex items-center mb-4">
+                  <input
+                    type="checkbox"
+                    name="autoList"
+                    checked={mintData.autoList}
+                    onChange={(e) => setMintData(prev => ({ ...prev, autoList: e.target.checked }))}
+                    className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                  />
+                  <label className="ml-2 text-sm text-gray-700">
+                    Tự động tạo listing sau khi mint NFT
+                  </label>
+                </div>
+
+                {mintData.autoList && (
+                  <div className="space-y-4 bg-gray-50 p-4 rounded-lg">
+                    {/* List Price */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Giá listing (AGRI tokens) *
+                      </label>
+                      <input
+                        type="number"
+                        name="listPrice"
+                        value={mintData.listPrice}
+                        onChange={handleInputChange}
+                        required={mintData.autoList}
+                        step="0.001"
+                        min="0.001"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        placeholder="0.001"
+                      />
+                    </div>
+
+                    {/* List Quantity */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Số lượng listing *
+                      </label>
+                      <input
+                        type="number"
+                        name="listQuantity"
+                        value={mintData.listQuantity}
+                        onChange={handleInputChange}
+                        required={mintData.autoList}
+                        min="1"
+                        max={mintData.quantity}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">
+                        Tối đa: {mintData.quantity} NFT
+                      </p>
+                    </div>
+
+                    {/* Expiry Days */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Thời gian hết hạn (ngày) *
+                      </label>
+                      <input
+                        type="number"
+                        name="expiryDays"
+                        value={mintData.expiryDays}
+                        onChange={handleInputChange}
+                        required={mintData.autoList}
+                        min="1"
+                        max="365"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Cost Info */}

@@ -10,5 +10,6 @@
   "/supplier/create-product/page": "app/supplier/create-product/page.js",
   "/supplier/dashboard/page": "app/supplier/dashboard/page.js",
   "/supplier/mint-nft/page": "app/supplier/mint-nft/page.js",
-  "/supplier/products/page": "app/supplier/products/page.js"
+  "/supplier/products/page": "app/supplier/products/page.js",
+  "/suppliers/page": "app/suppliers/page.js"
 }

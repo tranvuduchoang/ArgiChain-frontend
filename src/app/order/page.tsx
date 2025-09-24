@@ -5,6 +5,7 @@ import { fetchProductDetail, createOrder } from '@/utils/api';
 import { useWallet } from '@/contexts/WalletContext';
 import { motion } from 'framer-motion';
 import { useTranslation } from '@/hooks/useTranslation';
+import { buyProduct, findListingIdByTokenId } from '@/utils/marketplace';
 
 const OrderPageContent: React.FC = () => {  const { t } = useTranslation();
 
@@ -48,6 +49,17 @@ const OrderPageContent: React.FC = () => {  const { t } = useTranslation();
       setError('Vui lòng nhập địa chỉ nhận hàng');
       return;
     }
+    // Validate quantity
+    if (quantity > product.availableSupply) {
+      setError(`Số lượng không được vượt quá ${product.availableSupply} sản phẩm có sẵn`);
+      return;
+    }
+    
+    if (quantity <= 0) {
+      setError('Số lượng phải lớn hơn 0');
+      return;
+    }
+    
     setPlacing(true);
     setError('');
     setSuccess('');
@@ -56,15 +68,34 @@ const OrderPageContent: React.FC = () => {  const { t } = useTranslation();
         throw new Error('Vui lòng kết nối ví trước khi đặt hàng');
       }
 
-      // Tạo transaction hash thật (mock cho demo)
-      const transactionHash = `0x${Math.random().toString(16).substr(2, 64)}`;
+      // Step 1: Buy product from smart contract
+      console.log('🛒 Starting blockchain purchase...');
+      setSuccess('Đang mua sản phẩm trên blockchain...');
       
+      // Find the active listing ID for this product's token ID
+      if (!product.nftTokenId) {
+        throw new Error('Sản phẩm chưa được mint NFT. Vui lòng liên hệ supplier.');
+      }
+      
+      console.log('🔍 Finding listing ID for token ID:', product.nftTokenId);
+      const listingId = await findListingIdByTokenId(Number(product.nftTokenId));
+      
+      if (!listingId) {
+        throw new Error('Không tìm thấy listing active cho sản phẩm này. Vui lòng liên hệ supplier.');
+      }
+      
+      console.log('✅ Found listing ID:', listingId);
+      const transactionHash = await buyProduct(listingId, quantity, account);
+      
+      console.log('✅ Blockchain purchase successful:', transactionHash);
+      setSuccess(`Mua sản phẩm thành công! Transaction: ${transactionHash}`);
+      
+      // Step 2: Create order in backend (for delivery tracking)
       const order = await createOrder({
-        userId: account, // Sử dụng wallet address làm userId
+        userId: account,
         supplierId: product.supplier.id,
         transactionHash: transactionHash,
-        chainId: 1337, // Hardhat local chain ID
-        //chainId: 2442, // Cardona testnet chain ID
+        chainId: 97, // BSC Testnet
         buyerWalletAddress: account,
         items: [{ productId: product.id, quantity }],
         deliveryAddress: address,
@@ -72,9 +103,12 @@ const OrderPageContent: React.FC = () => {  const { t } = useTranslation();
         paymentMethod: 'CRYPTO',
         currency: 'tBNB',
       });
-      setSuccess('Đặt hàng thành công!');
-      setTimeout(() => router.push('/profile/orders'), 1500);
+      
+      setSuccess('Đặt hàng hoàn tất! NFT đã được chuyển vào ví của bạn.');
+      setTimeout(() => router.push('/profile/orders'), 2000);
+      
     } catch (err: any) {
+      console.error('❌ Order failed:', err);
       setError(err.message || 'Đặt hàng thất bại');
     } finally {
       setPlacing(false);
@@ -118,7 +152,7 @@ const OrderPageContent: React.FC = () => {  const { t } = useTranslation();
           <input
             type="number"
             min={1}
-            max={product.quantity}
+            max={product.availableSupply}
             value={quantity}
             onChange={e => setQuantity(Number(e.target.value))}
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"

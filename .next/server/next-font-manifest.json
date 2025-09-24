@@ -32,6 +32,9 @@
     ],
     "[project]/src/app/supplier/products/page": [
       "static/media/06ba6ef833b337bc-s.p.0faac26c.woff2"
+    ],
+    "[project]/src/app/suppliers/page": [
+      "static/media/06ba6ef833b337bc-s.p.0faac26c.woff2"
     ]
   },
   "appUsingSizeAdjust": true,

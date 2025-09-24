@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useWallet } from '@/contexts/WalletContext';
 
-// Type declaration for window.ethereum
+// Type declaration for window.ethereum - using any to match blockchain.ts
 declare global {
   interface Window {
-    ethereum?: {
-      on: (event: string, callback: () => void) => void;
-      removeListener: (event: string, callback: () => void) => void;
-      request: (args: any) => Promise<any>;
-    };
+    ethereum?: any;
   }
 }
 

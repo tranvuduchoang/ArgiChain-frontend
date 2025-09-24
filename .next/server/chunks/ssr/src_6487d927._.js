@@ -192,6 +192,15 @@ const OrderPageContent = ()=>{
             setError('Vui lòng nhập địa chỉ nhận hàng');
             return;
         }
+        // Validate quantity
+        if (quantity > product.availableSupply) {
+            setError(`Số lượng không được vượt quá ${product.availableSupply} sản phẩm có sẵn`);
+            return;
+        }
+        if (quantity <= 0) {
+            setError('Số lượng phải lớn hơn 0');
+            return;
+        }
         setPlacing(true);
         setError('');
         setSuccess('');
@@ -241,12 +250,12 @@ const OrderPageContent = ()=>{
             }
         }, void 0, false, {
             fileName: "[project]/src/app/order/page.tsx",
-            lineNumber: 86,
+            lineNumber: 98,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/app/order/page.tsx",
-        lineNumber: 85,
+        lineNumber: 97,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
     if (error) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -262,7 +271,7 @@ const OrderPageContent = ()=>{
         children: error
     }, void 0, false, {
         fileName: "[project]/src/app/order/page.tsx",
-        lineNumber: 94,
+        lineNumber: 106,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
     if (!product) return null;
@@ -277,7 +286,7 @@ const OrderPageContent = ()=>{
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/order/page.tsx",
-                lineNumber: 106,
+                lineNumber: 118,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -293,7 +302,7 @@ const OrderPageContent = ()=>{
                                 className: "w-24 h-24 object-cover rounded-lg bg-gray-50"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/order/page.tsx",
-                                lineNumber: 109,
+                                lineNumber: 121,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -304,7 +313,7 @@ const OrderPageContent = ()=>{
                                         children: product.name
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/order/page.tsx",
-                                        lineNumber: 111,
+                                        lineNumber: 123,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -317,7 +326,7 @@ const OrderPageContent = ()=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/order/page.tsx",
-                                        lineNumber: 112,
+                                        lineNumber: 124,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -330,19 +339,19 @@ const OrderPageContent = ()=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/order/page.tsx",
-                                        lineNumber: 113,
+                                        lineNumber: 125,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/order/page.tsx",
-                                lineNumber: 110,
+                                lineNumber: 122,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/order/page.tsx",
-                        lineNumber: 108,
+                        lineNumber: 120,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -352,42 +361,15 @@ const OrderPageContent = ()=>{
                                 children: "Số lượng"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/order/page.tsx",
-                                lineNumber: 117,
+                                lineNumber: 129,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                 type: "number",
                                 min: 1,
-                                max: product.quantity,
+                                max: product.availableSupply,
                                 value: quantity,
                                 onChange: (e)=>setQuantity(Number(e.target.value)),
-                                className: "w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400",
-                                required: true
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/order/page.tsx",
-                                lineNumber: 118,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/app/order/page.tsx",
-                        lineNumber: 116,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                className: "block mb-1 font-medium text-gray-900",
-                                children: "Địa chỉ nhận hàng"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/order/page.tsx",
-                                lineNumber: 129,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "text",
-                                value: address,
-                                onChange: (e)=>setAddress(e.target.value),
                                 className: "w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400",
                                 required: true
                             }, void 0, false, {
@@ -401,6 +383,33 @@ const OrderPageContent = ()=>{
                         lineNumber: 128,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                className: "block mb-1 font-medium text-gray-900",
+                                children: "Địa chỉ nhận hàng"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/order/page.tsx",
+                                lineNumber: 141,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                type: "text",
+                                value: address,
+                                onChange: (e)=>setAddress(e.target.value),
+                                className: "w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400",
+                                required: true
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/order/page.tsx",
+                                lineNumber: 142,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/order/page.tsx",
+                        lineNumber: 140,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         type: "submit",
                         className: "bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 font-semibold transition-colors disabled:opacity-60",
@@ -408,7 +417,7 @@ const OrderPageContent = ()=>{
                         children: placing ? 'Đang đặt hàng...' : 'Xác nhận đặt hàng'
                     }, void 0, false, {
                         fileName: "[project]/src/app/order/page.tsx",
-                        lineNumber: 138,
+                        lineNumber: 150,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     success && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -424,19 +433,19 @@ const OrderPageContent = ()=>{
                         children: success
                     }, void 0, false, {
                         fileName: "[project]/src/app/order/page.tsx",
-                        lineNumber: 146,
+                        lineNumber: 158,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/order/page.tsx",
-                lineNumber: 107,
+                lineNumber: 119,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/order/page.tsx",
-        lineNumber: 105,
+        lineNumber: 117,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -446,17 +455,17 @@ const OrderPage = ()=>{
             children: "Loading..."
         }, void 0, false, {
             fileName: "[project]/src/app/order/page.tsx",
-            lineNumber: 161,
+            lineNumber: 173,
             columnNumber: 25
         }, void 0),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(OrderPageContent, {}, void 0, false, {
             fileName: "[project]/src/app/order/page.tsx",
-            lineNumber: 162,
+            lineNumber: 174,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/app/order/page.tsx",
-        lineNumber: 161,
+        lineNumber: 173,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
