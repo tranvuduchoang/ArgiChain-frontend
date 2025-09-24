@@ -437,6 +437,482 @@ const DeliveryConfirmationModal = ({ isOpen, onClose, onConfirm, orderId, produc
 };
 const __TURBOPACK__default__export__ = DeliveryConfirmationModal;
 }),
+"[externals]/node:crypto [external] (node:crypto, cjs)": ((__turbopack_context__) => {
+
+var { m: module, e: exports } = __turbopack_context__;
+{
+const mod = __turbopack_context__.x("node:crypto", () => require("node:crypto"));
+
+module.exports = mod;
+}}),
+"[externals]/crypto [external] (crypto, cjs)": ((__turbopack_context__) => {
+
+var { m: module, e: exports } = __turbopack_context__;
+{
+const mod = __turbopack_context__.x("crypto", () => require("crypto"));
+
+module.exports = mod;
+}}),
+"[externals]/http [external] (http, cjs)": ((__turbopack_context__) => {
+
+var { m: module, e: exports } = __turbopack_context__;
+{
+const mod = __turbopack_context__.x("http", () => require("http"));
+
+module.exports = mod;
+}}),
+"[externals]/https [external] (https, cjs)": ((__turbopack_context__) => {
+
+var { m: module, e: exports } = __turbopack_context__;
+{
+const mod = __turbopack_context__.x("https", () => require("https"));
+
+module.exports = mod;
+}}),
+"[externals]/zlib [external] (zlib, cjs)": ((__turbopack_context__) => {
+
+var { m: module, e: exports } = __turbopack_context__;
+{
+const mod = __turbopack_context__.x("zlib", () => require("zlib"));
+
+module.exports = mod;
+}}),
+"[externals]/events [external] (events, cjs)": ((__turbopack_context__) => {
+
+var { m: module, e: exports } = __turbopack_context__;
+{
+const mod = __turbopack_context__.x("events", () => require("events"));
+
+module.exports = mod;
+}}),
+"[externals]/net [external] (net, cjs)": ((__turbopack_context__) => {
+
+var { m: module, e: exports } = __turbopack_context__;
+{
+const mod = __turbopack_context__.x("net", () => require("net"));
+
+module.exports = mod;
+}}),
+"[externals]/tls [external] (tls, cjs)": ((__turbopack_context__) => {
+
+var { m: module, e: exports } = __turbopack_context__;
+{
+const mod = __turbopack_context__.x("tls", () => require("tls"));
+
+module.exports = mod;
+}}),
+"[externals]/stream [external] (stream, cjs)": ((__turbopack_context__) => {
+
+var { m: module, e: exports } = __turbopack_context__;
+{
+const mod = __turbopack_context__.x("stream", () => require("stream"));
+
+module.exports = mod;
+}}),
+"[externals]/url [external] (url, cjs)": ((__turbopack_context__) => {
+
+var { m: module, e: exports } = __turbopack_context__;
+{
+const mod = __turbopack_context__.x("url", () => require("url"));
+
+module.exports = mod;
+}}),
+"[externals]/buffer [external] (buffer, cjs)": ((__turbopack_context__) => {
+
+var { m: module, e: exports } = __turbopack_context__;
+{
+const mod = __turbopack_context__.x("buffer", () => require("buffer"));
+
+module.exports = mod;
+}}),
+"[project]/src/utils/marketplace.ts [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s({
+    "burnNFT": ()=>burnNFT,
+    "buyProduct": ()=>buyProduct,
+    "findListingIdByTokenId": ()=>findListingIdByTokenId,
+    "getListingDetails": ()=>getListingDetails
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ethers$2f$lib$2e$esm$2f$ethers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__ethers$3e$__ = __turbopack_context__.i("[project]/node_modules/ethers/lib.esm/ethers.js [app-ssr] (ecmascript) <export * as ethers>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/blockchain.ts [app-ssr] (ecmascript)");
+;
+;
+// ABI for AgriChainMarketplace contract
+const MARKETPLACE_ABI = [
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "listingId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "quantity",
+                "type": "uint256"
+            }
+        ],
+        "name": "buyProduct",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "listingId",
+                "type": "uint256"
+            }
+        ],
+        "name": "listings",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "listingId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "supplier",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "quantity",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "remainingQuantity",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "expiryTime",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "isActive",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "listingId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "buyer",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "supplier",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "quantity",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "totalPrice",
+                "type": "uint256"
+            }
+        ],
+        "name": "ProductSold",
+        "type": "event"
+    }
+];
+// ABI for AgriChainToken contract
+const TOKEN_ABI = [
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "approve",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }
+        ],
+        "name": "balanceOf",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+];
+async function buyProduct(listingId, quantity, userAddress) {
+    try {
+        if (typeof window.ethereum === 'undefined') {
+            throw new Error('MetaMask not installed');
+        }
+        console.log('🛒 Starting buy product process...');
+        console.log('Listing ID:', listingId);
+        console.log('Quantity:', quantity);
+        console.log('User address:', userAddress);
+        // Get provider and signer
+        const provider = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ethers$2f$lib$2e$esm$2f$ethers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__ethers$3e$__["ethers"].BrowserProvider(window.ethereum);
+        const signer = await provider.getSigner();
+        const network = await provider.getNetwork();
+        console.log('Current network chain ID:', network.chainId.toString());
+        console.log('Expected chain ID: 97 (BSC Testnet)');
+        // Check if we're on the correct network
+        if (network.chainId !== BigInt(97)) {
+            throw new Error('Please switch to BSC Testnet');
+        }
+        // Get marketplace contract
+        const marketplaceContract = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ethers$2f$lib$2e$esm$2f$ethers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__ethers$3e$__["ethers"].Contract(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BLOCKCHAIN_CONFIG"].MARKETPLACE_ADDRESS, MARKETPLACE_ABI, signer);
+        // Get token contract
+        const tokenContract = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ethers$2f$lib$2e$esm$2f$ethers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__ethers$3e$__["ethers"].Contract(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BLOCKCHAIN_CONFIG"].TOKEN_ADDRESS, TOKEN_ABI, signer);
+        // Get listing details
+        console.log('📋 Getting listing details...');
+        const listing = await marketplaceContract.listings(listingId);
+        console.log('Listing details:', {
+            listingId: listing[0].toString(),
+            tokenId: listing[1].toString(),
+            supplier: listing[2],
+            price: listing[3].toString(),
+            quantity: listing[4].toString(),
+            remainingQuantity: listing[5].toString(),
+            expiryTime: listing[6].toString(),
+            isActive: listing[7]
+        });
+        // Check if listing exists and is active
+        if (!listing[7]) {
+            throw new Error(`Listing ${listingId} does not exist or is not active`);
+        }
+        // Check if listing is expired
+        const currentTime = Math.floor(Date.now() / 1000);
+        if (Number(listing[6]) < currentTime) {
+            throw new Error(`Listing ${listingId} has expired`);
+        }
+        // Check if there's enough quantity
+        if (BigInt(listing[5]) < BigInt(quantity)) {
+            throw new Error(`Insufficient quantity. Available: ${listing[5]}, Requested: ${quantity}`);
+        }
+        // Calculate total price
+        const totalPrice = listing[3] * BigInt(quantity);
+        console.log('💰 Total price:', totalPrice.toString());
+        // Check buyer's token balance
+        const buyerBalance = await tokenContract.balanceOf(userAddress);
+        console.log('💳 Buyer balance:', buyerBalance.toString());
+        if (buyerBalance < totalPrice) {
+            throw new Error(`Insufficient token balance. You have ${__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ethers$2f$lib$2e$esm$2f$ethers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__ethers$3e$__["ethers"].formatEther(buyerBalance)} tokens, need ${__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ethers$2f$lib$2e$esm$2f$ethers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__ethers$3e$__["ethers"].formatEther(totalPrice)} tokens`);
+        }
+        // Approve tokens for marketplace
+        console.log('✅ Approving tokens for marketplace...');
+        const approveTx = await tokenContract.approve(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BLOCKCHAIN_CONFIG"].MARKETPLACE_ADDRESS, totalPrice);
+        await approveTx.wait();
+        console.log('✅ Tokens approved');
+        // Buy product
+        console.log('🛒 Buying product...');
+        const buyTx = await marketplaceContract.buyProduct(listingId, quantity);
+        console.log('📝 Buy transaction sent:', buyTx.hash);
+        // Wait for transaction confirmation
+        const receipt = await buyTx.wait();
+        console.log('✅ Buy transaction confirmed:', receipt.hash);
+        // Check for ProductSold event
+        const event = receipt.logs.find((log)=>{
+            try {
+                const parsed = marketplaceContract.interface.parseLog(log);
+                return parsed?.name === 'ProductSold';
+            } catch  {
+                return false;
+            }
+        });
+        if (event) {
+            const parsedEvent = marketplaceContract.interface.parseLog(event);
+            console.log('🎉 ProductSold event:', parsedEvent?.args);
+        }
+        return receipt.hash;
+    } catch (error) {
+        console.error('❌ Error buying product:', error);
+        throw error;
+    }
+}
+async function getListingDetails(listingId) {
+    try {
+        if (typeof window.ethereum === 'undefined') {
+            throw new Error('MetaMask not installed');
+        }
+        const provider = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ethers$2f$lib$2e$esm$2f$ethers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__ethers$3e$__["ethers"].BrowserProvider(window.ethereum);
+        const marketplaceContract = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ethers$2f$lib$2e$esm$2f$ethers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__ethers$3e$__["ethers"].Contract(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BLOCKCHAIN_CONFIG"].MARKETPLACE_ADDRESS, MARKETPLACE_ABI, provider);
+        const listing = await marketplaceContract.listings(listingId);
+        return {
+            listingId: listing[0].toString(),
+            tokenId: listing[1].toString(),
+            supplier: listing[2],
+            price: listing[3].toString(),
+            quantity: listing[4].toString(),
+            remainingQuantity: listing[5].toString(),
+            expiryTime: listing[6].toString(),
+            isActive: listing[7]
+        };
+    } catch (error) {
+        console.error('❌ Error getting listing details:', error);
+        throw error;
+    }
+}
+async function findListingIdByTokenId(tokenId) {
+    try {
+        if (typeof window.ethereum === 'undefined') {
+            throw new Error('MetaMask not installed');
+        }
+        console.log('🔍 Searching for listing with token ID:', tokenId);
+        const provider = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ethers$2f$lib$2e$esm$2f$ethers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__ethers$3e$__["ethers"].BrowserProvider(window.ethereum);
+        const marketplaceContract = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ethers$2f$lib$2e$esm$2f$ethers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__ethers$3e$__["ethers"].Contract(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BLOCKCHAIN_CONFIG"].MARKETPLACE_ADDRESS, MARKETPLACE_ABI, provider);
+        // Search through listings (assuming max 100 listings for now)
+        for(let listingId = 1; listingId <= 100; listingId++){
+            try {
+                const listing = await marketplaceContract.listings(listingId);
+                // Check if this listing matches our token ID and is active
+                if (listing[1].toString() === tokenId.toString() && listing[7] === true) {
+                    console.log('✅ Found active listing:', {
+                        listingId,
+                        tokenId: listing[1].toString(),
+                        isActive: listing[7],
+                        price: listing[3].toString(),
+                        remainingQuantity: listing[5].toString()
+                    });
+                    return listingId;
+                }
+            } catch (error) {
+                continue;
+            }
+        }
+        console.log('❌ No active listing found for token ID:', tokenId);
+        return null;
+    } catch (error) {
+        console.error('❌ Error finding listing by token ID:', error);
+        throw error;
+    }
+}
+async function burnNFT(tokenId, amount, reason, userAddress) {
+    try {
+        if (typeof window.ethereum === 'undefined') {
+            throw new Error('MetaMask not installed');
+        }
+        console.log('🔥 Starting burn NFT process...');
+        console.log('Token ID:', tokenId);
+        console.log('Amount:', amount);
+        console.log('Reason:', reason);
+        console.log('User address:', userAddress);
+        // Get provider and signer
+        const provider = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ethers$2f$lib$2e$esm$2f$ethers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__ethers$3e$__["ethers"].BrowserProvider(window.ethereum);
+        const signer = await provider.getSigner();
+        const network = await provider.getNetwork();
+        console.log('Current network chain ID:', network.chainId.toString());
+        console.log('Expected chain ID: 97 (BSC Testnet)');
+        // Check if we're on the correct network
+        if (network.chainId !== BigInt(97)) {
+            throw new Error('Please switch to BSC Testnet');
+        }
+        // Get NFT contract
+        const nftContract = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ethers$2f$lib$2e$esm$2f$ethers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__ethers$3e$__["ethers"].Contract(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$blockchain$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BLOCKCHAIN_CONFIG"].NFT_ADDRESS, [
+            "function burnProductNFT(uint256 tokenId, uint256 amount, string memory reason) external",
+            "function balanceOf(address account, uint256 id) external view returns (uint256)"
+        ], signer);
+        // Check user's NFT balance
+        console.log('🔍 Checking NFT balance...');
+        const nftBalance = await nftContract.balanceOf(userAddress, tokenId);
+        console.log('NFT balance:', nftBalance.toString());
+        if (nftBalance < BigInt(amount)) {
+            throw new Error(`Insufficient NFT balance. You have ${nftBalance.toString()} NFTs, trying to burn ${amount}`);
+        }
+        // Burn NFT
+        console.log('🔥 Burning NFT...');
+        const burnTx = await nftContract.burnProductNFT(tokenId, amount, reason);
+        console.log('📝 Burn transaction sent:', burnTx.hash);
+        // Wait for transaction confirmation
+        const receipt = await burnTx.wait();
+        console.log('✅ Burn transaction confirmed:', receipt.hash);
+        // Check for ProductNFTBurned event
+        const event = receipt.logs.find((log)=>{
+            try {
+                const parsed = nftContract.interface.parseLog(log);
+                return parsed?.name === 'ProductNFTBurned';
+            } catch  {
+                return false;
+            }
+        });
+        if (event) {
+            const parsedEvent = nftContract.interface.parseLog(event);
+            console.log('🎉 ProductNFTBurned event:', {
+                tokenId: parsedEvent?.args[0].toString(),
+                owner: parsedEvent?.args[1],
+                amount: parsedEvent?.args[2].toString(),
+                reason: parsedEvent?.args[3]
+            });
+        }
+        console.log('✅ NFT burned successfully!');
+        return receipt.hash;
+    } catch (error) {
+        console.error('❌ Error burning NFT:', error);
+        throw error;
+    }
+}
+}),
 "[project]/src/app/purchased-products/page.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -450,7 +926,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$DeliveryConfirmationModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/DeliveryConfirmationModal.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTranslation$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/useTranslation.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$marketplace$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/marketplace.ts [app-ssr] (ecmascript)");
 'use client';
+;
 ;
 ;
 ;
@@ -503,7 +981,28 @@ const PurchasedProductsPage = ()=>{
                 userId: account,
                 data
             });
-            // Step 1: Confirm delivery
+            // Step 1: Burn NFT first (from frontend)
+            console.log('🔥 Starting NFT burn process...');
+            // Get product token ID from order
+            const product = selectedOrder.items[0]?.product;
+            if (!product?.nftTokenId) {
+                throw new Error('Sản phẩm chưa có NFT token ID. Không thể burn NFT.');
+            }
+            const tokenId = Number(product.nftTokenId);
+            const amount = selectedOrder.items[0]?.quantity || 1;
+            const reason = `Delivery confirmed for order ${selectedOrder.id}`;
+            console.log('Burn parameters:', {
+                tokenId,
+                amount,
+                reason,
+                userAddress: account
+            });
+            // Burn NFT using frontend function
+            const burnTxHash = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$marketplace$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["burnNFT"])(tokenId, amount, reason, account);
+            console.log('✅ NFT burned successfully! Transaction hash:', burnTxHash);
+            // Show success message for NFT burn
+            alert(`NFT đã được burn thành công! Transaction hash: ${burnTxHash}`);
+            // Step 2: Confirm delivery in backend (after successful burn)
             const confirmResponse = await fetch('http://localhost:5000/api/delivery-confirmation/confirm', {
                 method: 'POST',
                 headers: {
@@ -516,25 +1015,12 @@ const PurchasedProductsPage = ()=>{
                     comment: data.comment,
                     hasComplaint: data.hasComplaint,
                     qualityRating: data.qualityRating,
-                    images: data.images
+                    images: data.images,
+                    burnTxHash: burnTxHash // Include burn transaction hash
                 })
             });
             if (!confirmResponse.ok) {
-                throw new Error('Failed to confirm delivery');
-            }
-            // Step 2: Burn NFT
-            const burnResponse = await fetch('http://localhost:5000/api/delivery-confirmation/burn-nft', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    orderId: selectedOrder.id,
-                    userId: account
-                })
-            });
-            if (!burnResponse.ok) {
-                throw new Error('Failed to burn NFT');
+                throw new Error('Failed to confirm delivery in backend');
             }
             // Step 3: Complete delivery confirmation
             const completeResponse = await fetch('http://localhost:5000/api/delivery-confirmation/complete', {
@@ -544,7 +1030,8 @@ const PurchasedProductsPage = ()=>{
                 },
                 body: JSON.stringify({
                     orderId: selectedOrder.id,
-                    userId: account
+                    userId: account,
+                    burnTxHash: burnTxHash
                 })
             });
             if (!completeResponse.ok) {
@@ -556,10 +1043,10 @@ const PurchasedProductsPage = ()=>{
                 const ordersData = await refreshResponse.json();
                 setOrders(ordersData);
             }
-            alert('Xác nhận giao hàng thành công! NFT đã được burn.');
+            alert('Xác nhận giao hàng hoàn tất! Tag đã chuyển thành "Đã xác nhận".');
         } catch (error) {
             console.error('Error confirming delivery:', error);
-            alert('{t("common.error")} khi xác nhận giao hàng. Vui lòng thử lại.');
+            alert(`Lỗi khi xác nhận giao hàng: ${error instanceof Error ? error.message : 'Unknown error'}. Tag vẫn giữ nguyên "Chờ xác nhận".`);
         } finally{
             setIsConfirming(false);
         }
@@ -585,7 +1072,7 @@ const PurchasedProductsPage = ()=>{
                             children: t("purchased.title")
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 184,
+                            lineNumber: 198,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -593,7 +1080,7 @@ const PurchasedProductsPage = ()=>{
                             children: t("purchased.connectWallet")
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 185,
+                            lineNumber: 199,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -601,23 +1088,23 @@ const PurchasedProductsPage = ()=>{
                             children: "Kết nối ví"
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 186,
+                            lineNumber: 200,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                    lineNumber: 183,
+                    lineNumber: 197,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                lineNumber: 182,
+                lineNumber: 196,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/purchased-products/page.tsx",
-            lineNumber: 181,
+            lineNumber: 195,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -640,22 +1127,22 @@ const PurchasedProductsPage = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                        lineNumber: 200,
+                        lineNumber: 214,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                    lineNumber: 199,
+                    lineNumber: 213,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                lineNumber: 198,
+                lineNumber: 212,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/purchased-products/page.tsx",
-            lineNumber: 197,
+            lineNumber: 211,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -672,7 +1159,7 @@ const PurchasedProductsPage = ()=>{
                             children: t("purchased.title")
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 216,
+                            lineNumber: 230,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -682,12 +1169,12 @@ const PurchasedProductsPage = ()=>{
                                 children: error
                             }, void 0, false, {
                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                lineNumber: 218,
+                                lineNumber: 232,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 217,
+                            lineNumber: 231,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -696,23 +1183,23 @@ const PurchasedProductsPage = ()=>{
                             children: t("common.retry")
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 220,
+                            lineNumber: 234,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                    lineNumber: 215,
+                    lineNumber: 229,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                lineNumber: 214,
+                lineNumber: 228,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/purchased-products/page.tsx",
-            lineNumber: 213,
+            lineNumber: 227,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -750,17 +1237,17 @@ const PurchasedProductsPage = ()=>{
                                         d: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                        lineNumber: 244,
+                                        lineNumber: 258,
                                         columnNumber: 19
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                    lineNumber: 243,
+                                    lineNumber: 257,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                lineNumber: 242,
+                                lineNumber: 256,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -768,7 +1255,7 @@ const PurchasedProductsPage = ()=>{
                                 children: t("purchased.title")
                             }, void 0, false, {
                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                lineNumber: 247,
+                                lineNumber: 261,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -776,7 +1263,7 @@ const PurchasedProductsPage = ()=>{
                                 children: t("purchased.noProducts")
                             }, void 0, false, {
                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                lineNumber: 248,
+                                lineNumber: 262,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -795,40 +1282,40 @@ const PurchasedProductsPage = ()=>{
                                             d: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                            lineNumber: 254,
+                                            lineNumber: 268,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                        lineNumber: 253,
+                                        lineNumber: 267,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     t("purchased.findProducts")
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                lineNumber: 249,
+                                lineNumber: 263,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                        lineNumber: 237,
+                        lineNumber: 251,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                    lineNumber: 236,
+                    lineNumber: 250,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                lineNumber: 235,
+                lineNumber: 249,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/app/purchased-products/page.tsx",
-            lineNumber: 234,
+            lineNumber: 248,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -859,7 +1346,7 @@ const PurchasedProductsPage = ()=>{
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 273,
+                            lineNumber: 287,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -894,7 +1381,7 @@ const PurchasedProductsPage = ()=>{
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                lineNumber: 288,
+                                                                lineNumber: 302,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -905,13 +1392,13 @@ const PurchasedProductsPage = ()=>{
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                lineNumber: 291,
+                                                                lineNumber: 305,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                        lineNumber: 287,
+                                                        lineNumber: 301,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -926,7 +1413,7 @@ const PurchasedProductsPage = ()=>{
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                lineNumber: 296,
+                                                                lineNumber: 310,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -937,7 +1424,7 @@ const PurchasedProductsPage = ()=>{
                                                                         children: order.status === 'PAID' ? 'Đã thanh toán' : order.status === 'PENDING' ? 'Đang xử lý' : 'Đã hủy'
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                        lineNumber: 300,
+                                                                        lineNumber: 314,
                                                                         columnNumber: 25
                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                     order.deliveryStatus && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -945,30 +1432,30 @@ const PurchasedProductsPage = ()=>{
                                                                         children: order.deliveryStatus === 'COMPLETED' ? 'Đã hoàn thành' : order.deliveryStatus === 'CONFIRMED' ? 'Đã xác nhận' : order.deliveryStatus === 'PENDING' ? 'Chờ xác nhận' : 'Có vấn đề'
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                        lineNumber: 310,
+                                                                        lineNumber: 324,
                                                                         columnNumber: 27
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                lineNumber: 299,
+                                                                lineNumber: 313,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                        lineNumber: 295,
+                                                        lineNumber: 309,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                lineNumber: 286,
+                                                lineNumber: 300,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                            lineNumber: 285,
+                                            lineNumber: 299,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -987,7 +1474,7 @@ const PurchasedProductsPage = ()=>{
                                                                         className: "w-16 h-16 object-cover rounded-lg"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                        lineNumber: 335,
+                                                                        lineNumber: 349,
                                                                         columnNumber: 29
                                                                     }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         className: "w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center",
@@ -1003,22 +1490,22 @@ const PurchasedProductsPage = ()=>{
                                                                                 d: "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                                lineNumber: 343,
+                                                                                lineNumber: 357,
                                                                                 columnNumber: 33
                                                                             }, ("TURBOPACK compile-time value", void 0))
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 342,
+                                                                            lineNumber: 356,
                                                                             columnNumber: 31
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                        lineNumber: 341,
+                                                                        lineNumber: 355,
                                                                         columnNumber: 29
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                    lineNumber: 333,
+                                                                    lineNumber: 347,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1029,7 +1516,7 @@ const PurchasedProductsPage = ()=>{
                                                                             children: item.product.name
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 351,
+                                                                            lineNumber: 365,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1037,7 +1524,7 @@ const PurchasedProductsPage = ()=>{
                                                                             children: item.product.description
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 354,
+                                                                            lineNumber: 368,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1051,7 +1538,7 @@ const PurchasedProductsPage = ()=>{
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                                    lineNumber: 358,
+                                                                                    lineNumber: 372,
                                                                                     columnNumber: 29
                                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1064,19 +1551,19 @@ const PurchasedProductsPage = ()=>{
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                                    lineNumber: 361,
+                                                                                    lineNumber: 375,
                                                                                     columnNumber: 29
                                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 357,
+                                                                            lineNumber: 371,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                    lineNumber: 350,
+                                                                    lineNumber: 364,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1090,7 +1577,7 @@ const PurchasedProductsPage = ()=>{
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 369,
+                                                                            lineNumber: 383,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1098,7 +1585,7 @@ const PurchasedProductsPage = ()=>{
                                                                             children: item.product.supplier.name
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 370,
+                                                                            lineNumber: 384,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1110,24 +1597,24 @@ const PurchasedProductsPage = ()=>{
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                            lineNumber: 371,
+                                                                            lineNumber: 385,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                                    lineNumber: 368,
+                                                                    lineNumber: 382,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, item.id, true, {
                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                            lineNumber: 331,
+                                                            lineNumber: 345,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                    lineNumber: 329,
+                                                    lineNumber: 343,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1138,7 +1625,7 @@ const PurchasedProductsPage = ()=>{
                                                             children: "Thông tin giao hàng:"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                            lineNumber: 381,
+                                                            lineNumber: 395,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1146,13 +1633,13 @@ const PurchasedProductsPage = ()=>{
                                                             children: order.deliveryAddress
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                            lineNumber: 382,
+                                                            lineNumber: 396,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                    lineNumber: 380,
+                                                    lineNumber: 394,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 order.status === 'PAID' && order.deliveryStatus === 'PENDING' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1164,40 +1651,40 @@ const PurchasedProductsPage = ()=>{
                                                         children: isConfirming ? 'Đang xử lý...' : 'Xác nhận đã nhận hàng'
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                        lineNumber: 388,
+                                                        lineNumber: 402,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                                    lineNumber: 387,
+                                                    lineNumber: 401,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                                            lineNumber: 328,
+                                            lineNumber: 342,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, order.id, true, {
                                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                                    lineNumber: 277,
+                                    lineNumber: 291,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)))
                         }, void 0, false, {
                             fileName: "[project]/src/app/purchased-products/page.tsx",
-                            lineNumber: 275,
+                            lineNumber: 289,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/purchased-products/page.tsx",
-                    lineNumber: 268,
+                    lineNumber: 282,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                lineNumber: 267,
+                lineNumber: 281,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             selectedOrder && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$DeliveryConfirmationModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1208,13 +1695,13 @@ const PurchasedProductsPage = ()=>{
                 productName: selectedOrder.items[0]?.product.name || 'Sản phẩm'
             }, void 0, false, {
                 fileName: "[project]/src/app/purchased-products/page.tsx",
-                lineNumber: 406,
+                lineNumber: 420,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/purchased-products/page.tsx",
-        lineNumber: 266,
+        lineNumber: 280,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -1223,4 +1710,4 @@ const __TURBOPACK__default__export__ = PurchasedProductsPage;
 
 };
 
-//# sourceMappingURL=src_e62a375f._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__4fcc2674._.js.map

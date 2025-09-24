@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import DeliveryConfirmationModal, { DeliveryConfirmationData } from '@/components/DeliveryConfirmationModal';
 import { useTranslation } from '@/hooks/useTranslation';
+import { burnNFT } from '@/utils/marketplace';
 
 interface OrderItem {
   id: string;
@@ -18,6 +19,7 @@ interface OrderItem {
     pricePerUnit: number;
     currency: string;
     imageUrl?: string;
+    nftTokenId?: string;
     supplier: {
       id: string;
       name: string;
@@ -96,7 +98,34 @@ const PurchasedProductsPage: React.FC = () => {  const { t } = useTranslation();
         data
       });
 
-      // Step 1: Confirm delivery
+      // Step 1: Burn NFT first (from frontend)
+      console.log('🔥 Starting NFT burn process...');
+      
+      // Get product token ID from order
+      const product = selectedOrder.items[0]?.product;
+      if (!product?.nftTokenId) {
+        throw new Error('Sản phẩm chưa có NFT token ID. Không thể burn NFT.');
+      }
+
+      const tokenId = Number(product.nftTokenId);
+      const amount = selectedOrder.items[0]?.quantity || 1;
+      const reason = `Delivery confirmed for order ${selectedOrder.id}`;
+
+      console.log('Burn parameters:', {
+        tokenId,
+        amount,
+        reason,
+        userAddress: account
+      });
+
+      // Burn NFT using frontend function
+      const burnTxHash = await burnNFT(tokenId, amount, reason, account);
+      console.log('✅ NFT burned successfully! Transaction hash:', burnTxHash);
+
+      // Show success message for NFT burn
+      alert(`NFT đã được burn thành công! Transaction hash: ${burnTxHash}`);
+
+      // Step 2: Confirm delivery in backend (after successful burn)
       const confirmResponse = await fetch('http://localhost:5000/api/delivery-confirmation/confirm', {
         method: 'POST',
         headers: {
@@ -109,28 +138,13 @@ const PurchasedProductsPage: React.FC = () => {  const { t } = useTranslation();
           comment: data.comment,
           hasComplaint: data.hasComplaint,
           qualityRating: data.qualityRating,
-          images: data.images
+          images: data.images,
+          burnTxHash: burnTxHash // Include burn transaction hash
         })
       });
 
       if (!confirmResponse.ok) {
-        throw new Error('Failed to confirm delivery');
-      }
-
-      // Step 2: Burn NFT
-      const burnResponse = await fetch('http://localhost:5000/api/delivery-confirmation/burn-nft', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          orderId: selectedOrder.id,
-          userId: account
-        })
-      });
-
-      if (!burnResponse.ok) {
-        throw new Error('Failed to burn NFT');
+        throw new Error('Failed to confirm delivery in backend');
       }
 
       // Step 3: Complete delivery confirmation
@@ -141,7 +155,8 @@ const PurchasedProductsPage: React.FC = () => {  const { t } = useTranslation();
         },
         body: JSON.stringify({
           orderId: selectedOrder.id,
-          userId: account
+          userId: account,
+          burnTxHash: burnTxHash
         })
       });
 
@@ -156,10 +171,10 @@ const PurchasedProductsPage: React.FC = () => {  const { t } = useTranslation();
         setOrders(ordersData);
       }
 
-      alert('Xác nhận giao hàng thành công! NFT đã được burn.');
+      alert('Xác nhận giao hàng hoàn tất! Tag đã chuyển thành "Đã xác nhận".');
     } catch (error) {
       console.error('Error confirming delivery:', error);
-      alert('{t("common.error")} khi xác nhận giao hàng. Vui lòng thử lại.');
+      alert(`Lỗi khi xác nhận giao hàng: ${error instanceof Error ? error.message : 'Unknown error'}. Tag vẫn giữ nguyên "Chờ xác nhận".`);
     } finally {
       setIsConfirming(false);
     }

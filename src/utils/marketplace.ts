@@ -381,3 +381,98 @@ export async function findListingIdByTokenId(tokenId: number): Promise<number | 
     throw error;
   }
 }
+
+/**
+ * Burn NFT after delivery confirmation
+ * @param tokenId - The NFT token ID to burn
+ * @param amount - Amount of NFTs to burn
+ * @param reason - Reason for burning
+ * @param userAddress - User's wallet address
+ * @returns Transaction hash
+ */
+export async function burnNFT(
+  tokenId: number,
+  amount: number,
+  reason: string,
+  userAddress: string
+): Promise<string> {
+  try {
+    if (typeof window.ethereum === 'undefined') {
+      throw new Error('MetaMask not installed');
+    }
+
+    console.log('🔥 Starting burn NFT process...');
+    console.log('Token ID:', tokenId);
+    console.log('Amount:', amount);
+    console.log('Reason:', reason);
+    console.log('User address:', userAddress);
+
+    // Get provider and signer
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    const network = await provider.getNetwork();
+    
+    console.log('Current network chain ID:', network.chainId.toString());
+    console.log('Expected chain ID: 97 (BSC Testnet)');
+
+    // Check if we're on the correct network
+    if (network.chainId !== BigInt(97)) {
+      throw new Error('Please switch to BSC Testnet');
+    }
+
+    // Get NFT contract
+    const nftContract = new ethers.Contract(
+      BLOCKCHAIN_CONFIG.NFT_ADDRESS,
+      [
+        "function burnProductNFT(uint256 tokenId, uint256 amount, string memory reason) external",
+        "function balanceOf(address account, uint256 id) external view returns (uint256)"
+      ],
+      signer
+    );
+
+    // Check user's NFT balance
+    console.log('🔍 Checking NFT balance...');
+    const nftBalance = await nftContract.balanceOf(userAddress, tokenId);
+    console.log('NFT balance:', nftBalance.toString());
+    
+    if (nftBalance < BigInt(amount)) {
+      throw new Error(`Insufficient NFT balance. You have ${nftBalance.toString()} NFTs, trying to burn ${amount}`);
+    }
+
+    // Burn NFT
+    console.log('🔥 Burning NFT...');
+    const burnTx = await nftContract.burnProductNFT(tokenId, amount, reason);
+    console.log('📝 Burn transaction sent:', burnTx.hash);
+
+    // Wait for transaction confirmation
+    const receipt = await burnTx.wait();
+    console.log('✅ Burn transaction confirmed:', receipt.hash);
+
+    // Check for ProductNFTBurned event
+    const event = receipt.logs.find((log: any) => {
+      try {
+        const parsed = nftContract.interface.parseLog(log);
+        return parsed?.name === 'ProductNFTBurned';
+      } catch {
+        return false;
+      }
+    });
+
+    if (event) {
+      const parsedEvent = nftContract.interface.parseLog(event);
+      console.log('🎉 ProductNFTBurned event:', {
+        tokenId: parsedEvent?.args[0].toString(),
+        owner: parsedEvent?.args[1],
+        amount: parsedEvent?.args[2].toString(),
+        reason: parsedEvent?.args[3]
+      });
+    }
+
+    console.log('✅ NFT burned successfully!');
+    return receipt.hash;
+
+  } catch (error) {
+    console.error('❌ Error burning NFT:', error);
+    throw error;
+  }
+}
