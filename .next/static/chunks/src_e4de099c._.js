@@ -57,7 +57,7 @@ async function fetchMarketplaceListings() {
             title: listing.title,
             shortDescription: listing.shortDescription,
             pricePerUnit: (_product_pricePerUnit = product.pricePerUnit) !== null && _product_pricePerUnit !== void 0 ? _product_pricePerUnit : '0',
-            currency: (_product_currency = product.currency) !== null && _product_currency !== void 0 ? _product_currency : 'MATIC',
+            currency: (_product_currency = product.currency) !== null && _product_currency !== void 0 ? _product_currency : 'tBNB',
             availableSupply: (_product_availableSupply = product.availableSupply) !== null && _product_availableSupply !== void 0 ? _product_availableSupply : 0,
             totalSupply: (_product_totalSupply = product.totalSupply) !== null && _product_totalSupply !== void 0 ? _product_totalSupply : 0,
             isFeatured: Boolean(listing.isFeatured),

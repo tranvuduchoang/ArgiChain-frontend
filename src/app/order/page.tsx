@@ -103,18 +103,18 @@ const OrderPageContent: React.FC = () => {  const { t } = useTranslation();
 
   return (
     <div className="max-w-lg mx-auto px-4 py-8 animate-fade-in">
-      <h2 className="text-2xl font-bold mb-4">Đặt hàng: {product.name}</h2>
+      <h2 className="text-2xl font-bold mb-4 text-gray-900">Đặt hàng: {product.name}</h2>
       <form className="bg-white rounded-xl shadow-lg p-6 flex flex-col gap-4" onSubmit={handleOrder}>
         <div className="flex gap-4 items-center">
           <img src={product.imageUrl} alt={product.name} className="w-24 h-24 object-cover rounded-lg bg-gray-50" />
           <div className="flex-1">
-            <div className="font-semibold text-lg">{product.name}</div>
+            <div className="font-semibold text-lg text-gray-900">{product.name}</div>
             <div className="text-green-600 font-bold">TOKEN: {product.pricePerUnit} {product.currency}</div>
             <div className="text-xs text-gray-400">Còn lại: {product.availableSupply}/{product.totalSupply}</div>
           </div>
         </div>
         <div>
-          <label className="block mb-1 font-medium">Số lượng</label>
+          <label className="block mb-1 font-medium text-gray-900">Số lượng</label>
           <input
             type="number"
             min={1}
@@ -126,7 +126,7 @@ const OrderPageContent: React.FC = () => {  const { t } = useTranslation();
           />
         </div>
         <div>
-          <label className="block mb-1 font-medium">Địa chỉ nhận hàng</label>
+          <label className="block mb-1 font-medium text-gray-900">Địa chỉ nhận hàng</label>
           <input
             type="text"
             value={address}

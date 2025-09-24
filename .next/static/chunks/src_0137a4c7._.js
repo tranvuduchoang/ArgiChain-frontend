@@ -57,7 +57,7 @@ async function fetchMarketplaceListings() {
             title: listing.title,
             shortDescription: listing.shortDescription,
             pricePerUnit: (_product_pricePerUnit = product.pricePerUnit) !== null && _product_pricePerUnit !== void 0 ? _product_pricePerUnit : '0',
-            currency: (_product_currency = product.currency) !== null && _product_currency !== void 0 ? _product_currency : 'MATIC',
+            currency: (_product_currency = product.currency) !== null && _product_currency !== void 0 ? _product_currency : 'tBNB',
             availableSupply: (_product_availableSupply = product.availableSupply) !== null && _product_availableSupply !== void 0 ? _product_availableSupply : 0,
             totalSupply: (_product_totalSupply = product.totalSupply) !== null && _product_totalSupply !== void 0 ? _product_totalSupply : 0,
             isFeatured: Boolean(listing.isFeatured),
@@ -239,7 +239,7 @@ const OrderPageContent = ()=>{
                 deliveryAddress: address,
                 deliveryMethod: 'STANDARD',
                 paymentMethod: 'CRYPTO',
-                currency: 'MATIC'
+                currency: 'tBNB'
             });
             setSuccess('Đặt hàng thành công!');
             setTimeout(()=>router.push('/profile/orders'), 1500);
@@ -292,7 +292,7 @@ const OrderPageContent = ()=>{
         className: "max-w-lg mx-auto px-4 py-8 animate-fade-in",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                className: "text-2xl font-bold mb-4",
+                className: "text-2xl font-bold mb-4 text-gray-900",
                 children: [
                     "Đặt hàng: ",
                     product.name
@@ -322,7 +322,7 @@ const OrderPageContent = ()=>{
                                 className: "flex-1",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "font-semibold text-lg",
+                                        className: "font-semibold text-lg text-gray-900",
                                         children: product.name
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/order/page.tsx",
@@ -370,7 +370,7 @@ const OrderPageContent = ()=>{
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                className: "block mb-1 font-medium",
+                                className: "block mb-1 font-medium text-gray-900",
                                 children: "Số lượng"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/order/page.tsx",
@@ -399,7 +399,7 @@ const OrderPageContent = ()=>{
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                className: "block mb-1 font-medium",
+                                className: "block mb-1 font-medium text-gray-900",
                                 children: "Địa chỉ nhận hàng"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/order/page.tsx",
